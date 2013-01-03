@@ -1,0 +1,18 @@
+Host github.com
+Hostname github.com
+User git
+IdentityFile ~/.ssh/keys/github
+
+Host linode
+Hostname 173.255.212.244
+IdentityFile ~/.ssh/keys/linode
+User lkarrys
+
+Host heroku.com
+Hostname heroku.com
+IdentityFile ~/.ssh/keys/heroku
+
+Host bitbucket.org
+Hostname bitbucket.org
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/keys/bitbucket
