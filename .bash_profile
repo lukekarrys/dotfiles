@@ -53,7 +53,7 @@ fi
 . `brew --prefix`/etc/profile.d/z.sh
 
 # Git credentials
-GIT_AUTHOR_NAME="Luke KArrys"
+GIT_AUTHOR_NAME="Luke Karrys"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="lukekarrys@gmail.com"
