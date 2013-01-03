@@ -7,7 +7,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias d="cd ~/Documents/Dropbox"
+alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/Projects"
@@ -16,9 +16,24 @@ alias h="history"
 alias j="jobs"
 alias v="vim"
 alias m="mate ."
-alias s="subl ."
+alias s="subl"
+alias s.="subl ."
 alias o="open"
 alias oo="open ."
+
+# No space git shortcuts
+alias gl="g l"
+alias gs="g s"
+alias gss="g ss"
+alias gd="g d"
+alias gdi="g di"
+alias gpl="g pl"
+alias gp="g p"
+alias gcl="g cl"
+alias gc="g c"
+alias gca="g ca"
+alias ggo="g go"
+alias gco="g co"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
