@@ -56,5 +56,9 @@ function parse_git_unpushed() {
 	[[ ${aheadStatus:0:22} == "# Your branch is ahead" ]] && echo "^"
 }
 
-export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch) \[$WHITE\][\$([[ -n \$(~/.rvm/bin/rvm-prompt) ]] && ~/.rvm/bin/rvm-prompt)]\[$WHITE\]\n\$ \[$RESET\]"
+function rvm_prompt() {
+	[[ -n $(~/.rvm/bin/rvm-prompt) ]] && ~/.rvm/bin/rvm-prompt
+}
+
+export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\] \$(rvm_prompt)\[$WHITE\]\n\$ \[$RESET\]"
 export PS2="\[$ORANGE\]→ \[$RESET\]"

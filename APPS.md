@@ -26,20 +26,17 @@
 -- Colors from dropbox
 -- Ubuntu
 - [Colloquy](http://colloquy.info/)
--- Save to dropbox
+-- Save private chats dropbox
 - [TextExpander](http://smilesoftware.com/TextExpander/)
 -- Connect data file to Dropbox
 - [SuperDuper!](http://www.shirt-pocket.com/downloads/SuperDuper!.dmg)
 - Set Address Book to sync to google contacts
 - [ExpanDrive](http://www.expandrive.com/)
-- [Quicken Essentials]()*
-- [togglDesktop]()
 - [BlueHarvest](http://www.zeroonetwenty.com/blueharvest4/)
 - [Alfred](http://www.alfredapp.com/)
 - [Automatic](http://codingcurious.com/automatic/)
 - [Last.fm](http://www.last.fm/download)
 - [Flux](http://stereopsis.com/flux/)
-- [FastScripts](http://www.red-sweater.com/fastscripts/)*
 - [Caffeine](http://itunes.apple.com/us/app/caffeine/id411246225?mt=12)
 - Turn off all iCloud beside Find My Mac and Docs
 - [Xmarks for Safari](http://download.xmarks.com/download)
@@ -61,3 +58,7 @@
 - [XLD](http://www.macupdate.com/app/mac/23430/x-lossless-decoder)
 - [unrarx](http://www.unrarx.com/)
 - [Rdio](http://www.rdio.com/apps/)
+
+- [FastScripts](http://www.red-sweater.com/fastscripts/)*
+- [Quicken Essentials]()*
+- [togglDesktop]()
