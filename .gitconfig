@@ -3,16 +3,21 @@
 	l = log --pretty=oneline -n 20 --graph
 	# View the current working tree status using the short format
 	s = status -s
+	ss = status -s
 	# Show the diff between the latest commit and the current state
 	d = !"git diff-index --quiet HEAD -- || clear; git diff --patch-with-stat"
 	# `git di $number` shows the diff between the state `$number` revisions ago and the current state
 	di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
 	# Pull in remote changes for the current repository and all its submodules
-	p = !"git pull; git submodule foreach git pull origin master"
+	pl = !"git pull; git submodule foreach git pull origin master"
+	# Push
+	p = push
 	# Clone a repository including all submodules
-	c = clone --recursive
+	cl = clone --recursive
+	# Commit
+	c = commit -m
 	# Commit all changes
-	ca = !git add -A && git commit -av
+	ca = !git add -A && git commit -avm
 	# Switch to a branch, creating it if necessary
 	go = checkout -B
 	# Show verbose output about tags, branches or remotes
@@ -57,6 +62,9 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
 
+[branch]
+	autosetupmerge = true
+
 # Use `origin` as the default remote on the `master` branch in all cases
 [branch "master"]
 	remote = origin
@@ -78,3 +86,6 @@
 
 [push]
 	default = simple
+
+[help]
+	format = web
