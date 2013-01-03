@@ -87,7 +87,7 @@
 	insteadOf = "gist:"
 
 [push]
-	default = simple
+	default = upstream
 
 [help]
 	format = web
