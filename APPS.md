@@ -58,7 +58,6 @@
 - [XLD](http://www.macupdate.com/app/mac/23430/x-lossless-decoder)
 - [unrarx](http://www.unrarx.com/)
 - [Rdio](http://www.rdio.com/apps/)
-
-- [FastScripts](http://www.red-sweater.com/fastscripts/)*
 - [Quicken Essentials]()*
+- [FastScripts](http://www.red-sweater.com/fastscripts/)*
 - [togglDesktop]()
