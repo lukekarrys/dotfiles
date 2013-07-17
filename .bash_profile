@@ -1,5 +1,5 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/bin:$HOME/bin/adt-bundle-mac-x86_64-20130219/sdk/platform-tools:$PATH"
+export PATH="$HOME/bin:$HOME/bin/adt/sdk/platform-tools:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
