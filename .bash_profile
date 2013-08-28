@@ -59,3 +59,12 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="lukekarrys@gmail.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+_completemarks() {
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+
+complete -F _completemarks jump unmark
