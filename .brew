@@ -44,6 +44,8 @@ brew install rhino
 brew install tree
 brew install webkit2png
 
+brew install ngrep
+
 # My own
 brew install z
 brew install bash-completion
