@@ -91,3 +91,7 @@
 
 [help]
 	format = web
+
+[user]
+	name = Luke Karrys
+	email = lukekarrys@gmail.com
