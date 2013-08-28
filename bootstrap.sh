@@ -1,8 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env bash
 cd "$(dirname "${BASH_SOURCE}")"
-git pull
+git pull origin master
 function doIt() {
-	rsync --exclude ".git/" --exclude "init/" --exclude ".DS_Store" --exclude "APPS.md" --exclude "bootstrap.sh" --exclude "README.md" -av . ~
+	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" --exclude "*.md" --exclude "*.txt" -av --no-perms . ~
+	source ~/.bash_profile
 }
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	doIt
@@ -14,4 +15,3 @@ else
 	fi
 fi
 unset doIt
-source ~/.bash_profile
