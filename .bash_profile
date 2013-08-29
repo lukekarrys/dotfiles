@@ -43,8 +43,6 @@ fi
 # If possible, add git completion
 [ -f ~/.git_completion ] && source ~/.git_completion
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 # For z
 . `brew --prefix`/etc/profile.d/z.sh
 
