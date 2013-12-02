@@ -32,9 +32,9 @@ install php55
 
 # Install other useful binaries
 install ack
-#install exiv2
+install exiv2
 install git
-#install imagemagick
+install imagemagick
 install lynx
 install node
 install pigz
