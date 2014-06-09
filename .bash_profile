@@ -66,5 +66,3 @@ function _jump {
   return 0
 }
 complete -o default -o nospace -F _jump jump
-
-[ -s "/Users/lukekarrys/.nvm/nvm.sh" ] && . "/Users/lukekarrys/.nvm/nvm.sh" # This loads nvm
