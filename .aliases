@@ -162,5 +162,10 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
 
+# npm
+alias patch='git pull && npm version patch && git push && git push --tags && npm publish'
+alias minor='git pull && npm version minor && git push && git push --tags && npm publish'
+alias major='git pull && npm version major && git push && git push --tags && npm publish'
+
 # Faster npm for europeans
 command -v npm > /dev/null && alias npme="npm --registry http://registry.npmjs.eu"
