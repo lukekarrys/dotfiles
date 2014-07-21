@@ -1,5 +1,5 @@
 # Add `~/bin` to the `$PATH`
-export PATH="$HOME/npm/bin:$HOME/bin:$HOME/bin/adt/sdk/platform-tools:$PATH"
+export PATH="$HOME/bin:$HOME/bin/adt/sdk/platform-tools:$PATH"
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
@@ -55,9 +55,6 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 GIT_AUTHOR_EMAIL="lukekarrys@gmail.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
-
-# NPM dir
-npm config set prefix $HOME/npm
 
 function _jump {
   local cur=${COMP_WORDS[COMP_CWORD]}

@@ -4,29 +4,20 @@
 
 ## Download Apps
 - [Install Google Chrome](http://www.google.com/chrome)
-- Safari
 - FF
 - [1Password](https://agilebits.com/onepassword)
--- Connect data file to Dropbox
--- Download extensions
-- [Sublime Text 2](http://www.sublimetext.com/2)*
--- `mkdir ~/Dropbox/Sublime\ Text \2 && cd ~/Dropbox/Sublime\ Text \2`
--- `cd ~/Library/Application\ Support && ln -s ~/Dropbox/Sublime\ Text\ 2`
+- [Sublime Text 3](http://www.sublimetext.com/2)
 - [node](http://nodejs.org/)
 - [rvm](http://beginrescueend.com/rvm/install/)
 - [Dropbox](http://www.dropbox.com/downloading?src=index)
--- Setup symlinks and data connections
 - [Transmit](http://www.panic.com/transmit/)
 - [Transmission](http://www.transmissionbt.com/download/)
-- [Wunderlist](http://itunes.apple.com/us/app/wunderlist/id410628904?mt=12)
 - [Fluid](http://fluidapp.com)
 - [VLC]
 - [Handbrake]
 - [iTerm2](http://fluidapp.com)
 -- Colors from dropbox
 -- Ubuntu
-- [Colloquy](http://colloquy.info/)
--- Save private chats dropbox
 - [TextExpander](http://smilesoftware.com/TextExpander/)
 -- Connect data file to Dropbox
 - [SuperDuper!](http://www.shirt-pocket.com/downloads/SuperDuper!.dmg)
@@ -40,15 +31,10 @@
 - [Caffeine](http://itunes.apple.com/us/app/caffeine/id411246225?mt=12)
 - Turn off all iCloud beside Find My Mac and Docs
 - [Xmarks for Safari](http://download.xmarks.com/download)
-- [TotalFinder](http://totalfinder.binaryage.com/)*
--- opt-backtick to slide up
--- cmd-shift-. to show/hide invisibles
 - [Stay](http://cordlessdog.com/stay/)*
 -- ctrl-shift-cmd-S
 - [Divvy](http://itunes.apple.com/us/app/divvy/id413857545?mt=12)*
 -- ctrl-shift-cmd-D
-- [CloudApp](http://itunes.apple.com/us/app/cloud/id417602904?mt=12)*
--- ctrl-shift-cmd-v
 - [Backblaze](http://www.backblaze.com/)
 -- Delete old computer from backblaze.com
 - [AppZapper](http://appzapper.com)
@@ -58,6 +44,4 @@
 - [XLD](http://www.macupdate.com/app/mac/23430/x-lossless-decoder)
 - [unrarx](http://www.unrarx.com/)
 - [Rdio](http://www.rdio.com/apps/)
-- [Quicken Essentials]()*
 - [FastScripts](http://www.red-sweater.com/fastscripts/)*
-- [togglDesktop]()
