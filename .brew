@@ -34,11 +34,8 @@ brew install php55
 
 # Install other useful binaries
 brew install ack
-#brew install exiv2
-# brew install git # install from source
 brew install imagemagick
 brew install lynx
-#brew install node # install from source instead
 brew install pigz
 brew install rename
 brew install rhino
