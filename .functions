@@ -21,6 +21,18 @@ function mkd() {
     mkdir -p "$@" && cd "$@"
 }
 
+function clone() {
+    p
+    mkd $1
+    if [ -d "$2" ]; then
+        cd $2
+        git pull
+    else
+        hub clone $1/$2
+        cd $2
+    fi
+}
+
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
