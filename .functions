@@ -41,7 +41,12 @@ function p() {
         if [ -d "$1" ]; then
             cd $1
         else
-            cd $(find . -maxdepth 2 -type d | grep "$1" | head -n1)
+            exact=$(find . -maxdepth 2 -type d | grep "/$1$" | head -n1)
+            if [ -d "$exact" ]; then
+                cd $exact
+            else
+                cd $(find . -maxdepth 2 -type d | grep "$1" | head -n1)
+            fi
         fi
     fi
 }
