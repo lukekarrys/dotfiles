@@ -33,6 +33,27 @@ function clone() {
     fi
 }
 
+function p() {
+    if [ -z "$1" ]; then
+        cd ~/projects
+    else
+        cd ~/projects
+        if [ -d "$1" ]; then
+            cd $1
+        else
+            cd $(find . -maxdepth 2 -type d | grep "$1" | head -n1)
+        fi
+    fi
+}
+
+function trep() {
+    if [ -z "$1" ]; then
+        tree -aCd -L 2 ~/projects
+    else
+        tree -aCd -L 1 ~/projects/$1
+    fi
+}
+
 # Change working directory to the top-most Finder window location
 function cdf() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')"
