@@ -2,6 +2,8 @@
 
 These are my dotfiles. There are many like them, but these ones are mine.
 
+![Screenshot of my shell prompt](http://i.imgur.com/EkEtphC.png)
+
 ## Installation
 
 ### Using Git and the bootstrap script
@@ -84,7 +86,7 @@ brew bundle ~/Brewfile
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
 
 ```bash
-./.cask
+brew bundle ~/Caskfile
 ```
 
 ## Feedback
@@ -111,5 +113,7 @@ Suggestions/improvements
 * [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
 * [Sindre Sorhus](http://sindresorhus.com/)
 * [Tom Ryder](http://blog.sanctum.geek.nz/) and his [dotfiles repository](https://github.com/tejr/dotfiles)
+* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.osx`](http://mths.be/osx)
+* [Haralan Dobrev](http://hkdobrev.com/)
 
 * anyone who [contributed a patch](https://github.com/mathiasbynens/dotfiles/contributors) or [made a helpful suggestion](https://github.com/mathiasbynens/dotfiles/issues)
