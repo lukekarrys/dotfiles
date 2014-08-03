@@ -17,7 +17,7 @@ alias j="jump"
 # No space git shortcuts
 alias gl="g l"
 alias gs="g s"
-alias gss="g ss"
+alias gss="g s"
 alias gd="g d"
 alias gdi="g di"
 alias gpl="g pl"
