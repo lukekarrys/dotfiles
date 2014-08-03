@@ -33,7 +33,6 @@
 		"Vintage"
 	],
 	"indent_to_bracket": true,
-	"line_padding_bottom": 5,
 	"match_brackets": true,
 	"match_brackets_angle": true,
 	"match_brackets_braces": true,
