@@ -103,10 +103,6 @@ else
 	hostStyle="${orange}";
 fi;
 
-
-#export PS1="\[${BOLD}${MAGENTA}\]\u \[$WHITE\]at \[$ORANGE\]\h \[$WHITE\]in \[$GREEN\]\w\[$WHITE\]\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on \")\[$PURPLE\]\$(parse_git_branch)\[$WHITE\] node-\$(node_prompt)\[$WHITE\]\[$WHITE\] \$(rvm_prompt)\[$WHITE\]\n\$ \[$RESET\]"
-#export PS2="\[$ORANGE\]→ \[$RESET\]"
-
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\w\007\]";
 PS1+="\[${bold}\]\n"; # newline
