@@ -1,6 +1,9 @@
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$HOME/bin/adt/sdk/platform-tools:$PATH"
 
+# Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -58,7 +61,8 @@ fi
 # If possible, add git completion
 [ -f ~/.git_completion ] && source ~/.git_completion
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# Load RVM into a shell session *as a function*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # For z
 . `brew --prefix`/etc/profile.d/z.sh

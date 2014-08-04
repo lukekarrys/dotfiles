@@ -60,14 +60,6 @@ prompt_git() {
 	fi;
 }
 
-function rvm_prompt() {
-	[[ -n $(~/.rvm/bin/rvm-prompt) ]] && ~/.rvm/bin/rvm-prompt
-}
-
-function node_prompt() {
-	[[ -n $(node -v) ]] && node -v
-}
-
 if tput setaf 1 &> /dev/null; then
 	tput sgr0
 	magenta=$(tput setaf 9)
@@ -112,8 +104,6 @@ PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] in ";
 PS1+="\[${green}\]\w"; # working directory
 PS1+="\$(prompt_git \"${white} on ${purple}\")"; # Git repository details
-PS1+="\[${white}\] node-$(node_prompt)"; # Node version
-PS1+="\[${white}\] $(rvm_prompt)"; # Ruby version
 PS1+="\n";
 PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
