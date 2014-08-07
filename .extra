@@ -37,13 +37,13 @@ function trep() {
 }
 
 export MARKPATH=$HOME/.marks
-function jump { 
+function jump {
     cd -P "$MARKPATH/$1" 2>/dev/null || echo "No such mark: $1"
 }
-function mark { 
+function mark {
     mkdir -p "$MARKPATH"; ln -s "$(pwd)" "$MARKPATH/$1"
 }
-function unmark { 
+function unmark {
     rm -i "$MARKPATH/$1"
 }
 function marks {
@@ -86,3 +86,13 @@ function gifify() {
 alias patch='git pull && npm version patch && git push && git push --tags && npm publish'
 alias minor='git pull && npm version minor && git push && git push --tags && npm publish'
 alias major='git pull && npm version major && git push && git push --tags && npm publish'
+
+aa_256 ()
+{
+( x=`tput op` y=`printf %$((${COLUMNS}-6))s`;
+for i in {0..256};
+do
+o=00$i;
+echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;
+done )
+}

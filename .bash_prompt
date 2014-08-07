@@ -67,6 +67,7 @@ if tput setaf 1 &> /dev/null; then
 	green=$(tput setaf 190)
 	purple=$(tput setaf 141)
 	white=$(tput setaf 7)
+	gray=$(tput setaf 237)
 	blue=$(tput setaf 33);
 	bold=$(tput bold)
 	reset=$(tput sgr0)
@@ -90,22 +91,22 @@ fi;
 
 # Highlight the hostname when connected via SSH.
 if [[ "${SSH_TTY}" ]]; then
-	hostStyle="${bold}${red}";
+	hostStyle="${red}";
 else
 	hostStyle="${orange}";
 fi;
 
 # Set the terminal title to the current working directory.
 PS1="\[\033]0;\w\007\]";
-PS1+="\[${bold}\]\n"; # newline
+PS1+="\n"; # newline
 PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] at ";
+PS1+="\[${gray}\] at ";
 PS1+="\[${hostStyle}\]\h"; # host
-PS1+="\[${white}\] in ";
+PS1+="\[${gray}\] in ";
 PS1+="\[${green}\]\w"; # working directory
-PS1+="\$(prompt_git \"${white} on ${purple}\")"; # Git repository details
+PS1+="\$(prompt_git \"${gray} on ${purple}\")"; # Git repository details
 PS1+="\n";
-PS1+="\[${white}\]\$ \[${reset}\]"; # `$` (and reset color)
+PS1+="\[${gray}\]\$ \[${reset}\]"; # `$` (and reset color)
 export PS1;
 
 PS2="\[${orange}\]→ \[${reset}\]";
