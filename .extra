@@ -96,3 +96,6 @@ o=00$i;
 echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;
 done )
 }
+
+# update annoying jshint gutter plugin which resets itself all the time
+alias subl-jshint-gutter='cp -r ${HOME}/projects/lukekarrys/dotfiles/init/JSHint\ Gutter/* ~/Library/Application\ Support/Sublime\ Text*/Packages/JSHint\ Gutter/'

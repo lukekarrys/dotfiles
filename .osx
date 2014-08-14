@@ -672,6 +672,7 @@ defaults write ~/Library/Preferences/org.gpgtools.gpgmail SignNewEmailsByDefault
 
 # Install Sublime Text settings
 cp -r ${HOME}/projects/lukekarrys/dotfiles/init/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text*/Packages/User/Preferences.sublime-settings 2> /dev/null
+cp -r ${HOME}/projects/lukekarrys/dotfiles/init/JSHint\ Gutter/* ~/Library/Application\ Support/Sublime\ Text*/Packages/JSHint\ Gutter/ 2> /dev/null
 
 ###############################################################################
 # Transmission.app                                                            #
