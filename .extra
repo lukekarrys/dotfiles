@@ -1,3 +1,5 @@
+alias date-slug='date "+%Y-%m-%d %H:%M"'
+
 function clone() {
     p
     mkd $1
