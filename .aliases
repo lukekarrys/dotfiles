@@ -27,6 +27,7 @@ alias gc="g c"
 alias gca="g ca"
 alias ggo="g go"
 alias gco="g co"
+alias gbd="g branchdone"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

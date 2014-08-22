@@ -67,6 +67,8 @@
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
 
+	branchdone = "!f() { git checkout \"$1\" && git pull && git branch -d \"$(git rev-parse --abbrev-ref @{-1})\" && git remote prune origin; }; f"
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
