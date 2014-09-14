@@ -1,0 +1,45 @@
+#!/usr/bin/env node
+
+var gzip = require('gzip-size');
+var pb = require('pretty-bytes');
+var uglify = require('uglifyjs');
+var Table = require('cli-table');
+
+function round(value, exp) {
+    value = value.toString().split('e');
+    value = Math.round(+(value[0] + 'e' + (value[1] ? (+value[1] - exp) : -exp)));
+    value = value.toString().split('e');
+    return +(value[0] + 'e' + (value[1] ? (+value[1] + exp) : exp));
+}
+
+function s(str) {
+    return gzip.sync(str);
+}
+
+function min(str) {
+    return s(uglify.minify(str, {fromString: true}).code);
+}
+
+var stdin = process.openStdin();
+
+var data = "";
+
+stdin.on('data', function(chunk) {
+  data += chunk;
+});
+
+stdin.on('end', function() {
+    var oSize = s(data);
+    var mSize = min(data);
+    var table = new Table();
+    table.push({
+        Original: pb(oSize)
+    }, {
+        Minified: pb(mSize)
+    }, {
+        Difference: pb(oSize - mSize)
+    }, {
+        Percent: round((mSize / oSize) * 100, -2) + '%'
+    });
+    console.log(table.toString());
+});
