@@ -1,9 +1,14 @@
 #!/usr/bin/env node
 
-var gzip = require('gzip-size');
-var pb = require('pretty-bytes');
-var uglify = require('uglifyjs');
-var Table = require('cli-table');
+var path = require('path');
+var dir = path.join(process.env.HOME, 'projects/lukekarrys/dotfiles/node_modules');
+var p = path.join.bind(null, dir);
+function requirep (str) { return require(p(str)); }
+
+var gzip = requirep('gzip-size');
+var pb = requirep('pretty-bytes');
+var uglify = requirep('uglifyjs');
+var Table = requirep('cli-table');
 
 function round(value, exp) {
     value = value.toString().split('e');
