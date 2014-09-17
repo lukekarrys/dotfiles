@@ -7,7 +7,7 @@ cd "$(dirname "${BASH_SOURCE}")";
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
 		--exclude "*.md" --exclude "*.txt" --exclude "init/" --exclude "Brewfile" \
-        --exclude "Caskfile" --exclude "package.json" --exclude "node_modules/" -avh --no-perms . ~;
+        --exclude "Caskfile" -avh --no-perms . ~;
 	source ~/.bash_profile;
 }
 
