@@ -98,7 +98,3 @@ o=00$i;
 echo -e ${o:${#o}-3:3} `tput setaf $i;tput setab $i`${y// /=}$x;
 done )
 }
-
-function copydata() {
-    rsync -avh --progress --include '*.mkv' --include '*.mp4' --include '*.avi' ~/Downloads/ /Volumes/Data/
-}
