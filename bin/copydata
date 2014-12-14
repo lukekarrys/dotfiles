@@ -10,6 +10,6 @@ find ~/Downloads -type f \( -name "*.mp4" -or -name "*.avi" -or -name "*.mkv" \)
     if [ ! -f "$volume_file" ]
     then
       echo "copying $file_name"
-      cp $file $volume_file
+      cp "$file" "$volume_file"
     fi
 done
