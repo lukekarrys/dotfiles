@@ -1,8 +1,12 @@
 {
 	"auto_match_enabled": true,
+	"auto_upgrade_ignore":
+	[
+		"JSHint Gutter"
+	],
 	"bold_folder_labels": true,
 	"close_windows_when_empty": true,
-	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
+	"color_scheme": "Packages/User/Tomorrow-Night (SL).tmTheme",
 	"create_window_at_startup": false,
 	"default_encoding": "UTF-8",
 	"default_line_ending": "unix",
@@ -23,8 +27,15 @@
 	[
 		".git"
 	],
+	"binary_file_patterns":
+	[
+		"*.min.js",
+		"*.png",
+		"*.jpg",
+		".*"
+	],
 	"font_face": "Ubuntu Mono",
-	"font_size": 13,
+	"font_size": 14,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
