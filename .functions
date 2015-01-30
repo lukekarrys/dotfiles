@@ -246,5 +246,5 @@ function tre() {
 }
 
 function dateiso() {
-	date +%Y-%m-%dT%R:%S.%NZ
+	date -u +"%Y-%m-%dT%H:%M:%S.%NZ"
 }
