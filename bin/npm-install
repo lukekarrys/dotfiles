@@ -1,5 +1,0 @@
-#!/bin/sh
-npm prune
-npm install "$@" --save --save-exact
-npm dedupe
-npm shrinkwrap

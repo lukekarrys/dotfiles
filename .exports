@@ -1,15 +1,6 @@
 # Make vim the default editor
 export EDITOR="subl -n -w";
 
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups:erasedups
-# Make some commands not show up in history
-export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
-# Save and reload the history after each command finishes
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
-
 # Prefer US English and use UTF-8
 export LANG="en_US.UTF-8";
 export LC_ALL="en_US.UTF-8";

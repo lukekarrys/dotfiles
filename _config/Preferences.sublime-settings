@@ -1,0 +1,67 @@
+{
+	"auto_match_enabled": true,
+	"auto_upgrade_ignore":
+	[
+		"JSHint Gutter"
+	],
+	"binary_file_patterns":
+	[
+		"*.min.js",
+		"*.png",
+		"*.jpg",
+		".*"
+	],
+	"bold_folder_labels": true,
+	"close_windows_when_empty": true,
+	"color_scheme": "Packages/User/SublimeLinter/Tomorrow-Night (SL).tmTheme",
+	"create_window_at_startup": false,
+	"default_encoding": "UTF-8",
+	"default_line_ending": "unix",
+	"detect_indentation": true,
+	"draw_white_space": "all",
+	"ensure_newline_at_eof_on_save": false,
+	"file_exclude_patterns":
+	[
+		".DS_Store",
+		"Desktop.ini",
+		"*.pyc",
+		"._*",
+		"Thumbs.db",
+		".Spotlight-V100",
+		".Trashes"
+	],
+	"folder_exclude_patterns":
+	[
+		".git"
+	],
+	"font_face": "Ubuntu Mono",
+	"font_size": 14,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_to_bracket": true,
+	"match_brackets": true,
+	"match_brackets_angle": true,
+	"match_brackets_braces": true,
+	"match_brackets_content": true,
+	"match_brackets_square": true,
+	"remember_open_files": false,
+	"rulers":
+	[
+		80
+	],
+	"scroll_past_end": true,
+	"scroll_speed": 2,
+	"show_encoding": true,
+	"show_line_endings": true,
+	"show_tab_close_buttons": true,
+	"tab_size": 4,
+	"theme": "Soda Dark 3.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": false,
+	"word_wrap": true
+}

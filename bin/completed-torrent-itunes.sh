@@ -1,4 +1,4 @@
-#!/bin/sh
+#! /usr/bin/env bash
 
 dlPath="$TR_TORRENT_DIR/$TR_TORRENT_NAME"
 mvPath="$HOME/Music/iTunes/iTunes Media/Automatically Add to iTunes/"

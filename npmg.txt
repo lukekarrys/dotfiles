@@ -1,0 +1,13 @@
+/Users/lukekarrys/.nvm/v0.10.38/lib
+├── bower@1.4.1
+├── fixpack@2.2.0
+├── gh-streak@1.0.2
+├── ghwd@1.0.0
+├── jshint@2.6.3
+├── jsxhint@0.14.0
+├── npm@2.7.6
+├── npm-check-updates@2.0.0-alpha.7
+├── npmwd@1.1.0
+├── surge@0.10.2
+└── travis-encrypt@1.1.1
+
