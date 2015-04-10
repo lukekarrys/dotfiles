@@ -31,7 +31,7 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 ZSH_THEME="lukekarrys"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=/Users/lukekarrys/projects/lukekarrys/dotfiles/oh-my-zsh
