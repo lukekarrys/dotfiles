@@ -7,6 +7,11 @@ alias gca='git add -A && git commit -avm'
 alias gc='git commit -vm'
 alias gaa='git add -A && git commit --amend --reuse-message=HEAD'
 
+alias gpo='git push origin'
+compdef gpo=git
+alias gpob='git push origin $(current_branch)'
+compdef gpo=git
+
 # Remove branches that have already been merged with master
 # a.k.a. ‘delete merged’
 alias gdm='git branch --merged | grep -v \\'\\*\\' | xargs -n 1 git branch -d'
