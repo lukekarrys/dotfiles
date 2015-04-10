@@ -58,3 +58,7 @@ alias dateiso='date -u +"%Y-%m-%dT%H:%M:%S.%NZ"'
 alias patch='git pull && npm version patch && git push && git push --tags && npm publish'
 alias minor='git pull && npm version minor && git push && git push --tags && npm publish'
 alias major='git pull && npm version major && git push && git push --tags && npm publish'
+
+# bootstrap and source
+alias dotbs='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && ./bootstrap.sh && cd -'
+alias dotsource='source ~/.zshrc'

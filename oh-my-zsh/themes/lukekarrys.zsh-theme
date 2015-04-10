@@ -142,7 +142,7 @@ prompt_status() {
   [[ $UID -eq 0 ]] && symbols+="%{%F{yellow}%}⚡"
   [[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{cyan}%}⚙"
 
-  [[ -n "$symbols" ]] && prompt_segment black default "$symbols"
+  [[ -n "$symbols" ]] && prompt_segment white default "$symbols"
 }
 
 prompt_nvm() {
@@ -179,6 +179,9 @@ build_rprompt() {
   prompt_battery
 }
 
-PROMPT='%{%f%b%k%}$(build_prompt)
-> '
+PROMPT='
+%{%f%b%k%}$(build_prompt)
+>  '
+
+ZLE_RPROMPT_INDENT=0
 RPROMPT='%{%f%b%k%}%{$(echotc UP 1)%}$(build_rprompt)%{$(echotc DO 1)%}'
