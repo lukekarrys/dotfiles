@@ -42,8 +42,8 @@ ZSH_CUSTOM=/Users/lukekarrys/projects/lukekarrys/dotfiles/oh-my-zsh
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git nvm node npm sublime rsync history github emoji-clock brew battery z projects git2)
 
-export NVM_DIR="/Users/lukekarrys/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+# export NVM_DIR="/Users/lukekarrys/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

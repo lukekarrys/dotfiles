@@ -14,7 +14,7 @@ compdef gpo=git
 
 # Remove branches that have already been merged with master
 # a.k.a. ‘delete merged’
-alias gdm='git branch --merged | grep -v \\'\\*\\' | xargs -n 1 git branch -d'
+alias gdm='git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d'
 
 # Switch to a branch, creating it if necessary
 function ggo() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }
