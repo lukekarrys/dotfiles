@@ -55,6 +55,9 @@ setopt inc_append_history
 # Reloads the history whenever you use it
 setopt share_history
 
+# Node
+ulimit -n 10000
+
 
 source $ZSH/oh-my-zsh.sh
 
