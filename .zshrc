@@ -3,12 +3,6 @@ export DEFAULT_USER="lukekarrys"
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/lukekarrys/.oh-my-zsh
 
-# Load the shell dotfiles
-for file in ~/.{exports,aliases,functions}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
 # ssh completion
 zstyle -s ':completion:*:hosts' hosts _ssh_config
 [[ -r ~/.ssh/config ]] && _ssh_config+=($(cat ~/.ssh/config | sed -ne 's/Host[=\t ]//p'))
@@ -34,18 +28,33 @@ ZSH_THEME="lukekarrys"
 # Would you like to use another custom folder than $ZSH/custom?
 ZSH_CUSTOM=/Users/lukekarrys/projects/lukekarrys/dotfiles/oh-my-zsh
 
+# dont use color for history substring search
+export DISABLE_COLOR="true"
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git node npm sublime rsync history github emoji-clock brew battery z projects git2)
+plugins=(git node npm sublime rsync history github emoji-clock brew battery z projects git2 history-substring-search)
+
+# Load the shell dotfiles
+for file in ~/.{exports,aliases,functions}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-# For brew install coreutils
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+# For brew install coreutils and other path stuff
+export PATH="$HOME/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+# Appends every command to the history file once it is executed
+setopt inc_append_history
+# Reloads the history whenever you use it
+setopt share_history
+
 
 source $ZSH/oh-my-zsh.sh
 
