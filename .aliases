@@ -61,4 +61,4 @@ alias major='git pull && npm version major && git push && git push --tags && npm
 
 # bootstrap and source
 alias dotbs='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && ./bootstrap.sh && cd -'
-alias dotsource='source ~/.zshrc'
+alias dotsource='source ~/.zprofile && source ~/.zshrc'
