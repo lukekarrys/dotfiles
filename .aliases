@@ -63,4 +63,4 @@ alias major='git pull && npm version major && git push && git push --tags && npm
 alias dotbs='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && ./bootstrap.sh && cd -'
 alias dotsource='source ~/.zprofile && source ~/.zshrc'
 alias dotedit='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && s .'
-alias dotdone='gca "edit dotfiles `dateslug`" && gpo master'
+alias dotdone='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && gca "edit dotfiles `dateslug`" && gpo master && cd -'

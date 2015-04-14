@@ -61,6 +61,9 @@ setopt share_history
 # Node
 ulimit -n 10000
 
+# dont show % sign when ctrl-c'ing
+export PROMPT_EOL_MARK=""
+
 
 source $ZSH/oh-my-zsh.sh
 
