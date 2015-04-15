@@ -17,7 +17,7 @@ compdef gpo=git
 alias gdm='git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d'
 
 # Switch to a branch, creating it if necessary
-function ggo() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }
+function ggo() { git checkout -b "$1" 2> /dev/null || git checkout "$1"; }
 
 # Find branches containing commit
 function gfb () { git branch -a --contains $1; }
