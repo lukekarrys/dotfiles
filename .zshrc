@@ -40,12 +40,6 @@ plugins=(git node sublime rsync history github emoji-clock brew battery z projec
 # slow, disabled plugins
 # npm
 
-# Load the shell dotfiles
-for file in ~/.{exports,aliases,functions}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
-
 # Load RVM into a shell session *as a function*
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -64,6 +58,10 @@ ulimit -n 10000
 # dont show % sign when ctrl-c'ing
 export PROMPT_EOL_MARK=""
 
-
 source $ZSH/oh-my-zsh.sh
 
+# Load the shell dotfiles
+for file in ~/.{exports,aliases,functions}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
