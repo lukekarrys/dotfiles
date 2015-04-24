@@ -179,9 +179,9 @@ build_rprompt() {
   prompt_battery
 }
 
-PROMPT='
-%{%f%b%k%}$(build_prompt)
->  '
-
-ZLE_RPROMPT_INDENT=0
+PROMPT='%{%f%b%k%}$(build_prompt)
+> '
 RPROMPT='%{%f%b%k%}%{$(echotc UP 1)%}$(build_rprompt)%{$(echotc DO 1)%}'
+
+# Causes repeated displaye characters when autocompleting
+# ZLE_RPROMPT_INDENT=0
