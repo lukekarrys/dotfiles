@@ -40,11 +40,8 @@ plugins=(git node sublime rsync history github emoji-clock brew battery z projec
 # slow, disabled plugins
 # npm
 
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
 # For brew install coreutils and other path stuff
-export PATH="$HOME/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+export PATH="$HOME/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH:$HOME/.rvm/bin"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Appends every command to the history file once it is executed
