@@ -1,13 +1,14 @@
-/Users/lukekarrys/.nvm/v0.10.38/lib
-├── bower@1.4.1
+/Users/lukekarrys/.nvm/versions/node/v4.1.0/lib
 ├── fixpack@2.2.0
-├── gh-streak@1.0.2
-├── ghwd@1.0.0
-├── jshint@2.6.3
-├── jsxhint@0.14.0
-├── npm@2.7.6
-├── npm-check-updates@2.0.0-alpha.7
+├── geohash-cli@1.0.1
+├── gh-streak@1.0.3
+├── ghwd@1.0.1
+├── gzip-size@3.0.0
+├── js-size@1.0.5
+├── jshint@2.8.0
+├── npm@3.3.5
+├── npm-check-updates@2.2.3
 ├── npmwd@1.1.0
-├── surge@0.10.2
-└── travis-encrypt@1.1.1
-
+├── pretty-bytes@2.0.1
+├── react-native-cli@0.1.4
+└── surge@0.14.4
