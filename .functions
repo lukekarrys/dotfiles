@@ -3,6 +3,11 @@ function mkd() {
 	mkdir -p "$@" && cd "$@";
 }
 
+# turn mkv into mp4
+function mp4() {
+    ffmpeg -i `basename $@` -c:v copy -c:a copy `basename $@ .mkv`.mp4
+}
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";
