@@ -167,3 +167,7 @@ function phpserver() {
     sleep 1 && open "http://${ip}:${port}/" &
     php -S "${ip}:${port}";
 }
+
+function findprocess() {
+    ps -x | grep "$@" | grep -v "grep"
+}

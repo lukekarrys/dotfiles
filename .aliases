@@ -64,3 +64,7 @@ alias dotbs='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && ./bootstrap.sh
 alias dotsource='source ~/.zprofile && source ~/.zshrc'
 alias dotedit='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && s .'
 alias dotdone='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && gca "edit dotfiles `dateslug`" && gpo master && cd -'
+
+# ssh
+alias tunnel="ssh -NfL 5900:127.0.0.1:5900"
+alias killtunnel="ps -x | grep 'ssh -NfL' | grep -v 'grep' | tr -s ' ' | cut -d ' ' -f1 | xargs kill"
