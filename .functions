@@ -171,3 +171,8 @@ function phpserver() {
 function findprocess() {
     ps -x | grep "$@" | grep -v "grep"
 }
+
+function rungist() {
+    curl -s $@ | node
+}
+
