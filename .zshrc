@@ -35,10 +35,10 @@ export DISABLE_COLOR="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(node sublime rsync history github emoji-clock brew battery z projects git2 history-substring-search)
+plugins=(git node sublime rsync history github emoji-clock brew battery z projects git2 history-substring-search)
 
 # slow, disabled plugins
-# npm, git
+# npm
 
 # For brew install coreutils and other path stuff
 export PATH="$HOME/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH:$HOME/.rvm/bin"
