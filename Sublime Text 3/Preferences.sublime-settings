@@ -1,5 +1,6 @@
 {
 	"Seti_sb_small_padding": true,
+	"Seti_show_group_arrows": true,
 	"auto_match_enabled": true,
 	"binary_file_patterns":
 	[

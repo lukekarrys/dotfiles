@@ -45,3 +45,7 @@
 - [unrarx](http://www.unrarx.com/)
 - [Rdio](http://www.rdio.com/apps/)
 - [FastScripts](http://www.red-sweater.com/fastscripts/)*
+- [Knock]()
+- [Cloudup]()
+- [DayOne]()
+- [Focus]()

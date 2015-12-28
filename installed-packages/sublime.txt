@@ -1,0 +1,23 @@
+[
+  "Babel",
+  "CSS3_Syntax",
+  "EditorConfig",
+  "HTMLBeautify",
+  "Jade",
+  "LESS",
+  "Markdown Extended",
+  "Markdown Preview",
+  "Oceanic Next Color Scheme",
+  "Package Control",
+  "Pretty JSON",
+  "Sass",
+  "Seti_UI",
+  "Seti_UX",
+  "SideBarEnhancements",
+  "SublimeLinter",
+  "SublimeLinter-contrib-eslint",
+  "SublimeLinter-contrib-standard",
+  "SublimeLinter-jshint",
+  "Theme - Soda",
+  "Tomorrow Color Schemes"
+]

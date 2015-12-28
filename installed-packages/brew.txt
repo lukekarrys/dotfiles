@@ -1,8 +1,11 @@
+autoconf
+automake
 coreutils
 ffmpeg
 findutils
 freetype
 gifify
+hub
 imagemagick
 jpeg
 jq
@@ -12,8 +15,15 @@ libtool
 libvo-aacenc
 moreutils
 ngrep
+openssl
+pcre
+pkg-config
+postgresql
+readline
 trash
 tree
+watchman
+whereami
 x264
 xvid
 xz
