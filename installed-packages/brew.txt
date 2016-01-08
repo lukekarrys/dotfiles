@@ -18,7 +18,6 @@ ngrep
 openssl
 pcre
 pkg-config
-postgresql
 readline
 trash
 tree
