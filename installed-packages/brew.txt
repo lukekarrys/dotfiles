@@ -1,10 +1,12 @@
 autoconf
 automake
+boost
 coreutils
 ffmpeg
 findutils
 freetype
 gifify
+highlight
 hub
 imagemagick
 jpeg
@@ -13,8 +15,10 @@ lame
 libpng
 libtool
 libvo-aacenc
+lua
 moreutils
 ngrep
+oniguruma
 openssl
 pcre
 pkg-config

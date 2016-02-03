@@ -1,7 +1,8 @@
 #!/usr/bin/env zsh
 
-npm ls -g --depth=0 > installed-packages/npm.text
+npm ls -g --depth=0 > installed-packages/npm.txt
 brew ls > installed-packages/brew.txt
+brew cask ls > installed-packages/brew-cask.txt
 cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings | jq .installed_packages > installed-packages/sublime.txt
 
 rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
