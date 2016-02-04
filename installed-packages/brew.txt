@@ -5,6 +5,7 @@ coreutils
 ffmpeg
 findutils
 freetype
+ghi
 gifify
 highlight
 hub

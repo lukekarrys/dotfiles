@@ -1,5 +1,6 @@
 [
   "Babel",
+  "Babel Snippets",
   "CSS3_Syntax",
   "EditorConfig",
   "HTMLBeautify",
