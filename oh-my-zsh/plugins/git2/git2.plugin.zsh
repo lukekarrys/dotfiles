@@ -1,5 +1,5 @@
 # These are personal git aliases that arent supplied by oh-my-zsh or override ones supplied by the plugin
-alias gl='git log --pretty=oneline -n 20 --graph --abbrev-commit'
+alias gl='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
 alias gs='git status -s'
 alias gss='git status -s'
 alias gd='git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat'
