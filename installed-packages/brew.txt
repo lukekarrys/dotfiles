@@ -14,6 +14,7 @@ jpeg
 jq
 lame
 libpng
+libtiff
 libtool
 libvo-aacenc
 lua
