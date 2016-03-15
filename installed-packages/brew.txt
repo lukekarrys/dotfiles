@@ -25,6 +25,7 @@ openssl
 pcre
 pkg-config
 readline
+rename
 trash
 tree
 watchman

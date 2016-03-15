@@ -15,6 +15,7 @@
   "Seti_UI",
   "Seti_UX",
   "SideBarEnhancements",
+  "Stylus",
   "SublimeLinter",
   "SublimeLinter-contrib-eslint",
   "SublimeLinter-contrib-standard",
