@@ -17,6 +17,9 @@
 	# Amend the currently staged files to the latest commit
 	amend = commit --amend --reuse-message=HEAD
 
+	# set upstream for remote to current branch
+	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
