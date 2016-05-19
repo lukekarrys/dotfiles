@@ -1,5 +1,4 @@
 /Users/lukekarrys/.nvm/versions/node/v5.9.1/lib
-├── firebase-tools@2.2.1
 ├── fixpack@2.3.0
 ├── geohash-cli@1.0.1
 ├── gh-streak@1.1.0
