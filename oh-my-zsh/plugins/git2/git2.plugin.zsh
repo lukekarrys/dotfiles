@@ -6,6 +6,7 @@ alias gd='git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-w
 alias gca='git add -A && git commit -avm'
 alias gc='git commit -vm'
 alias gaa='git add -A && git commit --amend --reuse-message=HEAD'
+alias gpu='git remote prune origin'
 
 alias gpo='git push origin'
 compdef gpo=git
