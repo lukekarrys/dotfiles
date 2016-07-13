@@ -2,6 +2,7 @@ autoconf
 automake
 boost
 coreutils
+erlang
 ffmpeg
 findutils
 freetype
@@ -24,12 +25,14 @@ oniguruma
 openssl
 pcre
 pkg-config
+rabbitmq
 readline
 rename
 trash
 tree
 watchman
 whereami
+wxmac
 x264
 xvid
 xz
