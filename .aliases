@@ -68,3 +68,5 @@ alias dotdone='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && gca "edit do
 # ssh
 alias tunnel="ssh -NfL 5900:127.0.0.1:5900"
 alias killtunnel="ps -x | grep 'ssh -NfL' | grep -v 'grep' | tr -s ' ' | cut -d ' ' -f1 | xargs kill"
+
+alias beep="node -e 'process.stdout.write(\"\x07\")'"
