@@ -12,6 +12,7 @@
   "Oceanic Next Color Scheme",
   "Package Control",
   "Pretty JSON",
+  "Pug",
   "Sass",
   "Seti_UI",
   "Seti_UX",
