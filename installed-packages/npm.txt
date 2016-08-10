@@ -16,7 +16,7 @@
 ├── npmwd@1.1.0
 ├── pm2@1.0.2
 ├── pretty-bytes-cli@1.0.0
-├── react-native-cli@0.2.0
+├── react-native-cli@1.0.0
 ├── rnpm@1.5.3
 ├── sparkline@0.1.2
 ├── standard-format@2.1.1
