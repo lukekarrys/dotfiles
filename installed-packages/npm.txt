@@ -1,26 +1,19 @@
 /Users/lukekarrys/.nvm/versions/node/v5.12.0/lib
-├── diff-so-fancy@0.10.0
-├── fixpack@2.3.0
-├── geohash-cli@1.0.1
+├── diff-so-fancy@0.11.1
+├── fixpack@2.3.1
+├── geohash-cli@1.0.2
 ├── ghwd@1.1.1
-├── gistup@0.1.2
-├── greenkeeper@3.1.0
+├── greenkeeper@3.3.0
 ├── gzip-size-cli@1.0.0
-├── instagram-download@1.2.1
-├── js-size@1.0.5
-├── jshint@2.9.1
-├── nodemon@1.9.2
+├── js-size@1.0.6
+├── jshint@2.9.3
+├── nodemon@1.10.2
 ├── npm@3.10.5
-├── npm-check@5.0.1
-├── npm-check-updates@2.6.5
+├── npm-check-updates@2.8.0
 ├── npmwd@1.1.0
-├── pm2@1.0.2
+├── pm2@1.1.3
 ├── pretty-bytes-cli@1.0.0
 ├── react-native-cli@1.0.0
-├── rnpm@1.5.3
-├── sparkline@0.1.2
-├── standard-format@2.1.1
-├── surge@0.18.0
-├── template-anything@1.3.1
-└── updtr@0.1.10
+├── rnpm@1.9.0
+└── surge@0.18.0
 

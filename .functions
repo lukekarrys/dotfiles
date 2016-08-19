@@ -180,3 +180,6 @@ function findmodule() {
     find ~/projects -name package.json -maxdepth 3 | xargs grep -n -s --color=never "\"$@\": " | sed 's/\/Users\/lukekarrys\/projects\///g' | sed "s|\"$@\": ||g" | sed 's/,//g' | sed 's/\/package.json:.*: //g' | xargs printf '%-40s %1s\n'
 }
 
+function findport() {
+    sudo lsof -n -i4TCP:$@ | grep LISTEN
+}

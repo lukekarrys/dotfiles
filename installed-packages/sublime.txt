@@ -1,6 +1,7 @@
 [
   "Babel",
   "Babel Snippets",
+  "Better CoffeeScript",
   "CSS3_Syntax",
   "EditorConfig",
   "HTMLBeautify",
