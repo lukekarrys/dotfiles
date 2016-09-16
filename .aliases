@@ -76,5 +76,5 @@ alias editorconfig="echo '# editorconfig.org\nroot = true\n\n[*]\nindent_style =
 alias travisconfig="echo 'language: node_js\nnode_js:\n  - 4\n  - 5\n  - 6\nscript: npm run lint && npm run validate && npm test' > .travis.yml"
 
 alias nodemodulessize="find ~/projects -type d -name 'node_modules' -maxdepth 3 | xargs du -ch --max-depth=0"
-alias nodemodulesdelete="find ~/projects -type d -name 'node_modules' -maxdepth 3 -exec echo {} \;"
+alias nodemoduleslist="find ~/projects -type d -name 'node_modules' -maxdepth 3 -exec echo {} \;"
 alias nodemodulesdelete="find ~/projects -type d -name 'node_modules' -maxdepth 3 -exec rm -rf {} \;"
