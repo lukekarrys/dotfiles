@@ -1,4 +1,5 @@
 betterzipql
+keepingyouawake
 qlcolorcode
 qlimagesize
 qlmarkdown
