@@ -78,3 +78,5 @@ alias travisconfig="echo 'language: node_js\nnode_js:\n  - 4\n  - 5\n  - 6\nscri
 alias nodemodulessize="find ~/projects -type d -name 'node_modules' -maxdepth 3 | xargs du -ch --max-depth=0"
 alias nodemoduleslist="find ~/projects -type d -name 'node_modules' -maxdepth 3 -exec echo {} \;"
 alias nodemodulesdelete="find ~/projects -type d -name 'node_modules' -maxdepth 3 -exec rm -rf {} \;"
+
+alias focus="open focus://focus"
