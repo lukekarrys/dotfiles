@@ -30,7 +30,6 @@
 - [Flux](http://stereopsis.com/flux/)
 - [Caffeine](http://itunes.apple.com/us/app/caffeine/id411246225?mt=12)
 - Turn off all iCloud beside Find My Mac and Docs
-- [Xmarks for Safari](http://download.xmarks.com/download)
 - [Stay](http://cordlessdog.com/stay/)*
 -- ctrl-shift-cmd-S
 - [Divvy](http://itunes.apple.com/us/app/divvy/id413857545?mt=12)*

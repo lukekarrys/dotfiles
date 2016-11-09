@@ -5,6 +5,7 @@
 ├── ghwd@1.1.1
 ├── greenkeeper@3.3.0
 ├── gzip-size-cli@1.0.0
+├── instagram-download@2.2.5
 ├── js-size@1.0.6
 ├── jshint@2.9.3
 ├── nodemon@1.10.2
