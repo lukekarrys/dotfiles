@@ -183,3 +183,16 @@ function findmodule() {
 function findport() {
     sudo lsof -n -i4TCP:$@ | grep LISTEN
 }
+
+# npm
+function patch() {
+  git pull && npm version patch && git push && git push --tags && npm publish $@
+}
+
+function minor() {
+  git pull && npm version minor && git push && git push --tags && npm publish $@
+}
+
+function major() {
+  git pull && npm version major && git push && git push --tags && npm publish $@
+}
