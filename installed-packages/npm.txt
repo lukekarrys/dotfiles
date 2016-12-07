@@ -16,5 +16,6 @@
 ├── ragnar-data@1.2.0
 ├── react-native-cli@1.2.0
 ├── rnpm@1.9.0
-└── surge@0.18.0
+├── surge@0.18.0
+└── vmd@1.28.0
 
