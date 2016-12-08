@@ -41,7 +41,7 @@ plugins=(git node sublime rsync history github emoji-clock brew battery z projec
 # npm
 
 # For brew install coreutils and other path stuff
-export PATH="$HOME/bin:/Applications/Postgres.app/Contents/Versions/9.5/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH:$HOME/.rvm/bin:/usr/local/sbin"
+export PATH="$HOME/bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH:$HOME/.rvm/bin:/usr/local/sbin"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Appends every command to the history file once it is executed
