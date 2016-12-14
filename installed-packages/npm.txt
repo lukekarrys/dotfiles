@@ -6,7 +6,6 @@
 ├── greenkeeper@4.1.1
 ├── gzip-size-cli@1.0.0
 ├── js-size@2.0.0
-├── jshint@2.9.3
 ├── nodemon@1.11.0
 ├── npm@3.10.8
 ├── npm-check-updates@2.8.6
@@ -16,6 +15,5 @@
 ├── ragnar-data@1.2.0
 ├── react-native-cli@1.2.0
 ├── rnpm@1.9.0
-├── surge@0.18.0
 └── vmd@1.28.0
 
