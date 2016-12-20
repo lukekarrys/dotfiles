@@ -2,7 +2,7 @@
 alias gl='git log --color --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit --'
 alias gs='git status -s'
 alias gss='git status -s'
-alias gd='git diff-index --quiet HEAD -- || clear; git --no-pager diff --color --patch-with-stat | diff-so-fancy'
+alias gdf='git diff-index --quiet HEAD -- || clear; git --no-pager diff --color --patch-with-stat | diff-so-fancy'
 alias gca='git add -A && git commit -avm'
 alias gc='git commit -vm'
 alias gaa='git add -A && git commit --amend --reuse-message=HEAD'
