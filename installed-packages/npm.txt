@@ -1,4 +1,4 @@
-/Users/lukekarrys/.nvm/versions/node/v6.9.1/lib
+/Users/lukekarrys/.nvm/versions/node/v6.9.2/lib
 ├── diff-so-fancy@0.11.2
 ├── fixpack@2.3.1
 ├── geohash-cli@1.0.2
@@ -7,7 +7,7 @@
 ├── gzip-size-cli@1.0.0
 ├── js-size@2.0.0
 ├── nodemon@1.11.0
-├── npm@3.10.8
+├── npm@3.10.9
 ├── npm-check-updates@2.8.6
 ├── npmwd@1.1.0
 ├── pm2@2.1.5
