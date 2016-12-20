@@ -43,9 +43,7 @@
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
-	[
-		"Vintage"
-	],
+	[],
 	"indent_to_bracket": false,
 	"match_brackets": true,
 	"match_brackets_angle": true,
