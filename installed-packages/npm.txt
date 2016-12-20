@@ -6,6 +6,7 @@
 ├── greenkeeper@4.1.1
 ├── gzip-size-cli@1.0.0
 ├── js-size@2.0.0
+├── json@9.0.4
 ├── nodemon@1.11.0
 ├── npm@3.10.9
 ├── npm-check-updates@2.8.6

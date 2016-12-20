@@ -1,4 +1,0 @@
-#!/bin/sh
-
-git checkout $(git show -s --pretty='%T' $(git show-ref -d $(git describe --abbrev=0) | tail -n1 | awk '{print $1}')) -- test
-npm test

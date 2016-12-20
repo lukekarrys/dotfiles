@@ -12,7 +12,6 @@ highlight
 hub
 imagemagick
 jpeg
-jq
 lame
 libgpg-error
 libksba

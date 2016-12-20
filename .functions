@@ -204,12 +204,22 @@ function major() {
 function nvm-latest() {
   nvm install $1 --reinstall-packages-from=$1
   if [ $? -eq 0 ]; then
-    local PREVIOUS=`nvm ls $1 | grep 'v' | awk '{print $2}' | head -n1`
-    local CURRENT=`nvm ls $1 | grep 'v' | awk '{print $2}' | head -n2 | tail -1`
+    local PREVIOUS=$(nvm ls --no-colors $1 | grep --color=never "v" | awk '{print $1}' | head -n1)
+    local CURRENT=$(nvm ls --no-colors $1 | grep --color=never "v" | awk '{print $1}' | head -n2 | tail -1)
     echo "$1 -- $PREVIOUS -- $CURRENT"
     if [ "$PREVIOUS" != "$CURRENT" ]; then
       echo "Attempting to uninstall $PREVIOUS"
       nvm uninstall "$PREVIOUS"
     fi
   fi
+  nvm use default
+}
+
+function nvm-update {
+  cd $NVM_DIR
+  git fetch --tags
+  local TAG=$(git describe --tags `git rev-list --tags --max-count=1`)
+  echo "Checking out tag $TAG..."
+  git checkout "$TAG"
+  cd -
 }

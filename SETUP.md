@@ -3,6 +3,9 @@
 ## Dev
 
 - Install iTerm
+- Install Sublime
+- Create $USER_DIR/bin
+- Add subl to bin
 - Change shell to zsh
 - Install oh-my-zsh
 - Clone dotfiles
