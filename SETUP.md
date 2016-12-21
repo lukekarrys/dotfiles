@@ -1,21 +1,17 @@
 # Computer Setup Notes 2016-12-20
 
-## Dev
+## TODOs
 
-- Install iTerm
-- Install Sublime
-- Create $USER_DIR/bin
-- Add subl to bin
-- Change shell to zsh
-- Install oh-my-zsh
-- Clone dotfiles
-- Install dotfiles
-- Install homebrew
-- Install nvm
-- Instal brew cask https://caskroom.github.io/
-- Create SSH keys for config
-- Add auth key for iOS
-- Lock down SSH to key only
+- Move openemu save dir to dropbox
+
+
+## Copy Files
+
+- Move dropbox over
+- Move itunes library over
+- Open itunes and point at dropbox music
+- Move projects dir over
+- Open photos and point at dropbox photos
 
 
 ## System Prefs
@@ -36,6 +32,7 @@
   - Turn off auto updates
 - Internet account
   - Turn on contacts and calendars
+- `TODO` Make animations happen faster
 
 
 ## Finder
@@ -47,53 +44,52 @@
 - Dock
   - Auto hide
   - Add spacers + apps
-
-## Mac App Store
-
-- Download apps
+- View Options
+ - Always list
 
 
-## Other Apps
+## Apps
 
-TODO: see if they work from brew cask and setup script for those
+### App Store Apps
 
-- Focus
-- KeepingYouAwake
-- Postgres homebrew this time
-- Backblaze
-- Fantastical
-- Cloudup
-- 1Password
-- Last.fm
-- Spotify
+**lukekarrys@gmail.com**
+- Xcode
+- Apple apps
+- Duplicate Photos Finder
+- Day One
 - Slack
-- Mail????
-- Fluid
+- Daisy Disk
+- Divvy
+- Letterpress
+- Due
+
+**andyet**
+- Fantastical
+- Hyperdock
+- Monodraw
+- iA Writer
+
+### Brew
+
+- Install homebrew
+- `brew bundle ~/.Brewfile`
+
+### Fluid Apps
+
 - GitHub Fluid
 - Trello Fluid
-- iTerm
-- DayOne
-- DayOne
-- Dropbox
-- Flux
-- Sublime Text 3
-- SuperDuper
-- Alfred
-- Divvy
-- Stay
-- Airfoil
-- Airfoil Speakers
-- XLD
-- ID3 Editor
-- AppZapper
-- iStatMenu
-- gfx status
-- vmware fusion 8
 
-## Copy Files
 
-- Move dropbox over
-- Move itunes library over
-- Open itunes and point at dropbox music
-- Move projects dir over
-- Open photos and point at dropbox photos
+## Dev
+
+TODO: actually document what happens here
+TODO: figure out subl command creation
+
+- Change shell to zsh
+- Install oh-my-zsh
+- Clone dotfiles
+- Install dotfiles
+- Install nvm
+- Create SSH keys for config
+- Add auth key for iOS
+- Lock down SSH to key only
