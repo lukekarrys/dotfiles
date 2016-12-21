@@ -6,9 +6,9 @@
 - Copy `~/Dropbox`
 - Copy `~/projects`
 - Copy `~/Music`
+- Point Dropdox at `~/Dropbox`
 - Open iTunes and point at `~/Dropbox/iTunes\ Media`
 - Open Photos and point at `~/Dropbox/Pictures/Photos\ Library.photoslibrary/`
-- TODO: move openemu to dropbox
 
 
 ## System Prefs
@@ -49,6 +49,8 @@
 
 ### App Store Apps
 
+TODO: `mas-cli` and add to `.Brewfile`
+
 **lukekarrys@gmail.com**
 - Xcode
 - Apple apps
@@ -77,18 +79,61 @@
 - GitHub Fluid
 - Trello Fluid
 
+### For All Apps
+
+- Open each one and like do stuff with it?
+
 
 ## Dev
 
-TODO: actually document what happens here
-TODO: figure out subl command creation
+- Change shell to homebrew's `zsh` [Docs](http://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/)
 
-- Change shell to zsh
-- Install oh-my-zsh
-- Clone dotfiles
-- Install dotfiles
-- Install nvm
+```sh
+which zsh
+sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+```
+
+- Install `oh-my-zsh` [Docs](https://github.com/robbyrussell/oh-my-zsh#via-curl)
+
+```sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+- Install `nvm` [Docs](https://github.com/creationix/nvm#install-script) and global `node` modules
+
+```sh
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+nvm install 6
+npm install -g `cat installed-packages/npm.txt | tr '\n' ' '`
+```
+
+- Setup `sublime`
+  - Open `Sublime Text 3`
+  - Setup `packagecontrol` [Docs](https://packagecontrol.io/installation)
+  - `cat installed-packages/sublime.txt | sed "s/[\",]//g" | sed "s/^ *//g" | sed '1d' | sed '$d' | tr '\n' ',' | pbcopy`
+  - `Cmd + Shift + P > Advanced Install` and paste
+
+- Install `dotfiles` [Docs](https://github.com/lukekarrys/dotfiles)
+
+```sh
+cd ~/Desktop
+git clone https://github.com/powerline/fonts.git
+cd fonts
+./install.sh
+```
+
+- Install `powerline` fonts [Docs](https://github.com/powerline/fonts#installation)
+
+```sh
+cd ~/projects/lukekarrys/dotfiles
+./bootstrap
+```
+
+- Setup `iterm`
+  - Open iTerm 2
+  - Set to read preferences from `~/Dropbox/Apps/iTerm`
+
+
 - Create SSH keys for config
 - Add auth key for iOS
 - Lock down SSH to key only
-- Instal all sublime pacakges [Docs](http://stackoverflow.com/questions/33581626/installing-multiple-packages-in-sublime-text-3)

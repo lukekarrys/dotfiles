@@ -4,19 +4,16 @@ You probably don't want to use these. They're messy and I change them all the ti
 
 If you see anything you like, feel free to grab it :) Or if you have questions, open an issue.
 
-## Installation
+## After making changes
 
-### Using Git and the bootstrap script
-
-```shell
-curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
-git clone git@github.com:powerline/fonts.git # and install
+```sh
 ./bootstrap.sh
+dotdone
 ```
 
-```shell
-brew bundle ~/.Brewfile
-```
+## Installation on a new machine
+
+See [setup](./SETUP.md).
 
 ### Credit
 
