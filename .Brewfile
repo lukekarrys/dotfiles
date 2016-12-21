@@ -10,10 +10,10 @@ upgrade   # Update packages
 # Taps                   #
 ##########################
 
-tap homebrew/versions
-tap caskroom/cask
-tap homebrew/dupes
-tap homebrew/boneyard
+tap 'homebrew/versions'
+tap 'caskroom/cask'
+tap 'homebrew/dupes'
+tap 'homebrew/boneyard'
 
 
 ##########################
@@ -21,51 +21,51 @@ tap homebrew/boneyard
 ##########################
 
 # Browsers
-cask google-chrome
-cask firefox
+cask 'google-chrome'
+cask 'firefox'
 
 # Dev
-cask imageoptim
-cask sublime-text
-cask iterm2
+cask 'imageoptim'
+cask 'sublime-text'
+cask 'iterm2'
 
 # Media
-cask calibre
-cask spotify
-cask postico
-cask airfoil
-cask lastfm
+cask 'calibre'
+cask 'spotify'
+cask 'postico'
+cask 'airfoil'
+cask 'lastfm'
 
 # Utils
-cask backblaze
-cask superduper
-cask cloudup
-cask focus
-cask keepingyouawake
-cask openemu
-cask 1password
-cask flux
-cask alfred
-cask fluid
-cask gfxcardstatus
-cask istat-menus
-cask alfred
-cask appzapper
-cask dropbox
+cask 'backblaze'
+cask 'superduper'
+cask 'cloudup'
+cask 'focus'
+cask 'keepingyouawake'
+cask 'openemu'
+cask '1password'
+cask 'flux'
+cask 'alfred'
+cask 'fluid'
+cask 'gfxcardstatus'
+cask 'istat-menus'
+cask 'alfred'
+cask 'appzapper'
+cask 'dropbox'
 
 # Music
-cask xld
-cask id3-editor
+cask 'xld'
+cask 'id3-editor'
 
 # Quicklook stuff
-cask betterzipql
-cask qlcolorcode
-cask qlimagesize
-cask qlmarkdown
-cask qlprettypatch
-cask qlstephen
-cask quicklook-csv
-cask quicklook-json
+cask 'betterzipql'
+cask 'qlcolorcode'
+cask 'qlimagesize'
+cask 'qlmarkdown'
+cask 'qlprettypatch'
+cask 'qlstephen'
+cask 'quicklook-csv'
+cask 'quicklook-json'
 
 
 ##########################
@@ -73,36 +73,36 @@ cask quicklook-json
 ##########################
 
 # Builtins
-brew coreutils
-brew findutils
-brew moreutils
-brew vim, args: ['override-system-vi']
-brew homebrew/dupes/grep
+brew 'coreutils'
+brew 'findutils'
+brew 'moreutils'
+brew 'vim', args: ['override-system-vi']
+brew 'homebrew/dupes/grep'
 
 # DB services
-brew postgresql
-brew redis
+brew 'postgresql'
+brew 'redis'
 
 # git(hub)
-brew git
-brew ghi
-brew hub
-brew gifify
+brew 'git'
+brew 'ghi'
+brew 'hub'
+brew 'gifify'
 
 # Code
-brew highlight
+brew 'highlight'
 
 # Helpers
-brew rename
-brew trash
-brew tree
-brew watchman
-brew homebrew/boneyard/whereami
-brew z
+brew 'rename'
+brew 'trash'
+brew 'tree'
+brew 'watchman'
+brew 'homebrew/boneyard/whereami'
+brew 'z'
 
 # Zsh
-brew zsh
-brew zsh-completions
+brew 'zsh'
+brew 'zsh-completions'
 
 
 ##########################
