@@ -1,12 +1,4 @@
 ##########################
-# Init                   #
-##########################
-
-update    # Update homebrew
-upgrade   # Update packages
-
-
-##########################
 # Taps                   #
 ##########################
 
@@ -103,12 +95,3 @@ brew 'z'
 # Zsh
 brew 'zsh'
 brew 'zsh-completions'
-
-
-##########################
-# Clean                  #
-##########################
-
-cleanup
-doctor
-
