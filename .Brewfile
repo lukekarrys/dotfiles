@@ -12,6 +12,8 @@ upgrade   # Update packages
 
 tap homebrew/versions
 tap caskroom/cask
+tap homebrew/dupes
+tap homebrew/boneyard
 
 
 ##########################
@@ -96,6 +98,7 @@ brew trash
 brew tree
 brew watchman
 brew homebrew/boneyard/whereami
+brew z
 
 # Zsh
 brew zsh

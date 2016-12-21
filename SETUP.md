@@ -1,9 +1,5 @@
 # Computer Setup Notes 2016-12-20
 
-## TODOs
-
-- Move openemu save dir to dropbox
-
 
 ## Copy Files
 
@@ -12,6 +8,7 @@
 - Open itunes and point at dropbox music
 - Move projects dir over
 - Open photos and point at dropbox photos
+- TODO: move openemu to dropbox
 
 
 ## System Prefs
@@ -45,7 +42,7 @@
   - Auto hide
   - Add spacers + apps
 - View Options
- - Always list
+  - Always list
 
 
 ## Apps
@@ -72,6 +69,7 @@
 ### Brew
 
 - Install homebrew
+- `brew tap Homebrew/bundle`
 - `brew bundle ~/.Brewfile`
 
 ### Fluid Apps

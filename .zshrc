@@ -55,6 +55,7 @@ ulimit -n 10000
 # dont show % sign when ctrl-c'ing
 export PROMPT_EOL_MARK=""
 
+source $(brew --prefix)/etc/profile.d/z.sh
 source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles
