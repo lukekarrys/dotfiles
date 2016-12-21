@@ -78,7 +78,7 @@ brew 'redis'
 
 # git(hub)
 brew 'git'
-brew 'ghi'
+# brew 'ghi' # TODO: figure out pygments install so it just works
 brew 'hub'
 brew 'gifify'
 
