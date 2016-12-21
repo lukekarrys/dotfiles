@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-npm ls -g --depth=0 --parseable | xargs -n1 basename > installed-packages/npm.txt
+npm ls -g --depth=0 --parseable | tail -n +2 | xargs -n1 basename > installed-packages/npm.txt
 brew bundle dump --file=installed-packages/Brewfile
 cat ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings | json installed_packages > installed-packages/sublime.txt
 
