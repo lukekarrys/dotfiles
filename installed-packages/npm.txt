@@ -1,20 +1,19 @@
-/Users/lukekarrys/.nvm/versions/node/v6.9.2/lib
-├── diff-so-fancy@0.11.2
-├── fixpack@2.3.1
-├── geohash-cli@1.0.2
-├── ghwd@1.1.1
-├── greenkeeper@4.1.1
-├── gzip-size-cli@1.0.0
-├── js-size@2.0.0
-├── json@9.0.4
-├── nodemon@1.11.0
-├── npm@3.10.9
-├── npm-check-updates@2.8.6
-├── npmwd@1.1.0
-├── pm2@2.1.5
-├── pretty-bytes-cli@2.0.0
-├── ragnar-data@1.2.0
-├── react-native-cli@1.2.0
-├── rnpm@1.9.0
-└── vmd@1.28.0
-
+lib
+diff-so-fancy
+fixpack
+geohash-cli
+ghwd
+greenkeeper
+gzip-size-cli
+js-size
+json
+nodemon
+npm
+npm-check-updates
+npmwd
+pm2
+pretty-bytes-cli
+ragnar-data
+react-native-cli
+rnpm
+vmd

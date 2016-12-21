@@ -3,11 +3,11 @@
 
 ## Copy Files
 
-- Move dropbox over
-- Move itunes library over
-- Open itunes and point at dropbox music
-- Move projects dir over
-- Open photos and point at dropbox photos
+- Copy `~/Dropbox`
+- Copy `~/projects`
+- Copy `~/Music`
+- Open iTunes and point at `~/Dropbox/iTunes\ Media`
+- Open Photos and point at `~/Dropbox/Pictures/Photos\ Library.photoslibrary/`
 - TODO: move openemu to dropbox
 
 
@@ -68,8 +68,8 @@
 
 ### Brew
 
-- Install homebrew
-- `brew tap Homebrew/bundle`
+- Install homebrew [Docs](http://brew.sh/)
+- `brew tap Homebrew/bundle` [Docs](https://github.com/Homebrew/homebrew-bundle)
 - `brew bundle ~/.Brewfile`
 
 ### Fluid Apps
@@ -91,3 +91,4 @@ TODO: figure out subl command creation
 - Create SSH keys for config
 - Add auth key for iOS
 - Lock down SSH to key only
+- Instal all sublime pacakges [Docs](http://stackoverflow.com/questions/33581626/installing-multiple-packages-in-sublime-text-3)

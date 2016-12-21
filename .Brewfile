@@ -2,10 +2,11 @@
 # Taps                   #
 ##########################
 
+tap 'homebrew/core'
+tap 'homebrew/bundle'
 tap 'homebrew/versions'
 tap 'caskroom/cask'
 tap 'homebrew/dupes'
-tap 'homebrew/boneyard'
 
 
 ##########################
@@ -89,7 +90,6 @@ brew 'rename'
 brew 'trash'
 brew 'tree'
 brew 'watchman'
-brew 'homebrew/boneyard/whereami'
 brew 'z'
 
 # Zsh
