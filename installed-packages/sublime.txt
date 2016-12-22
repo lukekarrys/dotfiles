@@ -2,7 +2,7 @@
   "Babel",
   "Babel Snippets",
   "Better CoffeeScript",
-  "CSS3_Syntax",
+  "CSS3",
   "EditorConfig",
   "HTMLBeautify",
   "Jade",

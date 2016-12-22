@@ -13,6 +13,8 @@
 
 ## System Prefs
 
+- Sharing
+  - Enable File Sharing and Remote Login
 - iCloud
   - Keep notes, find my mac, iCloud drive (not documents/data)
 - Screen Saver
@@ -29,8 +31,12 @@
   - Turn off auto updates
 - Internet account
   - Turn on contacts and calendars
-- `TODO` Make animations happen faster
-
+- Make animations happen faster
+  - Dock `defaults write com.apple.Dock autohide-delay -float 0; killall Dock`
+  - Mission Control `defaults write com.apple.dock expose-animation-duration -float 0.1`
+- Other system stuff not in prefs
+  - No iCloud saving `defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false`
+  - Translucent hidden apps `defaults write com.apple.dock showhidden -bool true`
 
 ## Finder
 
@@ -133,7 +139,8 @@ cd ~/projects/lukekarrys/dotfiles
   - Open iTerm 2
   - Set to read preferences from `~/Dropbox/Apps/iTerm`
 
-
-- Create SSH keys for config
-- Add auth key for iOS
-- Lock down SSH to key only
+- Setup `ssh`
+  - `mkdir -p ~/.ssh/keys`
+  - Create files in `~/.ssh/keys` for stuff in `~/.ssh/config`
+  - `touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys` and copy keys there
+  - Secure `/etc/ssh/sshd_config` [Docs](http://serverfault.com/questions/85992/how-do-i-setup-sshd-on-mac-os-x-to-only-allow-key-based-authentication)
