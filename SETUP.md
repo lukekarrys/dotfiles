@@ -34,8 +34,9 @@
 # Super fast keyboard
 defaults write NSGlobalDomain KeyRepeat -int 1
 defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write -g ApplePressAndHoldEnabled -bool false
 
-# Faster Dock and mission contro lanimations
+# Faster Dock and mission control animations
 defaults write com.apple.Dock autohide-delay -float 0; killall Dock
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
