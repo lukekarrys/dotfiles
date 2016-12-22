@@ -45,6 +45,7 @@ cask 'istat-menus'
 cask 'alfred'
 cask 'appzapper'
 cask 'dropbox'
+cask 'bartender'
 
 # Music
 cask 'xld'
