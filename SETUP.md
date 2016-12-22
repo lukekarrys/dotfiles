@@ -132,13 +132,11 @@ npm install -g `cat installed-packages/npm.txt | tr '\n' ' '`
 ```
 
 - Setup `sublime`
-  - Probably easiest to just copy everything `cp -r /Volumes/Clone/Users/lukekarrys/Library/Application\ Support/Sublime\ Text\ 3/ ~/Library/Application\ Support/`
   - Download and install Ubuntu Mono font [Docs](http://font.ubuntu.com/) (double click to install)
   - Open `Sublime Text 3`
+  - Link sublime text to dropbox`./.dotfile-bin/subl-link`
+  - Restart sublime
   - Setup `packagecontrol` [Docs](https://packagecontrol.io/installation)
-  - `cat installed-packages/sublime.txt | sed "s/[\",]//g" | sed "s/^ *//g" | sed '1d' | sed '$d' | tr '\n' ',' | pbcopy`
-  - `Cmd + Shift + P > Advanced Install` and paste
-  - Install all packages
 
 - Install `dotfiles` [Docs](https://github.com/lukekarrys/dotfiles)
 
