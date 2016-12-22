@@ -69,7 +69,7 @@ alias killtunnel="ps -x | grep 'ssh -NfL' | grep -v 'grep' | tr -s ' ' | cut -d 
 
 alias beep="node -e 'process.stdout.write(\"\x07\")'"
 
-alias editorconfig="echo '# editorconfig.org\nroot = true\n\n[*]\nindent_style = spaces\nindent_size = 2\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n\n[*.md]\ntrim_trailing_whitespace = false\n\n[*.jade]\ntrim_trailing_whitespace = false' > .editorconfig"
+alias editorconfig="echo '# editorconfig.org\nroot = true\n\n[*]\nindent_style = spaces\nindent_size = 2\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n\n[*.md]\ntrim_trailing_whitespace = false\n\n[*.{jade,pug}]\ntrim_trailing_whitespace = false' > .editorconfig"
 
 alias travisconfig="echo 'language: node_js\nnode_js:\n  - 4\n  - 5\n  - 6\nscript: npm run lint && npm run validate && npm test' > .travis.yml"
 
