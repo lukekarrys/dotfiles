@@ -23,20 +23,36 @@
 - Security
   - require password immediately
   - add lock screen email/phone
-- Keyboard
-  - `defaults write NSGlobalDomain KeyRepeat -int 1 && defaults write NSGlobalDomain InitialKeyRepeat -int 10`
 - Trackpad
   - Tap to click
 - App Store
   - Turn off auto updates
-- Internet account
+- Internet accounts
   - Turn on contacts and calendars
-- Make animations happen faster
-  - Dock `defaults write com.apple.Dock autohide-delay -float 0; killall Dock`
-  - Mission Control `defaults write com.apple.dock expose-animation-duration -float 0.1`
-- Other system stuff not in prefs
-  - No iCloud saving `defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false`
-  - Translucent hidden apps `defaults write com.apple.dock showhidden -bool true`
+
+```sh
+# Super fast keyboard
+defaults write NSGlobalDomain KeyRepeat -int 1 && defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+# Faster Dock and mission contro lanimations
+defaults write com.apple.Dock autohide-delay -float 0; killall Dock
+defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Dont save to icloud
+defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+# Translucent dock hidden apps
+defaults write com.apple.dock showhidden -bool true
+
+# Expand dialogs for save and print
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
+
+killall Finder
+killall Dock
+```
 
 ## Finder
 
@@ -114,12 +130,13 @@ npm install -g `cat installed-packages/npm.txt | tr '\n' ' '`
 ```
 
 - Setup `sublime`
+  - Probably easiest to just copy everything `cp -r /Volumes/Clone/Users/lukekarrys/Library/Application\ Support/Sublime\ Text\ 3/ ~/Library/Application\ Support/`
   - Download and install Ubuntu Mono font [Docs](http://font.ubuntu.com/) (double click to install)
   - Open `Sublime Text 3`
   - Setup `packagecontrol` [Docs](https://packagecontrol.io/installation)
   - `cat installed-packages/sublime.txt | sed "s/[\",]//g" | sed "s/^ *//g" | sed '1d' | sed '$d' | tr '\n' ',' | pbcopy`
   - `Cmd + Shift + P > Advanced Install` and paste
-  - Ins
+  - Install all packages
 
 - Install `dotfiles` [Docs](https://github.com/lukekarrys/dotfiles)
 
