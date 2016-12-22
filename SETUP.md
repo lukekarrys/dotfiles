@@ -52,11 +52,13 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode2 -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
+# Restart
 killall Finder
 killall Dock
 
 # TODO: save dialog no animation
 ```
+
 
 ## Finder
 
@@ -101,7 +103,7 @@ mas install 920404675 # Monodraw
 - Open each one and like do stuff with it?
 
 
-## Dev
+## Dev Env
 
 - Install `xcode cli` [Docs](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcode-select.1.html)
 
