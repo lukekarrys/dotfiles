@@ -52,6 +52,8 @@ defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
 killall Finder
 killall Dock
+
+# TODO: save dialog no animation
 ```
 
 ## Finder
