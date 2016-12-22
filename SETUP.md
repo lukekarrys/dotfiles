@@ -32,7 +32,8 @@
 
 ```sh
 # Super fast keyboard
-defaults write NSGlobalDomain KeyRepeat -int 1 && defaults write NSGlobalDomain InitialKeyRepeat -int 10
+defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write NSGlobalDomain InitialKeyRepeat -int 10
 
 # Faster Dock and mission contro lanimations
 defaults write com.apple.Dock autohide-delay -float 0; killall Dock
@@ -71,32 +72,23 @@ killall Dock
 
 ## Apps
 
-### App Store Apps
-
-TODO: `mas-cli` and add to `.Brewfile`
-
-**lukekarrys@gmail.com**
-- Xcode
-- Apple apps
-- Duplicate Photos Finder
-- Day One
-- Slack
-- Daisy Disk
-- Divvy
-- Letterpress
-- Due
-
-**andyet**
-- Fantastical
-- Hyperdock
-- Monodraw
-- iA Writer
-
 ### Brew
 
 - Install homebrew [Docs](http://brew.sh/)
+- `brew install mas`
 - `brew tap Homebrew/bundle` [Docs](https://github.com/Homebrew/homebrew-bundle)
 - `brew bundle ~/.Brewfile`
+
+### Other App Store Accounts
+
+```sh
+mas signout
+mas signin andyet@me.com
+mas install 975937182 # Fantastical 2
+mas install 449830122 # HyperDock
+mas install 775737590 # iA Writer
+mas install 920404675 # Monodraw
+```
 
 ### Fluid Apps
 
@@ -109,6 +101,12 @@ TODO: `mas-cli` and add to `.Brewfile`
 
 
 ## Dev
+
+- Install `xcode cli` [Docs](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcode-select.1.html)
+
+```sh
+xcode-select --install
+```
 
 - Change shell to homebrew's `zsh` [Docs](http://rick.cogley.info/post/use-homebrew-zsh-instead-of-the-osx-default/)
 
@@ -159,7 +157,13 @@ cd ~/projects/lukekarrys/dotfiles
   - Set to read preferences from `~/Dropbox/Apps/iTerm`
 
 - Setup `ssh`
-  - `mkdir -p ~/.ssh/keys`
-  - Create files in `~/.ssh/keys` for stuff in `~/.ssh/config`
-  - `touch ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys` and copy keys there
-  - Secure `/etc/ssh/sshd_config` [Docs](http://serverfault.com/questions/85992/how-do-i-setup-sshd-on-mac-os-x-to-only-allow-key-based-authentication)
+
+```sh
+mkdir -p ~/.ssh/keys
+# Create each of these keys
+cat ~/.ssh/config | grep IdentityFile | awk '{print $2}' | xargs -n1 basename | uniq
+touch ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys # Add public keys for here
+```
+
+- Secure `/etc/ssh/sshd_config` [Docs](http://serverfault.com/questions/85992/how-do-i-setup-sshd-on-mac-os-x-to-only-allow-key-based-authentication)

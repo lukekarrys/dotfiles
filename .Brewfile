@@ -61,6 +61,28 @@ cask 'quicklook-json'
 
 
 ##########################
+# MAS                    #
+##########################
+
+# Apple
+mas 'Xcode', id: 497799835
+mas 'Pages', id: 409201541
+mas 'GarageBand', id: 682658836
+mas 'Numbers', id: 409203825
+mas 'Keynote', id: 409183694
+mas 'iMovie', id: 408981434
+
+# lukekarrys@gmail.com
+mas 'Letterpress', id: 1070543522
+mas 'Due', id: 524373870
+mas 'Slack', id: 803453959
+mas 'Duplicate Photos Fixer Pro', id: 963642514
+mas 'DaisyDisk', id: 411643860
+mas 'Divvy', id: 413857545
+mas 'Day One', id: 1055511498
+
+
+##########################
 # CLIs                   #
 ##########################
 
@@ -94,3 +116,6 @@ brew 'z'
 # Zsh
 brew 'zsh'
 brew 'zsh-completions'
+
+# Mac
+brew 'mas'
