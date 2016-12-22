@@ -24,6 +24,7 @@ brew 'gifify'
 brew 'lua'
 brew 'highlight'
 brew 'hub'
+brew 'mas'
 brew 'moreutils'
 brew 'openssl'
 brew 'pcre'
@@ -40,6 +41,7 @@ brew 'zsh'
 brew 'zsh-completions'
 brew 'homebrew/dupes/grep'
 cask '1password'
+cask 'aerial'
 cask 'airfoil'
 cask 'alfred'
 cask 'appzapper'
@@ -72,3 +74,20 @@ cask 'spotify'
 cask 'sublime-text'
 cask 'superduper'
 cask 'xld'
+mas 'Xcode', id: 497799835
+mas 'Keynote', id: 409183694
+mas 'iMovie', id: 408981434
+mas 'Fantastical 2', id: 975937182
+mas 'Letterpress', id: 1070543522
+mas 'HyperDock', id: 449830122
+mas 'Day One', id: 1055511498
+mas 'iA Writer', id: 775737590
+mas 'Due', id: 524373870
+mas 'Slack', id: 803453959
+mas 'Duplicate Photos Fixer Pro', id: 963642514
+mas 'Pages', id: 409201541
+mas 'GarageBand', id: 682658836
+mas 'Divvy', id: 413857545
+mas 'Monodraw', id: 920404675
+mas 'DaisyDisk', id: 411643860
+mas 'Numbers', id: 409203825

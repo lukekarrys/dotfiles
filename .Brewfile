@@ -28,6 +28,7 @@ cask 'spotify'
 cask 'postico'
 cask 'airfoil'
 cask 'lastfm'
+cask 'aerial'
 
 # Utils
 cask 'backblaze'
