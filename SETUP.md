@@ -37,8 +37,8 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 10
 defaults write -g ApplePressAndHoldEnabled -bool false
 
 # Faster Dock and mission control animations
-defaults write com.apple.Dock autohide-delay -float 0; killall Dock
-defaults write com.apple.dock expose-animation-duration -float 0.1
+defaults write com.apple.Dock autohide-delay -float 0
+defaults write -g QLPanelAnimationDuration -float 0.1
 
 # Dont save to icloud
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
