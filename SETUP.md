@@ -114,10 +114,12 @@ npm install -g `cat installed-packages/npm.txt | tr '\n' ' '`
 ```
 
 - Setup `sublime`
+  - Download and install Ubuntu Mono font [Docs](http://font.ubuntu.com/) (double click to install)
   - Open `Sublime Text 3`
   - Setup `packagecontrol` [Docs](https://packagecontrol.io/installation)
   - `cat installed-packages/sublime.txt | sed "s/[\",]//g" | sed "s/^ *//g" | sed '1d' | sed '$d' | tr '\n' ',' | pbcopy`
   - `Cmd + Shift + P > Advanced Install` and paste
+  - Ins
 
 - Install `dotfiles` [Docs](https://github.com/lukekarrys/dotfiles)
 
