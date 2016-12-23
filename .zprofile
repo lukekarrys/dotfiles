@@ -11,7 +11,6 @@ load-nvmrc() {
     fi
   fi
 
-
   if [[ -f .nvmrc && -r .nvmrc ]]; then
     nvm use
   elif type "nvm" > /dev/null; then
