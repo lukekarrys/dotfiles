@@ -40,8 +40,11 @@ plugins=(git node sublime rsync history github emoji-clock brew battery z projec
 # slow, disabled plugins
 # npm
 
+# Brew prefix is slow on startup so just hardcode it
+local CORE_UTILS_PATH="/usr/local/opt/coreutils"
+
 # For brew install coreutils and other path stuff
-export PATH="$HOME/.dotfiles-bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/bin:$(brew --prefix coreutils)/libexec/gnubin:$PATH:$HOME/.rvm/bin:/usr/local/sbin"
+export PATH="$HOME/.dotfiles-bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/bin:$CORE_UTILS_PATH/libexec/gnubin:$PATH:$HOME/.rvm/bin:/usr/local/sbin"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Appends every command to the history file once it is executed
@@ -55,7 +58,7 @@ ulimit -n 10000
 # dont show % sign when ctrl-c'ing
 export PROMPT_EOL_MARK=""
 
-source $(brew --prefix)/etc/profile.d/z.sh
+source /usr/local/etc/profile.d/z.sh
 source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles
