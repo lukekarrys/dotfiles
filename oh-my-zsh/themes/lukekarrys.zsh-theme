@@ -146,7 +146,7 @@ prompt_status() {
 }
 
 prompt_nvm() {
-  if [[ -a "package.json" || -a ".nvmrc"]]; then
+  if [[ -a "package.json" || -a ".nvmrc" ]]; then
     if type "nvm" > /dev/null; then
       prompt_segment_right green black "$(nvm_prompt_info) $(npm -v) "
     fi
