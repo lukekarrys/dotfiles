@@ -114,6 +114,7 @@ brew 'trash'
 brew 'tree'
 brew 'watchman'
 brew 'z'
+brew 'ngrep'
 
 # Zsh
 brew 'zsh'
