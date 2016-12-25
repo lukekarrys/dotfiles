@@ -223,3 +223,10 @@ function nvm-update {
   git checkout "$TAG"
   cd -
 }
+
+function ssh-add-all {
+  for file in ~/.ssh/keys/*; do
+    ssh-add -K "$file";
+  done;
+  unset file;
+}
