@@ -230,3 +230,7 @@ function ssh-add-all {
   done;
   unset file;
 }
+
+function itunes-sync() {
+  rsync -av --force --delete --size-only $@ ~/Dropbox/iTunes\ Media/Music/ tweedy:/Volumes/Data/iTunes/Music;
+}
