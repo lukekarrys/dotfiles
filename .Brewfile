@@ -46,6 +46,7 @@ cask 'alfred'
 cask 'appzapper'
 cask 'dropbox'
 cask 'bartender'
+cask 'rocket'
 
 # Music
 cask 'xld'
@@ -115,6 +116,7 @@ brew 'tree'
 brew 'watchman'
 brew 'z'
 brew 'ngrep'
+brew 'exiftool'
 
 # Zsh
 brew 'zsh'
