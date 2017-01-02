@@ -29,6 +29,7 @@ cask 'postico'
 cask 'airfoil'
 cask 'lastfm'
 cask 'aerial'
+cask 'dupeguru'
 
 # Utils
 cask 'backblaze'
