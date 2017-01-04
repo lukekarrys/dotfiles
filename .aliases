@@ -103,3 +103,5 @@ alias nodemoduleslist="find ~/projects -type d -name 'node_modules' -maxdepth 3 
 alias nodemodulesdelete="find ~/projects -type d -name 'node_modules' -maxdepth 3 -exec rm -rf {} \;"
 
 alias focus="open focus://focus"
+
+alias cleancaches="brew cask cleanup && brew cleanup"
