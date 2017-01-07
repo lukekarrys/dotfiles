@@ -21,6 +21,7 @@ cask 'firefox'
 cask 'imageoptim'
 cask 'sublime-text'
 cask 'iterm2'
+cask 'postgres'
 
 # Media
 cask 'calibre'
@@ -98,7 +99,6 @@ brew 'vim', args: ['override-system-vi']
 brew 'homebrew/dupes/grep'
 
 # DB services
-brew 'postgresql'
 brew 'redis'
 
 # git(hub)
