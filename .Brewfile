@@ -50,6 +50,9 @@ cask 'dropbox'
 cask 'bartender'
 cask 'rocket'
 
+# Communication
+cask 'skype'
+
 # Music
 cask 'xld'
 cask 'id3-editor'

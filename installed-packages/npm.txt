@@ -4,6 +4,7 @@ geohash-cli
 ghwd
 greenkeeper
 gzip-size-cli
+jest-codemods
 js-size
 json
 nodemon
