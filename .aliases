@@ -83,10 +83,10 @@ alias dateslug='date "+%Y-%m-%d %H:%M"'
 alias dateiso='date -u +"%Y-%m-%dT%H:%M:%S.%NZ"'
 
 # bootstrap and source
-alias dotbs='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && ./bootstrap.sh && cd -'
+alias dotbs='cd ~/projects/lukekarrys/dotfiles && ./bootstrap.sh && cd -'
 alias dotsource='source ~/.zprofile && source ~/.zshrc'
-alias dotedit='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && s .'
-alias dotdone='cd /Users/lukekarrys/projects/lukekarrys/dotfiles && gca "edit dotfiles `dateslug`" && gpo master && cd -'
+alias dotedit='cd ~/projects/lukekarrys/dotfiles && s .'
+alias dotdone='cd ~/projects/lukekarrys/dotfiles && gca "edit dotfiles `dateslug`" && gpo master && cd -'
 
 # ssh
 alias tunnel="ssh -NfL 5900:127.0.0.1:5900"

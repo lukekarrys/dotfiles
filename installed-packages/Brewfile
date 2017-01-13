@@ -33,6 +33,7 @@ brew 'pcre'
 brew 'readline'
 brew 'redis'
 brew 'rename'
+brew 'ssh-copy-id'
 brew 'trash'
 brew 'tree'
 brew 'vim', args: ['with-override-system-vi']

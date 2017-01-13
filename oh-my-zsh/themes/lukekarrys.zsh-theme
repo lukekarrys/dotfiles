@@ -119,10 +119,10 @@ prompt_dir() {
 }
 
 prompt_dir2() {
-  if [[ ${PWD} == '/Users/lukekarrys/projects/'*'/'* ]]; then
+  if [[ ${PWD} == "${HOME}/projects/"*"/"* ]]; then
     # in nested into a specific project then do two levels
     prompt_segment blue black '%2d'
-  elif [[ ${PWD} == '/Users/lukekarrys/projects/'* ]]; then
+  elif [[ ${PWD} == "${HOME}/projects/"* ]]; then
     # otherwise we are in projects/user so just show one
     prompt_segment blue black '%1d'
   else

@@ -121,6 +121,7 @@ brew 'watchman'
 brew 'z'
 brew 'ngrep'
 brew 'exiftool'
+brew 'ssh-copy-id'
 
 # Zsh
 brew 'zsh'

@@ -1,7 +1,7 @@
 export DEFAULT_USER="lukekarrys"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/lukekarrys/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # ssh completion
 zstyle -s ':completion:*:hosts' hosts _ssh_config
@@ -26,7 +26,7 @@ ZSH_THEME="lukekarrys"
 # ENABLE_CORRECTION="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=/Users/lukekarrys/projects/lukekarrys/dotfiles/oh-my-zsh
+ZSH_CUSTOM=~/projects/lukekarrys/dotfiles/oh-my-zsh
 
 # dont use color for history substring search
 export DISABLE_COLOR="true"

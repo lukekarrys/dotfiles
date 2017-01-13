@@ -82,7 +82,6 @@ killall SystemUIServer
 ### Brew
 
 - Install homebrew [Docs](http://brew.sh/)
-- `brew install mas`
 - `brew tap Homebrew/bundle` [Docs](https://github.com/Homebrew/homebrew-bundle)
 - `brew bundle ~/.Brewfile`
 
@@ -105,6 +104,7 @@ mas install 920404675 # Monodraw
 ### For All Apps
 
 - Open each one and like do stuff with it?
+- TODO: `mackup`
 
 
 ## Dev Env

@@ -1,4 +1,4 @@
-export NVM_DIR="/Users/lukekarrys/.nvm"
+export NVM_DIR="${HOME}/.nvm"
 
 # Hardcode nvm version since I usually one use main version to speed up
 # new shells while still getting node and npm modules in the path
