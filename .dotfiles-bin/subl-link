@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# Simple (hopefully kinda) portable way to get json
+DROPBOX=$(cat ~/.dropbox/info.json | python -c "import json,sys;obj=json.load(sys.stdin);print obj['personal']['path'];")
+
 cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
+
+echo "Removing ${pwd}/User"
 rm -r User
-ln -s ~/Dropbox/Apps/Sublime\ Text\ 3/User
+
+echo "Linking to $DROPBOX/Apps/Sublime\ Text\ 3/User"
+ln -s $DROPBOX/Apps/Sublime\ Text\ 3/User

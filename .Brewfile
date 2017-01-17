@@ -22,6 +22,7 @@ cask 'imageoptim'
 cask 'sublime-text'
 cask 'iterm2'
 cask 'postgres'
+cask 'mancy'
 
 # Media
 cask 'calibre'
@@ -31,6 +32,7 @@ cask 'airfoil'
 cask 'lastfm'
 cask 'aerial'
 cask 'dupeguru'
+cask 'fog'
 
 # Utils
 cask 'backblaze'
@@ -49,6 +51,7 @@ cask 'appzapper'
 cask 'dropbox'
 cask 'bartender'
 cask 'rocket'
+cask 'kap'
 
 # Communication
 cask 'skype'
@@ -106,7 +109,6 @@ brew 'redis'
 
 # git(hub)
 brew 'git'
-# brew 'ghi' # TODO: figure out pygments install so it just works
 brew 'hub'
 brew 'gifify'
 

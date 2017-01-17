@@ -8,6 +8,7 @@ jest-codemods
 js-size
 json
 nodemon
+np
 npm
 npm-check-updates
 npmwd
