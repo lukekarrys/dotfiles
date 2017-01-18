@@ -8,6 +8,10 @@ function mp4() {
     ffmpeg -i `basename $@` -c:v copy -c:a copy `basename $@ .mkv`.mp4
 }
 
+function db() {
+  cd $(cat ~/.dropbox/info.json | python -c "import json,sys;obj=json.load(sys.stdin);print obj['personal']['path'];")
+}
+
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";
