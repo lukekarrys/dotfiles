@@ -52,6 +52,7 @@ cask 'bartender'
 cask 'betterzipql'
 cask 'calibre'
 cask 'cloudup'
+cask 'doxie'
 cask 'dropbox'
 cask 'dupeguru'
 cask 'firefox'
@@ -90,6 +91,7 @@ mas 'iMovie', id: 408981434
 mas 'Fantastical 2', id: 975937182
 mas 'Letterpress', id: 1070543522
 mas 'HyperDock', id: 449830122
+mas 'Install macOS Sierra', id: 1127487414
 mas 'Day One', id: 1055511498
 mas 'iA Writer', id: 775737590
 mas 'Due', id: 524373870

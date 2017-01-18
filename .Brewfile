@@ -52,6 +52,7 @@ cask 'dropbox'
 cask 'bartender'
 cask 'rocket'
 cask 'kap'
+cask 'doxie'
 
 # Communication
 cask 'skype'
