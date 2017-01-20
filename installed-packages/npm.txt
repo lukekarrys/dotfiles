@@ -1,4 +1,4 @@
-dayone-templates
+@lukekarrys/dayone-templates
 diff-so-fancy
 fixpack
 geohash-cli
