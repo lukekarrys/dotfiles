@@ -1,0 +1,15 @@
+---
+title: Rowing Machine Workout
+tags: row
+journal: Workout
+---
+# {{title}}
+
+**Workout**
+{{workout}}
+
+**Results**
+{{results}}
+
+**Notes**
+{{notes}}

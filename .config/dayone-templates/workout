@@ -1,0 +1,14 @@
+---
+title: Workout
+journal: Workout
+---
+# {{title}}
+
+**Workout**
+{{workout}}
+
+**Results**
+{{results}}
+
+**Notes**
+{{notes}}

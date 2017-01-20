@@ -1,0 +1,12 @@
+---
+title: ROMWOD
+tags: romwod
+journal: Workout
+---
+# {{title}}
+
+**Workout**
+{{workout}}
+
+**Notes**
+{{notes}}

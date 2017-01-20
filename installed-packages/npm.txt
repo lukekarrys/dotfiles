@@ -1,3 +1,4 @@
+dayone-templates
 diff-so-fancy
 fixpack
 geohash-cli
