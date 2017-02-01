@@ -1,5 +1,7 @@
+@andyet/talky-core
 @lukekarrys/dayone-templates
 diff-so-fancy
+fast-cli
 fixpack
 geohash-cli
 ghwd
@@ -8,6 +10,7 @@ gzip-size-cli
 jest-codemods
 js-size
 json
+nativefier
 nodemon
 np
 npm

@@ -96,10 +96,13 @@ mas install 775737590 # iA Writer
 mas install 920404675 # Monodraw
 ```
 
-### Fluid Apps
+### Natifier Apps
 
-- GitHub Fluid
-- Trello Fluid
+```
+make-electron-app GitHub https://github.com
+make-electron-app ROMWOD https://romwod.com/dashboard
+make-electron-app Trello https://trello.com
+```
 
 ### For All Apps
 

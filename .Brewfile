@@ -116,7 +116,7 @@ brew 'gifify'
 # Code
 brew 'highlight'
 
-# Helpers
+# Utils
 brew 'rename'
 brew 'trash'
 brew 'tree'
@@ -125,6 +125,7 @@ brew 'z'
 brew 'ngrep'
 brew 'exiftool'
 brew 'ssh-copy-id'
+brew 'p7zip'
 
 # Zsh
 brew 'zsh'

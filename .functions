@@ -234,3 +234,8 @@ function itunes-sync() {
 function gitignore() {
   curl -s https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore
 }
+
+function make-electron-app() {
+  nativefier -f --name "$1" "$2" /Applications
+  mv /Applications/$1-darwin-x64/$1.app /Applications/$1.app && rm -rf /Applications/$1-darwin-x64
+}
