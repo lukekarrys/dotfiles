@@ -1,4 +1,3 @@
-@andyet/talky-core
 @lukekarrys/dayone-templates
 diff-so-fancy
 fast-cli
