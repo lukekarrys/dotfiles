@@ -239,3 +239,15 @@ function make-electron-app() {
   nativefier -f --name "$1" "$2" /Applications
   mv /Applications/$1-darwin-x64/$1.app /Applications/$1.app && rm -rf /Applications/$1-darwin-x64
 }
+
+function op-luke() {
+  organize-photos --dest ~/Dropbox/Pictures/Photos/ --verbose --device lukes-iphone --src "$@"
+}
+
+function op-dinah() {
+  organize-photos --dest ~/Dropbox/Pictures/Photos/ --verbose --device dinahs-iphone --src "$@"
+}
+
+function op-sony() {
+  organize-photos --dest ~/Dropbox/Pictures/Photos/ --verbose --device sony --src "$@"
+}
