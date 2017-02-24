@@ -1,11 +1,15 @@
+@andyet/talky-core
 @lukekarrys/dayone-templates
+@lukekarrys/organize-photos
 diff-so-fancy
+exiftool.pl
 fast-cli
 fixpack
 geohash-cli
 ghwd
 greenkeeper
 gzip-size-cli
+html
 jest-codemods
 js-size
 json

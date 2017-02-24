@@ -19,7 +19,7 @@ function npm-ls-global() {
 
 if [[ "$DUMP" == "--dump" ]] then
   echo "Dumping npm and brew"
-  npm-ls-global > installed-packages/npm.txt
+  npm-ls-global 2> /dev/null > installed-packages/npm.txt
   brew bundle dump --file=installed-packages/Brewfile --force
 fi
 

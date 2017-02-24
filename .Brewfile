@@ -7,6 +7,7 @@ tap 'homebrew/bundle'
 tap 'homebrew/versions'
 tap 'caskroom/cask'
 tap 'homebrew/dupes'
+tap 'linode/cli'
 
 
 ##########################
@@ -23,6 +24,7 @@ cask 'sublime-text'
 cask 'iterm2'
 cask 'postgres'
 cask 'mancy'
+cask 'gitify'
 
 # Media
 cask 'calibre'
@@ -53,6 +55,8 @@ cask 'bartender'
 cask 'rocket'
 cask 'kap'
 cask 'doxie'
+cask 'logitech-options'
+cask 'toggldesktop'
 
 # Communication
 cask 'skype'
@@ -115,6 +119,7 @@ brew 'gifify'
 
 # Code
 brew 'highlight'
+brew 'linode/cli/linode-cli'
 
 # Utils
 brew 'rename'
