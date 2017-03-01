@@ -236,8 +236,13 @@ function gitignore() {
 }
 
 function make-electron-app() {
-  nativefier -f --name "$1" "$2" /Applications
+  nativefier -f --name $@ /Applications
   mv /Applications/$1-darwin-x64/$1.app /Applications/$1.app && rm -rf /Applications/$1-darwin-x64
+}
+
+function delete-electron-app() {
+  rm -rf /Applications/$1.app
+  rm -rf ~/Library/Application\ Support/`echo "$1" | tr '[:upper:]' '[:lower:]'`-nativefier-*
 }
 
 function op-luke() {
