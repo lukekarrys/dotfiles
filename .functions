@@ -235,6 +235,10 @@ function gitignore() {
   curl -s https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore
 }
 
+function license() {
+  curl -s https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/$1.txt | sed '1,/---/d' | tail -n +2 | head -n -1 | sed "s/\[fullname\]/$GIT_AUTHOR_NAME/" | sed "s/\[year\]/`date +%Y`/" > LICENSE
+}
+
 function make-electron-app() {
   nativefier -f --name $@ /Applications
   mv /Applications/$1-darwin-x64/$1.app /Applications/$1.app && rm -rf /Applications/$1-darwin-x64
