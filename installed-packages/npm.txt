@@ -1,6 +1,6 @@
-@andyet/talky-core
 @lukekarrys/dayone-templates
 @lukekarrys/organize-photos
+@lukekarrys/romwod
 diff-so-fancy
 exiftool.pl
 fast-cli
