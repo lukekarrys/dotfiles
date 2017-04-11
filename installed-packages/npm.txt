@@ -12,6 +12,7 @@ gzip-size-cli
 html
 jest-codemods
 js-size
+jscodeshift
 json
 nativefier
 nodemon
@@ -21,7 +22,9 @@ npm-check-updates
 npmwd
 pm2
 pretty-bytes-cli
+pushstate-server
 ragnar-data
 react-native-cli
 rnpm
+strip-ansi-cli
 vmd
