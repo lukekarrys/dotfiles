@@ -2,7 +2,6 @@
 @lukekarrys/organize-photos
 @lukekarrys/romwod
 diff-so-fancy
-exiftool.pl
 fast-cli
 fixpack
 geohash-cli
@@ -12,10 +11,10 @@ gzip-size-cli
 html
 jest-codemods
 js-size
-jscodeshift
 json
 nativefier
 nodemon
+now-logs
 np
 npm
 npm-check-updates
