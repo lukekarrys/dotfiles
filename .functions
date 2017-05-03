@@ -248,16 +248,6 @@ function delete-electron-app() {
   rm -rf ~/Library/Application\ Support/`echo "$1" | tr '[:upper:]' '[:lower:]'`-nativefier-*
 }
 
-function op() {
-  local DEVICE=$1
-  shift
-  if [ -z "$2" ]; then
-    cat ~/Dropbox/Pictures/Photos/.devices/$DEVICE | json .SUCCESS
-  else
-    organize-photos --dest ~/Dropbox/Pictures/Photos/ --verbose --device $DEVICE --src "$@"
-  fi
-}
-
 # Photo organization
 function op() {
   local DEVICE=$1

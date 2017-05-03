@@ -6,7 +6,6 @@ fast-cli
 fixpack
 geohash-cli
 ghwd
-greenkeeper
 gzip-size-cli
 html
 jest-codemods
