@@ -9,6 +9,7 @@ geohash-cli
 ghwd
 gzip-size-cli
 html
+html-to-text
 jest-codemods
 js-size
 json
@@ -24,6 +25,7 @@ pretty-bytes-cli
 pushstate-server
 ragnar-data
 react-native-cli
+react-native-git-upgrade
 rnpm
 strip-ansi-cli
 vmd
