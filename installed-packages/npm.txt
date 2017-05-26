@@ -15,7 +15,6 @@ js-size
 json
 nativefier
 nodemon
-now-logs
 np
 npm
 npm-check-updates
@@ -26,6 +25,5 @@ pushstate-server
 ragnar-data
 react-native-cli
 react-native-git-upgrade
-rnpm
 strip-ansi-cli
 vmd
