@@ -19,6 +19,7 @@ np
 npm
 npm-check-updates
 npmwd
+phantomjs
 pm2
 pretty-bytes-cli
 pushstate-server
