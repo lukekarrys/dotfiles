@@ -28,6 +28,7 @@ brew "heroku"
 brew "lua"
 brew "highlight"
 brew "hub"
+brew "jq"
 brew "mas"
 brew "moreutils"
 brew "ngrep"
@@ -94,6 +95,7 @@ cask "rescuetime"
 cask "rocket"
 cask "skype"
 cask "spotify"
+cask "sqlitebrowser"
 cask "sublime-text"
 cask "superduper"
 cask "toggldesktop"
@@ -115,4 +117,5 @@ mas "Numbers", id: 409203825
 mas "OmniFocus", id: 867299399
 mas "Pages", id: 409201541
 mas "Slack", id: 803453959
+mas "Tooth Fairy", id: 1191449274
 mas "Xcode", id: 497799835

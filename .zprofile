@@ -3,7 +3,7 @@ export NVM_DIR="${HOME}/.nvm"
 # Hardcode nvm version since I usually one use main version to speed up
 # new shells while still getting node and npm modules in the path
 # THIS NEEDS TO BE CHANGED WHENEVER the main nvm version is updated
-export DEFAULT_NVM_VERSION="v6.11.0"
+export DEFAULT_NVM_VERSION="v8.1.3"
 . "$NVM_DIR/nvm.sh" --no-use
 export PATH="${PATH}:${NVM_DIR}/versions/node/${DEFAULT_NVM_VERSION}/bin"
 
