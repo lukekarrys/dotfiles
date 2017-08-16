@@ -270,3 +270,11 @@ function op-dinah() {
 function op-sony() {
    op sony $@
 }
+
+function quip-pack() {
+  cd /Users/lukekarrys/projects/andyet/quip-elements
+  local ELEMENT=$1
+  local ID=$(cat elements/$ELEMENT/element/manifest.json | jq -r .id)
+  bin/quip-elements pack elements/$ELEMENT/element
+  open https://andyetdev.quip.com/api/apps/$ID
+}
