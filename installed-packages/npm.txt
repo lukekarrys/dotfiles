@@ -23,6 +23,7 @@ phantomjs
 pm2
 pretty-bytes-cli
 pushstate-server
+querydom
 ragnar-data
 react-native-cli
 react-native-git-upgrade
