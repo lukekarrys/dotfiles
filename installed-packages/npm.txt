@@ -2,7 +2,6 @@
 @lukekarrys/organize-photos
 @lukekarrys/romwod
 diff-so-fancy
-exiftool.pl
 fast-cli
 fixpack
 geohash-cli
@@ -10,10 +9,8 @@ ghwd
 gzip-size-cli
 html
 html-to-text
-jest-codemods
 js-size
 json
-nativefier
 nodemon
 np
 npm
@@ -25,7 +22,5 @@ pretty-bytes-cli
 pushstate-server
 querydom
 ragnar-data
-react-native-cli
-react-native-git-upgrade
 strip-ansi-cli
 vmd
