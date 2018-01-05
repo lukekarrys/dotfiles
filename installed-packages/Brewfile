@@ -43,6 +43,7 @@ brew "tree"
 brew "vim", args: ["with-override-system-vi"]
 brew "watchman"
 brew "wget"
+brew "youtube-dl"
 brew "z"
 brew "zsh"
 brew "zsh-completions"

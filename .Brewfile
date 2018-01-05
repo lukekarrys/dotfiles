@@ -57,6 +57,7 @@ cask 'kap'
 cask 'doxie'
 cask 'logitech-options'
 cask 'toggldesktop'
+cask 'rescuetime'
 
 # Communication
 cask 'skype'
