@@ -24,5 +24,4 @@ pushstate-server
 querydom
 ragnar-data
 strip-ansi-cli
-surge
 vmd
