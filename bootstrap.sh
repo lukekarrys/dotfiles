@@ -24,6 +24,7 @@ if [[ "$DUMP" == "--dump" ]] then
 fi
 
 rsync --exclude ".git/" \
+      --exclude ".gitignore" \
       --exclude ".DS_Store" \
       --exclude "bootstrap.sh" \
       --exclude "*.md" \
@@ -32,6 +33,8 @@ rsync --exclude ".git/" \
       --exclude "oh-my-zsh/" \
       --exclude "installed-packages/" \
       -avh --no-perms . ~;
+
+mv ~/.gitignore-dotfiles ~/.gitignore
 
 source ~/.zprofile;
 source ~/.zshrc;

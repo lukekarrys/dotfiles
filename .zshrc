@@ -61,7 +61,7 @@ export PROMPT_EOL_MARK=""
 source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles
-for file in ~/.{exports,aliases,functions}; do
+for file in ~/.{extra,exports,aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;
