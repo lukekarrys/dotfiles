@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+readonly work="$(cd "$(dirname "$0")" && pwd)"
+readonly queue="$work/queue"
+readonly crops="$work/crops"
+
+input="$(sed -n 1p "$queue")"
+
+while [ "$input" ]; do
+    title_name="$(basename "$input" | sed 's/\.[^.]*$//')"
+    crop_file="$crops/${title_name}"
+
+    if [ -f "$crop_file" ]; then
+        crop_option="--crop $(cat "$crop_file")"
+    else
+        crop_option=''
+    fi
+
+    sed -i '' 1d "$queue" || exit 1
+
+    transcode-video --abr --target big --quick --output "output/" $crop_option "originals/${input}.mkv"
+
+    input="$(sed -n 1p "$queue")"
+done
