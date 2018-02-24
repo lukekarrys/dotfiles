@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-readonly work="$(cd "$(dirname "$0")" && pwd)"
+readonly work="/Volumes/Data/makemkv"
 readonly queue="$work/queue"
 readonly crops="$work/crops"
 
