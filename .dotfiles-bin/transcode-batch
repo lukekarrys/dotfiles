@@ -8,6 +8,7 @@ fi
 readonly work="$TRANSCODE_BATCH_WORK_DIR"
 readonly queue="$work/queue"
 readonly crops="$work/crops"
+readonly params="$work/params"
 
 readonly original="$1"
 readonly filename="$(basename "${original%.*}")"
@@ -51,6 +52,13 @@ elif [ "$cmd" == "crop" ]; then
     fi
     echo "$3" > "$crops/$filename"
     exit 0
+elif [ "$cmd" == "param" ]; then
+    if [ -z "$option" ]; then
+        error "Param requires a value"
+        usage
+    fi
+    echo "$3" > "$params/$filename"
+    exit 0
 fi
 
 input="$(sed -n 1p "$queue")"
@@ -58,16 +66,24 @@ input="$(sed -n 1p "$queue")"
 while [ "$input" ]; do
     title_name="$(basename "$input" | sed 's/\.[^.]*$//')"
     crop_file="$crops/${title_name}"
+    param_file="$params/${title_name}"
+    build_args=()
 
     if [ -f "$crop_file" ]; then
-        crop_option="--crop $(cat "$crop_file")"
-    else
-        crop_option=''
+        build_args+=("--crop")
+        build_args+=("$(cat "$crop_file")")
     fi
+
+    if [ -f "$param_file" ]; then
+        build_args+=("$(cat "$param_file")")
+    fi
+
+    build_args+=("--output" "output/")
+    build_args+=(\""originals/${input}.mkv"\")
 
     sed -i '' 1d "$queue" || exit 1
 
-    transcode-video --abr --target big --quick --output "output/" $crop_option "originals/${input}.mkv"
+    eval transcode-video --abr --target big --quick --verbose "${build_args[@]}"
 
     input="$(sed -n 1p "$queue")"
 done
