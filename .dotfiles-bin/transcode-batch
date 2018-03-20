@@ -88,9 +88,9 @@ while [ "$input" ]; do
     sed -i '' 1d "$queue" || exit 1
 
     if [ "$cmd" == "ios" ]; then
-        eval transcode-video --m4v --target small --quick --verbose --output "ios/" "${build_args[@]}"
+        eval transcode-video --m4v --target small --quick --abr --verbose --output "ios/" "${build_args[@]}"
     else
-        eval transcode-video --abr --target big --quick --verbose --output "output/" "${build_args[@]}"
+        eval transcode-video --abr --target big --verbose --output "output/" "${build_args[@]}"
     fi
 
     input="$(sed -n 1p "$queue")"
