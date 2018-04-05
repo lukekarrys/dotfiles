@@ -278,3 +278,11 @@ function quip-pack() {
   bin/quip-elements pack elements/$ELEMENT/element
   open https://andyetdev.quip.com/api/apps/$ID
 }
+
+# Schedule sleep at a certain time, use like: sleep-at 60
+function sleep-at() {
+  local at=$1
+  local d=`date +"%m/%d/%y"`
+  echo "$d ${at}:00"
+  sudo pmset schedule sleep "$d ${at}:00"
+}
