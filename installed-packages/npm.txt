@@ -2,6 +2,7 @@
 @lukekarrys/organize-photos
 @lukekarrys/romwod
 diff-so-fancy
+exiftool.pl
 fast-cli
 fixpack
 geohash-cli
