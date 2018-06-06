@@ -1,3 +1,4 @@
+@lukekarrys/audiobook
 @lukekarrys/dayone-templates
 @lukekarrys/organize-photos
 @lukekarrys/romwod
@@ -19,6 +20,7 @@ npm-check-updates
 npmwd
 phantomjs
 pm2
+prettier
 pretty-bytes-cli
 pushstate-server
 querydom
