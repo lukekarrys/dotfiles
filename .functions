@@ -286,3 +286,7 @@ function sleep-at() {
   echo "$d ${at}:00"
   sudo pmset schedule sleep "$d ${at}:00"
 }
+
+function transcode-queue() {
+  ssh $@ "ps -x | grep \[t\]ranscode-video | sed 's/\(.*\)originals\/\(.*\).mkv/\2 -- inprogress/'; cat /Volumes/Data/makemkv/queue"
+}
