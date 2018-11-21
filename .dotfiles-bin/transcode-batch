@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 
-if [ -z "$TRANSCODE_BATCH_WORK_DIR" ]; then
-    echo "export \$TRANSCODE_BATCH_WORK_DIR must be set"
+if [ -z "$TRANSCODE_BATCH_DATA_DIR" ]; then
+    echo "export \$TRANSCODE_BATCH_DATA_DIR must be set"
     exit 1
 fi
 
-readonly work="$TRANSCODE_BATCH_WORK_DIR"
-readonly queue="$work/queue"
-readonly crops="$work/crops"
-readonly params="$work/params"
+if [ -z "$TRANSCODE_BATCH_FILE_DIR" ]; then
+    echo "export \$TRANSCODE_BATCH_FILE_DIR must be set"
+    exit 1
+fi
+
+readonly queue="$TRANSCODE_BATCH_DATA_DIR/queue"
+readonly crops="$TRANSCODE_BATCH_DATA_DIR/crops"
+readonly params="$TRANSCODE_BATCH_DATA_DIR/params"
 
 readonly cmd="$1"
 readonly original="$2"
@@ -83,14 +87,14 @@ while [ "$input" ]; do
         build_args+=("$(cat "$param_file")")
     fi
 
-    build_args+=(\""originals/${input}.mkv"\")
+    build_args+=(\""${TRANSCODE_BATCH_FILE_DIR}/originals/${input}.mkv"\")
 
     sed -i '' 1d "$queue" || exit 1
 
     if [ "$cmd" == "ios" ]; then
-        eval transcode-video --abr --target small --quick --verbose --m4v --output "ios/" "${build_args[@]}"
+        eval transcode-video --abr --target small --quick --verbose --m4v --output "${TRANSCODE_BATCH_FILE_DIR}/ios/" "${build_args[@]}"
     else
-        eval transcode-video --abr --target big --quick --verbose --output "output/" "${build_args[@]}"
+        eval transcode-video --abr --target big --quick --verbose --output "${TRANSCODE_BATCH_FILE_DIR}/output/" "${build_args[@]}"
     fi
 
     input="$(sed -n 1p "$queue")"
