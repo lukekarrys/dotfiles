@@ -10,7 +10,7 @@ if [ -z "$TRANSCODE_BATCH_FILE_DIR" ]; then
     exit 1
 fi
 
-readonly queue="$TRANSCODE_BATCH_DATA_DIR/queue"
+readonly queue="$TRANSCODE_BATCH_FILE_DIR/queue"
 readonly crops="$TRANSCODE_BATCH_DATA_DIR/crops"
 readonly params="$TRANSCODE_BATCH_DATA_DIR/params"
 
@@ -52,7 +52,7 @@ if [ ! -z "$filename" ] && [ -z "$cmd" ]; then
 fi
 
 if [ "$cmd" == "queue" ]; then
-    echo "$filename" >> $queue
+    echo "$filename" >> "$queue"
     exit 0
 elif [ "$cmd" == "crop" ]; then
     if [ -z "$option" ]; then

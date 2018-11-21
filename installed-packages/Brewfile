@@ -47,7 +47,6 @@ brew "tree"
 brew "vim", args: ["with-override-system-vi"]
 brew "watchman"
 brew "wget"
-brew "yarn", args: ["without-node"]
 brew "z"
 brew "zsh"
 brew "zsh-completions"
@@ -109,12 +108,14 @@ cask "transmission"
 cask "vlc"
 cask "xld"
 mas "1Blocker", id: 1107421413
+mas "Apple Configurator 2", id: 1037126344
 mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
 mas "Divvy", id: 413857545
 mas "Due", id: 524373870
 mas "Duplicate Photos Fixer Pro", id: 963642514
 mas "Fantastical 2", id: 975937182
+mas "GarageBand", id: 682658836
 mas "HyperDock", id: 449830122
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
@@ -122,8 +123,7 @@ mas "Keynote", id: 409183694
 mas "Letterpress", id: 1070543522
 mas "Monodraw", id: 920404675
 mas "Numbers", id: 409203825
-mas "OmniFocus", id: 867299399
 mas "Pages", id: 409201541
 mas "PiPifier", id: 1160374471
-mas "Tooth Fairy", id: 1191449274
+mas "ToothFairy", id: 1191449274
 mas "Xcode", id: 497799835

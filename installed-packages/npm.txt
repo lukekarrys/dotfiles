@@ -13,7 +13,9 @@ html
 html-to-text
 js-size
 json
+nativefier
 nodemon
+now
 np
 npm
 npm-check-updates
