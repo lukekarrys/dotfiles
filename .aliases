@@ -104,4 +104,4 @@ alias nodemodulesdelete="find ~/projects -type d -name 'node_modules' -maxdepth 
 alias focus="open focus://focus"
 
 alias cleancaches="brew cask cleanup && brew cleanup"
-alias app="brew cask"
+alias app="brew"
