@@ -36,6 +36,7 @@ brew "p7zip"
 brew "readline"
 brew "python"
 brew "python@2"
+brew "ruby-build"
 brew "rbenv"
 brew "redis"
 brew "rename"
@@ -47,6 +48,7 @@ brew "tree"
 brew "vim", args: ["with-override-system-vi"]
 brew "watchman"
 brew "wget"
+brew "yarn", args: ["without-node"]
 brew "z"
 brew "zsh"
 brew "zsh-completions"
@@ -57,6 +59,7 @@ cask "airfoil"
 cask "alfred"
 cask "anylist"
 cask "appzapper"
+cask "atom"
 cask "backblaze"
 cask "bartender"
 cask "betterzipql"
@@ -65,6 +68,7 @@ cask "cloudup"
 cask "doxie"
 cask "dropbox"
 cask "dupeguru"
+cask "encryptme"
 cask "firefox"
 cask "fluid"
 cask "flux"
@@ -109,7 +113,6 @@ cask "transmission"
 cask "vlc"
 cask "xld"
 mas "1Blocker", id: 1107421413
-mas "Apple Configurator 2", id: 1037126344
 mas "Cloud Baby Monitor", id: 517602535
 mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
@@ -124,6 +127,7 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Letterpress", id: 1070543522
 mas "Monodraw", id: 920404675
+mas "NepTunes", id: 1006739057
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "PiPifier", id: 1160374471
