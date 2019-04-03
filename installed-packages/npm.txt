@@ -6,7 +6,6 @@ diff-so-fancy
 exiftool.pl
 fast-cli
 fixpack
-generator-office
 geohash-cli
 ghwd
 gzip-size-cli
@@ -21,12 +20,10 @@ np
 npm
 npm-check-updates
 npmwd
-phantomjs
 pm2
 prettier
 pretty-bytes-cli
 pushstate-server
-querydom
 ragnar-data
 react-native-cli
 strip-ansi-cli

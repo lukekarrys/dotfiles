@@ -9,6 +9,7 @@ tap "homebrew/versions"
 tap "linode/cli"
 cask "java"
 brew "bfg"
+brew "python"
 brew "coreutils"
 brew "exiftool"
 brew "ffmpeg"
@@ -19,7 +20,6 @@ brew "gifify"
 brew "git"
 brew "grep"
 brew "handbrake"
-brew "lua"
 brew "highlight"
 brew "hub"
 brew "hugo"
@@ -33,18 +33,17 @@ brew "youtube-dl"
 brew "mpv"
 brew "ngrep"
 brew "p7zip"
-brew "readline"
-brew "python"
 brew "python@2"
+brew "ruby-build"
+brew "rbenv"
 brew "redis"
 brew "rename"
-brew "ruby-build"
 brew "sox"
 brew "ssh-copy-id"
 brew "tmux"
 brew "trash"
 brew "tree"
-brew "vim", args: ["with-override-system-vi"]
+brew "vim"
 brew "watchman"
 brew "wget"
 brew "yarn", args: ["without-node"]
@@ -100,6 +99,7 @@ cask "qlprettypatch"
 cask "qlstephen"
 cask "quicklook-csv"
 cask "quicklook-json"
+cask "react-native-debugger"
 cask "rescuetime"
 cask "rocket"
 cask "skype"
@@ -111,24 +111,25 @@ cask "toggldesktop"
 cask "transmission"
 cask "vlc"
 cask "xld"
-mas "1Blocker", id: 1107421413
-mas "Cloud Baby Monitor", id: 517602535
-mas "DaisyDisk", id: 411643860
-mas "Day One", id: 1055511498
-mas "Divvy", id: 413857545
-mas "Due", id: 524373870
-mas "Duplicate Photos Fixer Pro", id: 963642514
-mas "Fantastical 2", id: 975937182
-mas "GarageBand", id: 682658836
-mas "HyperDock", id: 449830122
-mas "iA Writer", id: 775737590
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Letterpress", id: 1070543522
-mas "Monodraw", id: 920404675
-mas "NepTunes", id: 1006739057
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
-mas "PiPifier", id: 1160374471
-mas "ToothFairy", id: 1191449274
-mas "Xcode", id: 497799835
+mas "com.agiletortoise.Drafts-OSX", id: 1435957248
+mas "com.apple.dt.Xcode", id: 497799835
+mas "com.apple.garageband10", id: 682658836
+mas "com.apple.iMovieApp", id: 408981434
+mas "com.apple.iWork.Keynote", id: 409183694
+mas "com.apple.iWork.Numbers", id: 409203825
+mas "com.apple.iWork.Pages", id: 409201541
+mas "com.bloombuilt.dayone-mac", id: 1055511498
+mas "com.daisydiskapp.DaisyDisk", id: 411643860
+mas "com.flexibits.fantastical2.mac", id: 975937182
+mas "com.helftone.monodraw", id: 920404675
+mas "com.khanov.BlockerMac", id: 1107421413
+mas "com.martinman.macvideobabymonitor", id: 517602535
+mas "com.mizage.Divvy", id: 413857545
+mas "com.phocusllp.duemac", id: 524373870
+mas "com.robinlu.mac.Tooth-Fairy", id: 1191449274
+mas "com.solebon.mac.Letterpress", id: 1070543522
+mas "com.systweak.Duplicate-Photos-Fixer-Pro", id: 963642514
+mas "de.APPenzeller.PiPifier", id: 1160374471
+mas "de.bahoom.HyperDock", id: 449830122
+mas "pl.micropixels.NepTunes", id: 1006739057
+mas "pro.writer.mac", id: 775737590
