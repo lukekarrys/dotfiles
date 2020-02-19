@@ -4,6 +4,7 @@
 @lukekarrys/romwod
 cssbeautify-cli
 diff-so-fancy
+exiftool.pl
 fast-cli
 fixpack
 geohash-cli

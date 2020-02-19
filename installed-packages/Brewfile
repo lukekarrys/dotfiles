@@ -6,8 +6,9 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "homebrew/versions"
 tap "linode/cli"
+brew "python", link: false
+brew "awscli"
 brew "bfg"
-brew "python"
 brew "coreutils"
 brew "exiftool"
 brew "ffmpeg"
@@ -16,6 +17,7 @@ brew "libtool"
 brew "imagemagick"
 brew "gifify"
 brew "git"
+brew "pkg-config"
 brew "grep"
 brew "handbrake"
 brew "highlight"
@@ -30,6 +32,7 @@ brew "mp4v2"
 brew "youtube-dl"
 brew "mpv"
 brew "ngrep"
+brew "opencv@2"
 brew "p7zip"
 brew "python@2"
 brew "ruby-build"
@@ -44,7 +47,6 @@ brew "tree"
 brew "vim"
 brew "watchman"
 brew "wget"
-brew "yarn", args: ["without-node"]
 brew "z"
 brew "zsh"
 brew "zsh-completions"
@@ -110,29 +112,24 @@ cask "sublime-text"
 cask "superduper"
 cask "toggldesktop"
 cask "transmission"
+cask "visual-studio-code"
 cask "vlc"
 cask "xld"
 mas "1Blocker", id: 1107421413
 mas "1Password 7", id: 1333542190
 mas "Cloud Baby Monitor", id: 517602535
-mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
-mas "Divvy", id: 413857545
 mas "Drafts", id: 1435957248
 mas "Due", id: 524373870
-mas "Duplicate Photos Fixer Pro", id: 963642514
+mas "EasyRes", id: 688211836
 mas "Fantastical", id: 975937182
-mas "GarageBand", id: 682658836
-mas "GPX Editor", id: 924782627
-mas "GPX Viewer", id: 920631838
 mas "HyperDock", id: 449830122
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
+mas "Instapaper", id: 1481302432
 mas "Keynote", id: 409183694
-mas "Letterpress", id: 1070543522
 mas "Monodraw", id: 920404675
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "PiPifier", id: 1160374471
 mas "ToothFairy", id: 1191449274
-mas "Xcode", id: 497799835
