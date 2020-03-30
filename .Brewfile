@@ -23,23 +23,16 @@ cask 'imageoptim'
 cask 'sublime-text'
 cask 'iterm2'
 cask 'postgres'
-cask 'mancy'
-cask 'gitify'
 
 # Media
 cask 'calibre'
 cask 'spotify'
 cask 'postico'
-cask 'airfoil'
-cask 'lastfm'
-cask 'aerial'
 cask 'dupeguru'
-cask 'fog'
 
 # Utils
 cask 'backblaze'
 cask 'superduper'
-cask 'cloudup'
 cask 'focus'
 cask 'keepingyouawake'
 cask 'openemu'
@@ -56,8 +49,6 @@ cask 'rocket'
 cask 'kap'
 cask 'doxie'
 cask 'logitech-options'
-cask 'toggldesktop'
-cask 'rescuetime'
 
 # Communication
 cask 'skype'
@@ -116,7 +107,6 @@ brew 'redis'
 # git(hub)
 brew 'git'
 brew 'hub'
-brew 'gifify'
 
 # Code
 brew 'highlight'

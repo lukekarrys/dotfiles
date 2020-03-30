@@ -290,3 +290,7 @@ function sleep-at() {
 function transcode-queue() {
   ssh $@ "ps -x | grep \[t\]ranscode-video | sed 's/\(.*\)originals\/\(.*\).mkv/\2 -- inprogress/'; cat /Volumes/Data/makemkv/queue"
 }
+
+function pc() {
+  prettier $@ $(git diff --name-only)
+}

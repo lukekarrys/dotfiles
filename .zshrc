@@ -44,7 +44,8 @@ plugins=(git git2 sublime rsync github battery z projects history history-substr
 local CORE_UTILS_PATH="/usr/local/opt/coreutils"
 
 # For brew install coreutils and other path stuff
-export PATH="$HOME/.dotfiles-bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/opt/python@2/libexec/bin:/usr/local/bin:$CORE_UTILS_PATH/libexec/gnubin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.dotfiles-bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/opt/python@2/libexec/bin:/usr/local/bin:$CORE_UTILS_PATH/libexec/gnubin:/usr/local/sbin:$PATH"
+
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Appends every command to the history file once it is executed
