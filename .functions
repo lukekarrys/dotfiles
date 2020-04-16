@@ -292,5 +292,5 @@ function transcode-queue() {
 }
 
 function pc() {
-  prettier $@ $(git diff --name-only)
+  prettier $@ $(git diff --name-only; ; git ls-files --others --exclude-standard)
 }
