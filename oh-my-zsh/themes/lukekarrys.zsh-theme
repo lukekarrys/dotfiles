@@ -175,8 +175,8 @@ build_prompt() {
 
 build_rprompt() {
   prompt_nvm
-  prompt_time
-  prompt_battery
+  # prompt_time
+  # prompt_battery
 }
 
 PROMPT='%{%f%b%k%}$(build_prompt)
