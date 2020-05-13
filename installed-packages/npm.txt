@@ -3,6 +3,7 @@
 @lukekarrys/organize-photos
 @lukekarrys/romwod
 cssbeautify-cli
+cssmin
 diff-so-fancy
 exiftool.pl
 fast-cli
@@ -16,7 +17,9 @@ html-to-text
 jay-repl
 js-size
 json
+livereload
 nativefier
+netlify-cli
 nodemon
 now
 np
@@ -30,5 +33,6 @@ pushstate-server
 ragnar-data
 react-native-cli
 strip-ansi-cli
+terser
 vmd
 yo
