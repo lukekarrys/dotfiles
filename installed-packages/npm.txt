@@ -2,8 +2,6 @@
 @lukekarrys/dayone-templates
 @lukekarrys/organize-photos
 @lukekarrys/romwod
-cssbeautify-cli
-cssmin
 diff-so-fancy
 exiftool.pl
 fast-cli
@@ -14,14 +12,10 @@ gpxmerge
 gzip-size-cli
 html
 html-to-text
-jay-repl
 js-size
 json
-livereload
 nativefier
-netlify-cli
 nodemon
-now
 np
 npm
 npm-check-updates
@@ -29,10 +23,7 @@ npmwd
 pm2
 prettier
 pretty-bytes-cli
-pushstate-server
 ragnar-data
 react-native-cli
 strip-ansi-cli
-terser
 vmd
-yo

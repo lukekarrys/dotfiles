@@ -20,45 +20,33 @@ cask 'firefox'
 
 # Dev
 cask 'imageoptim'
-cask 'sublime-text'
+cask 'visual-studio-code'
 cask 'iterm2'
 cask 'postgres'
+cask 'postico'
 
 # Media
-cask 'calibre'
 cask 'spotify'
-cask 'postico'
-cask 'dupeguru'
 
 # Utils
-cask 'backblaze'
 cask 'superduper'
 cask 'focus'
 cask 'keepingyouawake'
-cask 'openemu'
 cask '1password'
 cask 'flux'
 cask 'alfred'
-cask 'fluid'
 cask 'istat-menus'
-cask 'alfred'
 cask 'appzapper'
 cask 'dropbox'
 cask 'bartender'
 cask 'rocket'
 cask 'kap'
-cask 'doxie'
 cask 'logitech-options'
 
 # Communication
 cask 'skype'
 
-# Music
-cask 'xld'
-cask 'id3-editor'
-
 # Quicklook stuff
-cask 'betterzipql'
 cask 'qlcolorcode'
 cask 'qlimagesize'
 cask 'qlmarkdown'
@@ -117,7 +105,6 @@ brew 'rename'
 brew 'trash'
 brew 'tree'
 brew 'watchman'
-brew 'z'
 brew 'ngrep'
 brew 'exiftool'
 brew 'ssh-copy-id'

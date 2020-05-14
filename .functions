@@ -8,10 +8,6 @@ function mp4() {
     ffmpeg -i `basename $@` -c:v copy -c:a copy `basename $@ .mkv`.mp4
 }
 
-function db() {
-  cd $(cat ~/.dropbox/info.json | python -c "import json,sys;obj=json.load(sys.stdin);print obj['personal']['path'];")
-}
-
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";
@@ -226,10 +222,6 @@ function ssh-tunnel {
   ssh -NTnf -L $@
 }
 
-function itunes-sync() {
-  rsync -av --force --delete --size-only $@ ~/Music/iTunes/iTunes* tweedy:~/Music/iTunes;
-}
-
 function gitignore() {
   curl -s https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore
 }
@@ -246,37 +238,6 @@ function make-electron-app() {
 function delete-electron-app() {
   rm -rf /Applications/$1.app
   rm -rf ~/Library/Application\ Support/`echo "$1" | tr '[:upper:]' '[:lower:]'`-nativefier-*
-}
-
-# Photo organization
-function op() {
-  local DEVICE=$1
-  shift
-  if [[ -z "$@" ]]; then
-    cat ~/Dropbox/Pictures/Photos/.devices/$DEVICE | json .SUCCESS
-  else
-    organize-photos --dest ~/Dropbox/Pictures/Photos/ --verbose --device $DEVICE --src "$@"
-  fi
-}
-
-function op-luke() {
-  op lukes-iphone $@
-}
-
-function op-dinah() {
-   op dinahs-iphone $@
-}
-
-function op-sony() {
-   op sony $@
-}
-
-function quip-pack() {
-  cd /Users/lukekarrys/projects/andyet/quip-elements
-  local ELEMENT=$1
-  local ID=$(cat elements/$ELEMENT/element/manifest.json | jq -r .id)
-  bin/quip-elements pack elements/$ELEMENT/element
-  open https://andyetdev.quip.com/api/apps/$ID
 }
 
 # Schedule sleep at a certain time, use like: sleep-at 60

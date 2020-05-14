@@ -75,10 +75,6 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "$method"="lwp-request -m '$method'"
 done
 
-# Kill all the tabs in Chrome to free up memory
-# [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
-alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
-
 alias dateslug='date "+%Y-%m-%d %H:%M"'
 alias dateiso='date -u +"%Y-%m-%dT%H:%M:%S.%NZ"'
 
@@ -92,10 +88,6 @@ alias dotdone='cd ~/projects/lukekarrys/dotfiles && gca "edit dotfiles `dateslug
 alias killtunnel="ps -x | grep 'ssh -NTnf -L' | grep -v 'grep' | tr -s ' ' | cut -d ' ' -f1 | xargs kill"
 
 alias beep="node -e 'process.stdout.write(\"\x07\")'"
-
-alias editorconfig="echo '# editorconfig.org\nroot = true\n\n[*]\nindent_style = spaces\nindent_size = 2\nend_of_line = lf\ncharset = utf-8\ntrim_trailing_whitespace = true\ninsert_final_newline = true\n\n[*.md]\ntrim_trailing_whitespace = false\n\n[*.{jade,pug}]\ntrim_trailing_whitespace = false' > .editorconfig"
-
-alias travisconfig="echo 'language: node_js\nnode_js:\n  - 4\n  - 5\n  - 6\nscript: npm run lint && npm run validate && npm test' > .travis.yml"
 
 alias nodemodulessize="find ~/projects -type d -name 'node_modules' -maxdepth 3 | xargs du -ch --max-depth=0"
 alias nodemoduleslist="find ~/projects -type d -name 'node_modules' -maxdepth 3 -exec echo {} \;"

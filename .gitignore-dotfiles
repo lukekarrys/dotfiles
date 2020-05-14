@@ -14,8 +14,4 @@ Thumbs.db
 .Trashes
 
 npm-debug.log
-
 .sublimelinterrc
-.nvmrc
-*.sublime-project
-*.sublime-workspace

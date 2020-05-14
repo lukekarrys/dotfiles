@@ -1,6 +1,5 @@
 # Computer Setup Notes 2016-12-20
 
-
 ## Copy Files
 
 - Copy `~/Dropbox`
@@ -9,7 +8,6 @@
 - Point Dropdox at `~/Dropbox`
 - Open iTunes and point at `~/Dropbox/iTunes\ Media`
 - Open Photos and point at `~/Dropbox/Pictures/Photos\ Library.photoslibrary/`
-
 
 ## System Prefs
 
@@ -63,7 +61,6 @@ killall SystemUIServer
 # TODO: save dialog no animation
 ```
 
-
 ## Finder
 
 - Sidebar
@@ -75,7 +72,6 @@ killall SystemUIServer
   - Add spacers + apps
 - View Options
   - Always list
-
 
 ## Apps
 
@@ -109,7 +105,6 @@ make-electron-app Trello https://trello.com
 - Open each one and like do stuff with it?
 - TODO: `mackup`
 
-
 ## Dev Env
 
 - Install `xcode cli` [Docs](https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/xcode-select.1.html)
@@ -140,6 +135,7 @@ npm install -g `cat installed-packages/npm.txt | tr '\n' ' '`
 ```
 
 - Setup `sublime`
+
   - Download and install Ubuntu Mono font [Docs](http://font.ubuntu.com/) (double click to install)
   - Open `Sublime Text 3`
   - Link sublime text to dropbox`./.dotfile-bin/subl-link`
@@ -163,6 +159,7 @@ cd ~/projects/lukekarrys/dotfiles
 ```
 
 - Setup `iterm`
+
   - Open iTerm 2
   - Set to read preferences from `~/Dropbox/Apps/iTerm`
 
