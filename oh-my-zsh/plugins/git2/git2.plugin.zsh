@@ -34,3 +34,6 @@ function gfm () { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cg
 
 # Interactive rebase with the given number of latest commits
 function greb () { git rebase -i HEAD~$1; }
+
+# set upstream for remote to current branch
+function gsu() { git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD` }

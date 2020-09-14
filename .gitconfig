@@ -19,6 +19,7 @@
 
 	# set upstream for remote to current branch
 	set-upstream = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
+	su = !git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD`
 
 [apply]
 
