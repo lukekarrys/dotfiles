@@ -1,12 +1,11 @@
+tap "adoptopenjdk/openjdk"
 tap "heroku/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
 tap "homebrew/core"
 tap "homebrew/services"
-tap "homebrew/versions"
 tap "linode/cli"
-brew "python", link: false
 brew "awscli"
 brew "glib"
 brew "coreutils"
@@ -18,6 +17,7 @@ brew "pkg-config"
 brew "grep"
 brew "handbrake"
 brew "highlight"
+brew "httrack"
 brew "hub"
 brew "libtool"
 brew "imagemagick"
@@ -33,6 +33,7 @@ brew "ngrep"
 brew "opencv@2"
 brew "p7zip"
 brew "python@2"
+brew "python@3.9"
 brew "ruby-build"
 brew "rbenv"
 brew "redis"
@@ -50,6 +51,7 @@ brew "zsh"
 brew "zsh-completions"
 brew "linode/cli/linode-cli"
 cask "1password"
+cask "adoptopenjdk8"
 cask "airfoil"
 cask "alfred"
 cask "anylist"
@@ -69,7 +71,6 @@ cask "google-chrome"
 cask "imageoptim"
 cask "istat-menus"
 cask "iterm2"
-cask "java"
 cask "kap"
 cask "keepingyouawake"
 cask "logitech-options"
@@ -80,7 +81,6 @@ cask "ngrok"
 cask "postgres"
 cask "postico"
 cask "qlcolorcode"
-cask "qlmarkdown"
 cask "qlstephen"
 cask "quicklook-json"
 cask "rocket"
@@ -95,16 +95,18 @@ mas "1Blocker", id: 1107421413
 mas "1Password 7", id: 1333542190
 mas "DaisyDisk", id: 411643860
 mas "Day One", id: 1055511498
+mas "Divvy", id: 413857545
 mas "Drafts", id: 1435957248
 mas "Due", id: 524373870
 mas "Duplicate Photos Fixer Pro", id: 963642514
 mas "EasyRes", id: 688211836
 mas "Fantastical", id: 975937182
+mas "GarageBand", id: 682658836
 mas "GoldenHour", id: 1506521630
 mas "GPX Editor", id: 924782627
 mas "GPX Viewer", id: 920631838
 mas "iMovie", id: 408981434
-mas "Instapaper", id: 1481302432
+mas "Instapaper Save", id: 1481302432
 mas "Keynote", id: 409183694
 mas "Monodraw", id: 920404675
 mas "Numbers", id: 409203825

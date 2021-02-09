@@ -151,7 +151,7 @@ prompt_node() {
     volta_list=$(volta list -c --format plain)
 
     local volta_node
-    volta_node=$(echo $volta_list | grep "runtime " | sed -e 's#.*node@\(.*\) (.*#\1#')
+    volta_node=$(echo $volta_list | grep "runtime node" | sed -e 's#.*node@\(.*\) (.*#\1#')
 
     if [ -z "$volta_node" ]
     then
@@ -164,12 +164,12 @@ prompt_node() {
     local volta_package_manager_name
     volta_package_manager_list=$(echo $volta_list | grep "package-manager ")
 
-    volta_package_manager=$(echo $volta_package_manager_list | sed -ne 's#.*yarn@\(.*\) (.*#\1#p')
+    volta_package_manager=$(echo $volta_package_manager_list | sed -ne 's#package-manager yarn@\(.*\) (.*#\1#p')
     volta_package_manager_name="yarn"
 
     if [ -z "$volta_package_manager" ]
     then
-      volta_package_manager=$(echo $volta_package_manager_list | sed -ne 's#.*npm@\(.*\) (.*#\1#p')
+      volta_package_manager=$(echo $volta_package_manager_list | sed -ne 's#package-manager npm@\(.*\) (.*#\1#p')
       volta_package_manager_name="npm"
     fi
 
