@@ -126,13 +126,7 @@ sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
-- Install `nvm` [Docs](https://github.com/creationix/nvm#install-script) and global `node` modules
-
-```sh
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
-nvm install 6
-npm install -g `cat installed-packages/npm.txt | tr '\n' ' '`
-```
+- Install `volta` and global `node` modules
 
 - Setup `sublime`
 

@@ -3,18 +3,8 @@
 DUMP=$1
 
 function npm-ls-global() {
-  local MODULES=$(npm ls -g --depth=0 --parseable | tail -n +2)
-  while IFS= read -r MODULE; do
-    local DIR=$(dirname $MODULE | xargs -n1 basename)
-    local BASE=$(basename $MODULE)
-    local INSTALLED_MODULE=''
-    if [ "$DIR" != "node_modules" ]; then
-      INSTALLED_MODULE="$DIR/$BASE"
-    else
-      INSTALLED_MODULE="$BASE"
-    fi
-    echo $INSTALLED_MODULE;
-  done <<< "$MODULES"
+  local MODULES=$(volta list -c --format plain |grep "package " | sed -e 's/package //' | cut -d "/" -f1)
+  echo $MODULES
 }
 
 if [[ "$DUMP" == "--dump" ]] then

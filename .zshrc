@@ -44,7 +44,7 @@ plugins=(git git2 sublime rsync github battery z projects history history-substr
 local CORE_UTILS_PATH="/usr/local/opt/coreutils"
 
 # For brew install coreutils and other path stuff
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/.dotfiles-bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/opt/python@2/libexec/bin:/usr/local/bin:$CORE_UTILS_PATH/libexec/gnubin:/usr/local/sbin:$PATH"
+export PATH="$HOME/.dotfiles-bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/opt/python@2/libexec/bin:/usr/local/bin:$CORE_UTILS_PATH/libexec/gnubin:/usr/local/sbin:$PATH"
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
@@ -80,3 +80,5 @@ export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

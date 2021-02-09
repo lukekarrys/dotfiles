@@ -145,9 +145,41 @@ prompt_status() {
   [[ -n "$symbols" ]] && prompt_segment white default "$symbols"
 }
 
-prompt_nvm() {
-  if [[ -a "package.json" || -a ".nvmrc" ]]; then
-    prompt_segment_right green black "$(nvm_prompt_info) $(npm -v) "
+prompt_node() {
+  if [[ -a "package.json" ]]; then
+    local volta_list
+    volta_list=$(volta list -c --format plain)
+
+    local volta_node
+    volta_node=$(echo $volta_list | grep "runtime " | sed -e 's#.*node@\(.*\) (.*#\1#')
+
+    if [ -z "$volta_node" ]
+    then
+      volta_node=$(node -v | sed -e "s/v//")
+    fi
+
+
+    local volta_package_manager_list
+    local volta_package_manager
+    local volta_package_manager_name
+    volta_package_manager_list=$(echo $volta_list | grep "package-manager ")
+
+    volta_package_manager=$(echo $volta_package_manager_list | sed -ne 's#.*yarn@\(.*\) (.*#\1#p')
+    volta_package_manager_name="yarn"
+
+    if [ -z "$volta_package_manager" ]
+    then
+      volta_package_manager=$(echo $volta_package_manager_list | sed -ne 's#.*npm@\(.*\) (.*#\1#p')
+      volta_package_manager_name="npm"
+    fi
+
+    if [ -z "$volta_package_manager" ]
+    then
+      volta_package_manager="$(npm -v)"
+      volta_package_manager_name="npm"
+    fi
+
+    prompt_segment_right green black "node ${volta_node} - ${volta_package_manager_name} ${volta_package_manager} "
   fi
 }
 
@@ -174,7 +206,7 @@ build_prompt() {
 }
 
 build_rprompt() {
-  prompt_nvm
+  prompt_node
   # prompt_time
   # prompt_battery
 }
