@@ -7,7 +7,6 @@ tap 'homebrew/bundle'
 tap 'homebrew/versions'
 tap 'caskroom/cask'
 tap 'homebrew/dupes'
-tap 'linode/cli'
 
 
 ##########################
@@ -98,7 +97,6 @@ brew 'hub'
 
 # Code
 brew 'highlight'
-brew 'linode/cli/linode-cli'
 
 # Utils
 brew 'rename'
