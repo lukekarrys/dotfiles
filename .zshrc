@@ -1,3 +1,4 @@
+ZSH_DISABLE_COMPFIX=true
 export DEFAULT_USER="lukekarrys"
 
 # Path to your oh-my-zsh installation.
@@ -20,7 +21,7 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="lukekarrys"
+# ZSH_THEME="lukekarrys"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -82,3 +83,4 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+eval "$(starship init zsh)"

@@ -23,7 +23,7 @@ function clone() {
         cd $2
         git pull
     else
-        hub clone $1/$2
+        gh repo clone $1/$2
         cd $2
     fi
 }

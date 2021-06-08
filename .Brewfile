@@ -93,7 +93,7 @@ brew 'redis'
 
 # git(hub)
 brew 'git'
-brew 'hub'
+#brew 'hub'
 
 # Code
 brew 'highlight'
