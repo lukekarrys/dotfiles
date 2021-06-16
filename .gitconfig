@@ -138,4 +138,12 @@
 [user]
 
 	name = Luke Karrys
-	email = lukekarrys@gmail.com
+	email = luke@lukekarrys.com
+	signingkey = 586238713720A638
+
+[commit]
+
+	gpgsign = true
+
+[tag]
+	gpgsign = true
