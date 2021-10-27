@@ -13,7 +13,7 @@ zstyle ':completion:*:hosts' hosts $_ssh_config
 GIT_AUTHOR_NAME="Luke Karrys"
 GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="lukekarrys@gmail.com"
+GIT_AUTHOR_EMAIL="luke@lukekarrys.com"
 GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 
