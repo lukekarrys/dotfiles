@@ -12,6 +12,7 @@ alias gpo='git push origin'
 compdef gpo=git
 alias gpob='git push origin $(current_branch)'
 compdef gpo=git
+alias gpob='git push origin $(current_branch)'
 
 # Remove branches that have already been merged with master
 # a.k.a. ‘delete merged’
@@ -36,4 +37,4 @@ function gfm () { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cg
 function greb () { git rebase -i HEAD~$1; }
 
 # set upstream for remote to current branch
-function gsu() { git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD` }
+function gso() { git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD` `git symbolic-ref --short HEAD` }

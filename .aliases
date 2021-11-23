@@ -97,3 +97,6 @@ alias focus="open focus://focus"
 
 alias cleancaches="brew cleanup"
 alias app="brew"
+
+alias npmreset="rm -rf node_modules npm-shrinkwrap.json package-lock.json package.json"
+alias npmlocal="node ~/projects/npm/cli"
