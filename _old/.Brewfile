@@ -24,26 +24,21 @@ cask 'iterm2'
 cask 'postgres'
 cask 'postico'
 
-# Media
-cask 'spotify'
-
 # Utils
 cask 'superduper'
 cask 'focus'
 cask 'keepingyouawake'
 cask '1password'
 cask 'flux'
-cask 'alfred'
+cask 'raycast'
 cask 'istat-menus'
 cask 'appzapper'
-cask 'dropbox'
 cask 'bartender'
-cask 'rocket'
 cask 'kap'
 cask 'logitech-options'
 
 # Communication
-cask 'skype'
+cask 'slack'
 
 # Quicklook stuff
 cask 'qlcolorcode'
@@ -68,13 +63,9 @@ mas 'Keynote', id: 409183694
 mas 'iMovie', id: 408981434
 
 # lukekarrys@gmail.com
-mas 'Letterpress', id: 1070543522
 mas 'Due', id: 524373870
-mas 'Slack', id: 803453959
 mas 'Duplicate Photos Fixer Pro', id: 963642514
 mas 'DaisyDisk', id: 411643860
-mas 'Divvy', id: 413857545
-mas 'Day One', id: 1055511498
 
 
 ##########################
@@ -93,7 +84,7 @@ brew 'redis'
 
 # git(hub)
 brew 'git'
-#brew 'hub'
+brew 'gh'
 
 # Code
 brew 'highlight'

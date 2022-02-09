@@ -36,7 +36,7 @@ export DISABLE_COLOR="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git2 sublime rsync github battery z projects history history-substring-search)
+plugins=(git git2 z projects history history-substring-search)
 
 # slow, disabled plugins
 # npm
@@ -51,8 +51,8 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Appends every command to the history file once it is executed
 setopt inc_append_history
-# Reloads the history whenever you use it
-setopt share_history
+
+HIST_STAMPS="yyyy-mm-dd"
 
 # Node
 ulimit -n 10000
@@ -68,19 +68,7 @@ for file in ~/.{extra,exports,aliases,functions}; do
 done;
 unset file;
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/lukekarrys/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/lukekarrys/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/lukekarrys/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/lukekarrys/google-cloud-sdk/completion.zsh.inc'; fi
-
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
+
 eval "$(starship init zsh)"

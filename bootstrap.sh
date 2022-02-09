@@ -13,7 +13,8 @@ if [[ "$DUMP" == "--dump" ]] then
   brew bundle dump --file=installed-packages/Brewfile --force
 fi
 
-rsync --exclude ".git/" \
+rsync --exclude "_old/" \
+      --exclude ".git/" \
       --exclude ".gitignore" \
       --exclude ".DS_Store" \
       --exclude "bootstrap.sh" \
