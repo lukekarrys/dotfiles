@@ -71,4 +71,6 @@ unset file;
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 
+npm config set sign-git-tag true
+
 eval "$(starship init zsh)"
