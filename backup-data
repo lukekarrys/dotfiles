@@ -23,15 +23,6 @@ title "Saving list of installed homebrew packages"
 brew bundle dump --file=$DATA_DIR/Brewfile --force
 echo "done"
 
-title "Saving list of autocomplete gh repos"
-queries=("org:npm topic:npm-cli" "org:bracketclub" "org:lukekarrys")
-
-true > $DATA_DIR/gh-repos.txt
-for q in $queries; do
-  echo "$q"
-  gh ls-repos-name "$q" >> $DATA_DIR/gh-repos.txt
-done
-
 title "Committing changes"
 git add data/
 git commit -m "Saving data"

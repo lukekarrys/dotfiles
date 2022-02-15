@@ -1,7 +1,10 @@
-ZSH_DISABLE_COMPFIX=true
-export DEFAULT_USER="lukekarrys"
+ZSH_DISABLE_COMPFIX="true"
 
+export DEFAULT_USER="lukekarrys"
+export DEFAULT_GH_ORG="lukekarrys"
 export PROJECT_DIR="$HOME/projects"
+export PROJECT_REMOTE_REPOS="org:npm topic:npm-cli,org:bracketclub,org:lukekarrys"
+export DOTFILES_DIR="$PROJECTS/lukekarrys/dotfiles"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -12,11 +15,11 @@ zstyle -s ':completion:*:hosts' hosts _ssh_config
 zstyle ':completion:*:hosts' hosts $_ssh_config
 
 # Git credentials
-GIT_AUTHOR_NAME="Luke Karrys"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+export GIT_AUTHOR_NAME="Luke Karrys"
+export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="luke@lukekarrys.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+export GIT_AUTHOR_EMAIL="luke@lukekarrys.com"
+export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 # Set name of the theme to load.
@@ -27,6 +30,8 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
+
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # Which plugins would you like to load? (plugins can be found in $HOME/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
@@ -44,7 +49,6 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # Appends every command to the history file once it is executed
 setopt inc_append_history
-
 HIST_STAMPS="yyyy-mm-dd"
 
 # Node

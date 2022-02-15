@@ -3,7 +3,9 @@
   "description": "You probably don't want to use these. They're messy and I change them all the time.",
   "version": "1.0.0",
   "author": "Luke Karrys <luke@lukekarrys.com>",
-  "bin": "./bootstrap",
+  "bin": {
+    "dotfiles-bootstrap": "./bootstrap"
+  },
   "bugs": {
     "url": "https://github.com/lukekarrys/dotfiles/issues"
   },
@@ -17,7 +19,7 @@
     "url": "git+https://github.com/lukekarrys/dotfiles.git"
   },
   "scripts": {
-    "backup": "./backup-data",
+    "backup": "./backup-data --push",
     "bootstrap": "./bootstrap",
     "postinstall": "./bootstrap"
   }

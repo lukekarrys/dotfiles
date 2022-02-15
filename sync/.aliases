@@ -80,10 +80,10 @@ alias dateslug='date "+%Y-%m-%d %H:%M"'
 alias dateiso='date -u +"%Y-%m-%dT%H:%M:%S.%NZ"'
 
 # bootstrap and source
-alias dotbs='cd $PROJECT_DIR/lukekarrys/dotfiles && ./bootstrap.sh && cd -'
-alias dotsource='source $HOME/.zprofile && source $HOME/.zshrc'
-alias dotedit='cd $PROJECT_DIR/lukekarrys/dotfiles && s .'
-alias dotdone='cd $PROJECT_DIR/lukekarrys/dotfiles && gca "edit dotfiles `dateslug`" && gpo master && cd -'
+alias dotbs="cd $DOTFILES_DIR && ./bootstrap.sh && cd -"
+alias dotsource="source $HOME/.zprofile && source $HOME/.zshrc"
+alias dotedit="cd $DOTFILES_DIR && s ."
+alias dotdone="cd $DOTFILES_DIR && gca "edit dotfiles `dateslug`" && gpo main && cd -"
 
 # ssh
 alias killtunnel="ps -x | grep 'ssh -NTnf -L' | grep -v 'grep' | tr -s ' ' | cut -d ' ' -f1 | xargs kill"

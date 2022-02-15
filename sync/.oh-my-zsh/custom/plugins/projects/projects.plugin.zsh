@@ -10,25 +10,46 @@ function p() {
     elif [ -d "$PROJECT_DIR/$1" ]; then
       cd $PROJECT_DIR/$1
     else
-      echo "Could not find $1"
-      exit 1
+      echo "Could not find $PROJECT_DIR/$1"
+      return 1
     fi
   fi
 }
 
 function clone() {
   if [ -z "$1" ]; then
-    echo "Needs org and repo args"
-    exit 1
+    echo "Needs at least one arg"
+    return 1
   fi
-  p
-  mkd $1
-  if [ -d "$2" ]; then
-    cd $2
-    git pull
+
+  local ORG=""
+  local REPO=""
+  local SPLIT="/"
+  local QUERY=""
+
+  if [ "$#" -gt 1 ]; then
+    QUERY="$1/$2"
   else
-    gh repo clone $1/$2
-    cd $2
+    QUERY="$1"
+  fi
+
+  if test "${QUERY#*$SPLIT}" != "$QUERY"; then
+    # contains a slash
+    ORG="${QUERY%$SPLIT*}"
+    REPO="${QUERY#*$SPLIT}"
+  else
+    # no slash
+    ORG=$DEFAULT_GH_ORG
+    REPO=$QUERY
+  fi
+
+  if [ -d "$PROJECT_DIR/$ORG/$REPO" ]; then
+    cd $PROJECT_DIR/$ORG/$REPO
+    gh repo sync
+  else
+    mkd $PROJECT_DIR/$ORG
+    gh repo clone $ORG/$REPO
+    cd $REPO
   fi
 }
 
@@ -40,15 +61,23 @@ function trep() {
   fi
 }
 
-ORGS="" # orgs are only autocompleted on disk
-LOCAL_REPOS=""
-REMOTE_REPOS=$(grep -Ev '^#' $PROJECT_DIR/lukekarrys/dotfiles/data/gh-repos.txt | tr "\n" " ")
+# completion
+ORGS=()
+REPOS=()
+ALL_PROJECTS=()
 for org in $PROJECT_DIR/*; do
-  ORGS="$ORGS $(basename -- $org)"
+  ORGS+=("$(basename -- $org)")
   for repo in $org/*; do
-    LOCAL_REPOS="$LOCAL_REPOS $(basename -- $repo)"
+    REPOS+=("$(basename -- $repo)")
   done
 done
 
-compctl -k "($(echo "$ORGS $LOCAL_REPOS $REMOTE_REPOS" | tr "\n" " "))" p clone
-compctl -k "($ORGS)" trep
+while read repo; do
+  REPOS+=("$repo")
+done <$ZSH/custom/plugins/projects/data.txt
+
+ALL_PROJECTS+=($(echo "("${REPOS[@]}" "${ORGS[@]}")" | tr ' ' '\n' | sort -u))
+
+zstyle ':completion:p' $ALL_PROJECTS
+zstyle ':completion:clone' $ALL_PROJECTS
+zstyle ':completion:trep' $ORGS
