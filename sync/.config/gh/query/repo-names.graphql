@@ -1,0 +1,9 @@
+query ($search: String!) {
+  search (query: $search, type: REPOSITORY, first: 100) {
+    nodes {
+      ... on Repository {
+        name
+      }
+    }
+  }
+}
