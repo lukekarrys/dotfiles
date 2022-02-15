@@ -38,5 +38,3 @@ function trep() {
 
 compctl -k "($(tree -idn -L 2 ~/projects/ | head -n -2 | tail -n +2 | tr "\n" " "))" p trep clone
 
-# I think the above is easier since I just want basic string completion for certain directories
-# compctl -W ~/projects -/ p clone trep
