@@ -1,9 +1,9 @@
 query {
-  search (query: "org:npm topic:npm-cli", type: REPOSITORY, first:100) {
+  search (query: "org:npm topic:npm-cli", type: REPOSITORY, first: 100) {
     nodes {
       ... on Repository {
         name
-        pullRequests (labels: ["dependencies"], first:100, states: [OPEN]) {
+        pullRequests (labels: ["dependencies"], first: 100, states: [OPEN]) {
           nodes {
             url
           }

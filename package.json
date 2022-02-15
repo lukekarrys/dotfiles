@@ -1,0 +1,24 @@
+{
+  "name": "@lukekarrys/dotfiles",
+  "description": "You probably don't want to use these. They're messy and I change them all the time.",
+  "version": "1.0.0",
+  "author": "Luke Karrys <luke@lukekarrys.com>",
+  "bin": "./bootstrap",
+  "bugs": {
+    "url": "https://github.com/lukekarrys/dotfiles/issues"
+  },
+  "homepage": "https://github.com/lukekarrys/dotfiles#readme",
+  "keywords": [
+    "dotfiles"
+  ],
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukekarrys/dotfiles.git"
+  },
+  "scripts": {
+    "backup": "./backup-data",
+    "bootstrap": "./bootstrap",
+    "postinstall": "./bootstrap"
+  }
+}

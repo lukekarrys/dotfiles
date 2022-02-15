@@ -181,7 +181,7 @@ function findport() {
 }
 
 function ssh-add-all {
-  for file in ~/.ssh/keys/*; do
+  for file in $HOME/.ssh/keys/*; do
     ssh-add -K "$file";
   done;
   unset file;
@@ -206,7 +206,7 @@ function make-electron-app() {
 
 function delete-electron-app() {
   rm -rf /Applications/$1.app
-  rm -rf ~/Library/Application\ Support/`echo "$1" | tr '[:upper:]' '[:lower:]'`-nativefier-*
+  rm -rf $HOME/Library/Application\ Support/`echo "$1" | tr '[:upper:]' '[:lower:]'`-nativefier-*
 }
 
 # Schedule sleep at a certain time, use like: sleep-at 60

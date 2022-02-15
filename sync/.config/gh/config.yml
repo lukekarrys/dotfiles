@@ -8,7 +8,7 @@ prompt: enabled
 pager: cat
 # Aliases allow you to create nicknames for gh commands
 aliases:
-    co: pr checkout
-    dependabot: api "/graphql" -F query=@/Users/lukekarrys/.config/gh/query/npm-cli-dependencies-prs.graphql --jq '.data.search.nodes[].pullRequests.nodes[].url'
-    autoreleases: api "/graphql" -F query=@/Users/lukekarrys/.config/gh/query/npm-cli-autorelease-prs.graphql --jq '.data.search.nodes[].pullRequests.nodes[].url'
-    ls-repos-name: api graphql -F search='$1 archived:false' -F query='@/Users/lukekarrys/.config/gh/query/repo-names.graphql' --jq '.data.search.nodes[].name'
+  co: pr checkout
+  dependabot: api "/graphql" -F query=@/Users/lukekarrys/.config/gh/query/npm-cli-dependencies-prs.graphql --jq '.data.search.nodes[].pullRequests.nodes[].url'
+  autoreleases: api "/graphql" -F query=@/Users/lukekarrys/.config/gh/query/npm-cli-autorelease-prs.graphql --jq '.data.search.nodes[].pullRequests.nodes[].url'
+  ls-repos-name: api graphql -F search='$1 archived:false' -F query='@/Users/lukekarrys/.config/gh/query/repo-names.graphql' --jq '.data.search.nodes[].name'

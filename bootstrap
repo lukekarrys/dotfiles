@@ -1,0 +1,47 @@
+#!/usr/bin/env zsh
+
+function title() {
+  echo ""
+  echo "==================================================================="
+  echo "  $1"
+  echo "==================================================================="
+}
+
+title "zsh-autosuggestions"
+if ! command -v gh &> /dev/null
+then
+    title "SKIPPING: gh not installed"
+else
+  DIR="sync/.oh-my-zsh/custom/plugins/zsh-autosuggestions/"
+  if [ -d "$DIR" ]; then
+    cd $DIR
+    gh repo sync
+    cd -
+  else
+    gh repo clone zsh-users/zsh-autosuggestions $DIR
+  fi
+fi
+
+title "rsync all files except git, npm"
+rsync -ahvI --exclude ".DS_Store" --exclude ".git/" sync/.* $HOME
+
+title "rsync git files individually"
+for file in sync/git*(.); do
+  echo "- file: $file"
+  rsync -ahvI --ignore-times --no-R --no-implied-dirs $file "$HOME/.$(basename -- $file)"
+  echo ""
+done
+
+title "set global npm configs"
+if ! command -v npm &> /dev/null
+then
+    title "SKIPPING: npm not installed"
+else
+  IFS=$'\n'
+  for i in $(cat < sync/npmrc); do
+    echo "- npm: $i"
+    npm config set "$i"
+  done
+fi
+
+title "all done!"
