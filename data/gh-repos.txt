@@ -85,7 +85,6 @@ data
 # org:lukekarrys
 universal-static-instagram
 git-directory-deploy
-local-links
 strava-bulk-edit
 spa-crawler
 js-size
@@ -105,7 +104,6 @@ yt-streaming-audio-server
 html-tagged-literals
 metalsmith-dayone
 lukecod.es
-hex-frac-dec-frac
 geohash-cli
 lukekarrys.com
 running-calendar
@@ -115,9 +113,6 @@ organize-photos
 gh-check-runs
 coffee.lukekarrys.com
 insta.lukelov.es
-emojihaik.us
-audiobook
-activity-report
 cubs-world-series
 karrysdesign.com
 one-at-a-time
