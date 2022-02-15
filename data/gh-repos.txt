@@ -42,8 +42,8 @@ minipass-fetch
 run-script
 npm-audit-report
 npm-profile
-unique-slug
 parse-conflict-json
+unique-slug
 benchmarks
 bin-links
 config
