@@ -1,5 +1,3 @@
-# gh repos by name
-# org:npm topic:npm-cli
 npm/cli
 npm/node-semver
 npm/node-tar
@@ -73,7 +71,6 @@ npm/npm-normalize-package-bin
 npm/fs
 npm/exec
 npm/move-file
-# org:bracketclub
 bracketclub/bracket.club
 bracketclub/scores
 bracketclub/bracketclub
@@ -82,7 +79,6 @@ bracketclub/data
 bracketclub/2013.tweetyourbracket.com
 bracketclub/2014.tweetyourbracket.com
 bracketclub/2012.tweetyourbracket.com
-# org:lukekarrys
 lukekarrys/universal-static-instagram
 lukekarrys/git-directory-deploy
 lukekarrys/local-links
