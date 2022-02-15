@@ -1,5 +1,5 @@
 # gh repos by name
-# npm
+# org:npm topic:npm-cli
 cli
 node-semver
 node-tar
@@ -73,7 +73,7 @@ npm-normalize-package-bin
 fs
 exec
 move-file
-# bracketclub
+# org:bracketclub
 bracket.club
 scores
 bracketclub
@@ -82,7 +82,7 @@ data
 2013.tweetyourbracket.com
 2014.tweetyourbracket.com
 2012.tweetyourbracket.com
-# lukekarrys
+# org:lukekarrys
 universal-static-instagram
 git-directory-deploy
 local-links
