@@ -3,29 +3,43 @@
 DUMP=$1
 
 function npm-ls-global() {
-  local MODULES=$(volta list -c --format plain |grep "package " | sed -e 's/package //' | cut -d "/" -f1)
+  local MODULES=$(volta list -c --format plain | grep "package " | sed -e 's/package //' | cut -d "/" -f1)
   echo $MODULES
 }
 
+function title() {
+  echo ""
+  echo "================================"
+  echo "  $1"
+  echo "================================"
+}
+
 if [[ "$DUMP" == "--dump" ]] then
-  echo "Dumping npm and brew"
-  npm-ls-global 2> /dev/null > installed-packages/npm.txt
-  brew bundle dump --file=installed-packages/Brewfile --force
+  title "Dumping npm and brew"
+  npm-ls-global 2> /dev/null > bootstrap/npm.txt
+  brew bundle dump --file=bootstrap/Brewfile --force
 fi
 
+title "rsync all files except git, npm"
 rsync --exclude "_old/" \
-      --exclude ".git/" \
-      --exclude ".gitignore" \
+      --exclude ".git*" \
+      --exclude "git*" \
+      --exclude "npm*" \
       --exclude ".DS_Store" \
-      --exclude "bootstrap.sh" \
+      --exclude "bootstrap*" \
       --exclude "*.md" \
       --exclude "*.txt" \
-      --exclude "itermcolors/" \
-      --exclude "oh-my-zsh/" \
-      --exclude "installed-packages/" \
-      -avh --no-perms . ~;
+      -ahv . ~;
 
-mv ~/.gitignore-dotfiles ~/.gitignore
+title "rsync git files individually"
+for file in git*(.); do
+  rsync -ahv --no-R --no-implied-dirs $file "$HOME/.$file"
+done
 
-source ~/.zprofile;
-source ~/.zshrc;
+title "set global npm configs"
+IFS=$'\n'
+for i in $(cat < "npmrc"); do
+  npm config set "$i"
+done
+
+title "all done!"

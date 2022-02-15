@@ -26,20 +26,11 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
-# Would you like to use another custom folder than $ZSH/custom?
-ZSH_CUSTOM=~/projects/lukekarrys/dotfiles/oh-my-zsh
-
-# dont use color for history substring search
-export DISABLE_COLOR="true"
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git git2 z projects history history-substring-search)
-
-# slow, disabled plugins
-# npm
 
 # Brew prefix is slow on startup so just hardcode it
 local CORE_UTILS_PATH="/usr/local/opt/coreutils"
@@ -70,7 +61,5 @@ unset file;
 
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
-
-npm config set sign-git-tag true
 
 eval "$(starship init zsh)"

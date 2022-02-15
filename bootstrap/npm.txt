@@ -11,5 +11,6 @@ json@11.0.0
 nodemon@2.0.7 
 npm@7.16.0 
 npmwd@1.1.0 
+prettier@2.5.1 
 strip-ansi-cli@3.0.2 
 why-is-node-running@2.2.0 
