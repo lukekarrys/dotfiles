@@ -67,9 +67,9 @@ node-gyp
 proc-log
 npm-birthday
 eslint-config
-readdir-scoped-modules
 disparity-colors
 npm-normalize-package-bin
+readdir-scoped-modules
 fs
 exec
 move-file
