@@ -78,6 +78,8 @@ done <$ZSH/custom/plugins/projects/data.txt
 
 ALL_PROJECTS+=($(echo "("${REPOS[@]}" "${ORGS[@]}")" | tr ' ' '\n' | sort -u))
 
+# TODO: better autocomplete for this based on default gh org and specific command
+# eg clone can take 1 or 2 args
 zstyle ':completion:p' $ALL_PROJECTS
 zstyle ':completion:clone' $ALL_PROJECTS
 zstyle ':completion:trep' $ORGS
