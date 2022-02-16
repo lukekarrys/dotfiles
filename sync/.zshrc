@@ -31,7 +31,9 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 # Uncomment the following line to enable command auto-correction.
 # ENABLE_CORRECTION="true"
 
+# ================================
 # zsh auto suggestion stuff
+# ================================
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
 # This speeds up pasting w/ autosuggest
@@ -53,17 +55,9 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 
 # Which plugins would you like to load? (plugins can be found in $HOME/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git2 z projects history history-substring-search zsh-autosuggestions)
-
-# Brew prefix is slow on startup so just hardcode it
-local CORE_UTILS_PATH="/usr/local/opt/coreutils"
-
-# For brew install coreutils and other path stuff
-export PATH="$HOME/.dotfiles-bin:/Applications/Postgres.app/Contents/Versions/latest/bin:/usr/local/opt/python@2/libexec/bin:/usr/local/bin:$CORE_UTILS_PATH/libexec/gnubin:/usr/local/sbin:$PATH"
-
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+plugins=(npm git git2 projects history history-substring-search zsh-autosuggestions)
+# disabled plugins=(z)
 
 # Appends every command to the history file once it is executed
 setopt inc_append_history
@@ -83,7 +77,18 @@ for file in $HOME/.{extra,exports,aliases,functions}; do
 done;
 unset file;
 
+# install volta
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
+PATH="/usr/local/opt/ruby/bin:$PATH"
+PATH="`gem environment gemdir`/bin:$PATH"
+PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="$VOLTA_HOME/bin:$PATH"
+PATH="$HOME/.dotfiles-bin:$PATH"
+PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
+export PATH="$PATH"
 
 eval "$(starship init zsh)"
