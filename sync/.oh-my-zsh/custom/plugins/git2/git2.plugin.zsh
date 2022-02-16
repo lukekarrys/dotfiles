@@ -20,7 +20,7 @@ alias gdm='git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d'
 
 # delete all branches without a remote
 # this forces the delete with -D for unmerged branches
-function gdo() { git branch --format "%(refname:short) %(upstream)" | awk '{if (!$2) print $1;}' | xargs git branch -D }
+function gdo() { git fetch -p && for branch in $(git branch -vv | grep ': gone]' | awk '{print $1}'); do git branch -D $branch; done }
 alias git-delete-orphaned='gdo'
 
 # Switch to a branch, creating it if necessary
