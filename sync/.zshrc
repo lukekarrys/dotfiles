@@ -2,9 +2,9 @@ ZSH_DISABLE_COMPFIX="true"
 
 export DEFAULT_USER="lukekarrys"
 export DEFAULT_GH_ORG="lukekarrys"
-export PROJECT_DIR="$HOME/projects"
-export PROJECT_REMOTE_REPOS="org:npm topic:npm-cli,org:bracketclub,org:lukekarrys"
-export DOTFILES_DIR="$PROJECTS/lukekarrys/dotfiles"
+export PROJECTS_DIR="$HOME/projects"
+export PROJECTS_REMOTE="org:npm topic:npm-cli,org:bracketclub,org:lukekarrys"
+export DOTFILES_DIR="$PROJECTS_DIR/lukekarrys/dotfiles"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh

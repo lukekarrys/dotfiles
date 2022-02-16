@@ -18,7 +18,7 @@ if [[ $FETCH != "--no-fetch" ]]; then
   else
     PROJECTS_FILE="$SYNC_DIR/.oh-my-zsh/custom/plugins/projects/data.txt"
     true > $PROJECTS_FILE
-    QUERIES=(${(s/,/)PROJECT_REMOTE_REPOS})
+    QUERIES=(${(s/,/)PROJECTS_REMOTE})
     for q in "${QUERIES[@]}"; do
       echo "$q"
       gh ls-repos-name "$q" >> $PROJECTS_FILE

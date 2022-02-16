@@ -18,6 +18,11 @@ alias gpob='git push origin $(current_branch)'
 # a.k.a. ‘delete merged’
 alias gdm='git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d'
 
+# delete all branches without a remote
+# this forces the delete with -D for unmerged branches
+function gdo() { git branch --format "%(refname:short) %(upstream)" | awk '{if (!$2) print $1;}' | xargs git branch -D }
+alias git-delete-orphaned='gdo'
+
 # Switch to a branch, creating it if necessary
 function ggo() { git checkout -b "$1" 2> /dev/null || git checkout "$1"; }
 
