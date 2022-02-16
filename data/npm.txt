@@ -8,7 +8,7 @@ ghwd@1.1.4
 gzip-size-cli@5.0.0
 js-size@2.1.7
 json@11.0.0
-nodemon@project
+nodemon@2.0.7
 npmwd@1.1.0
 prettier@2.5.1
 strip-ansi-cli@3.0.2
