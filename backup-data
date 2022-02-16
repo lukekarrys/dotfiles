@@ -4,7 +4,7 @@ DATA_DIR=data
 PUSH="$1"
 
 function npm-ls-global() {
-  local MODULES=$(volta list -c --format plain | grep "package " | sed -e 's/package //' | cut -d " " -f1)
+  local MODULES=$(cd $HOME && volta list -c --format plain | grep "package " | sed -e 's/package //' | cut -d " " -f1)
   echo $MODULES
 }
 
