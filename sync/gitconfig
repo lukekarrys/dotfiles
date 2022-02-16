@@ -96,11 +96,16 @@
 
 	autosetupmerge = true
 
-# Use `origin` as the default remote on the `master` branch in all cases
+# Use `origin` as the default remote on the `master/main` branch in all cases
 [branch "master"]
 
 	remote = origin
 	merge = refs/heads/master
+
+[branch "main"]
+
+	remote = origin
+	merge = refs/heads/main
 
 [push]
 
@@ -143,6 +148,9 @@
 	gpgsign = true
 
 [tag]
+
 	gpgsign = true
 
+[fetch]
 
+	prune = true

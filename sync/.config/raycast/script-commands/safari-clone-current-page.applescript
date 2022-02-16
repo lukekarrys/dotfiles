@@ -19,10 +19,12 @@ end tell
 
 tell application "iTerm2"
   tell current window
+    select
     create tab with default profile
   end tell
 
   tell current tab of current window
+    select
     set _new_session to last item of sessions
   end tell
 

@@ -21,6 +21,10 @@
   "scripts": {
     "backup": "./backup-data --push",
     "bootstrap": "./bootstrap",
-    "postinstall": "./bootstrap"
+    "postinstall": "./bootstrap",
+    "dev": "nodemon --exec './bootstrap --no-fetch' --watch './bootstrap' --watch './sync' --ext '*'"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
