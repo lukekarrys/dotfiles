@@ -40,6 +40,10 @@ function gfm () { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cg
 
 # Interactive rebase with the given number of latest commits
 function greb () { git rebase -i HEAD~$1; }
+function grebsha () { git rebase -i $1~1; }
+
+# git-log-grep and get sha for first matching commit
+function glg () { git log --all -n 1 --grep="$1" | grep commit | sed 's/commit //' | tr -d '\n' }
 
 # set upstream for remote to current branch
 function gso() { git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD` `git symbolic-ref --short HEAD` }
@@ -50,3 +54,5 @@ function gm2m {
   git branch -u origin/main main
   git remote set-head origin -a
 }
+
+
