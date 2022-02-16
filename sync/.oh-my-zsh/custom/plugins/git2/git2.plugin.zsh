@@ -43,3 +43,10 @@ function greb () { git rebase -i HEAD~$1; }
 
 # set upstream for remote to current branch
 function gso() { git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD` `git symbolic-ref --short HEAD` }
+
+function gm2m {
+  git branch -m master main
+  git fetch origin
+  git branch -u origin/main main
+  git remote set-head origin -a
+}
