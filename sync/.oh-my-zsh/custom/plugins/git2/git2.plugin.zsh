@@ -44,6 +44,7 @@ function grebsha () { git rebase -i $1~1; }
 
 # git-log-grep and get sha for first matching commit
 function glg () { git log --all -n 1 --grep="$1" | grep commit | sed 's/commit //' | tr -d '\n' }
+alias glg='glg'
 
 # set upstream for remote to current branch
 function gso() { git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD` `git symbolic-ref --short HEAD` }
