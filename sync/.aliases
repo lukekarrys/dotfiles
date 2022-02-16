@@ -90,13 +90,13 @@ alias killtunnel="ps -x | grep 'ssh -NTnf -L' | grep -v 'grep' | tr -s ' ' | cut
 
 alias beep="node -e 'process.stdout.write(\"\x07\")'"
 
-alias nodemodulessize="find $PROJECT_DIR -type d -name 'node_modules' -maxdepth 3 | xargs du -ch --max-depth=0"
-alias nodemoduleslist="find $PROJECT_DIR -type d -name 'node_modules' -maxdepth 3 -exec echo {} \;"
-alias nodemodulesdelete="find $PROJECT_DIR -type d -name 'node_modules' -maxdepth 3 -exec rm -rf {} \;"
+alias nodemodulessize="find $PROJECTS_DIR -type d -name 'node_modules' -maxdepth 3 | xargs du -ch --max-depth=0"
+alias nodemoduleslist="find $PROJECTS_DIR -type d -name 'node_modules' -maxdepth 3 -exec echo {} \;"
+alias nodemodulesdelete="find $PROJECTS_DIR -type d -name 'node_modules' -maxdepth 3 -exec rm -rf {} \;"
 
 alias focus="open focus://focus"
 
 alias cleancaches="brew cleanup"
 alias app="brew"
 
-alias npmlocal="node $PROJECT_DIR/npm/cli"
+alias npmlocal="node $PROJECTS_DIR/npm/cli"

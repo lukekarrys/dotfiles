@@ -1,16 +1,16 @@
 function p() {
   if [ -z "$1" ]; then
-    cd $PROJECT_DIR
+    cd $PROJECTS_DIR
   else
     # last match will be a repo if it exists, otherwise the org
     # allows for going straight to repo with same name as org
-    repo_match=$(find $PROJECT_DIR -maxdepth 2 -type d | grep "/$1$" | tail -n1)
+    repo_match=$(find $PROJECTS_DIR -maxdepth 2 -type d | grep "/$1$" | tail -n1)
     if [ -d "$repo_match" ]; then
       cd $repo_match
-    elif [ -d "$PROJECT_DIR/$1" ]; then
-      cd $PROJECT_DIR/$1
+    elif [ -d "$PROJECTS_DIR/$1" ]; then
+      cd $PROJECTS_DIR/$1
     else
-      echo "Could not find $PROJECT_DIR/$1"
+      echo "Could not find $PROJECTS_DIR/$1"
       return 1
     fi
   fi
@@ -43,11 +43,11 @@ function clone() {
     REPO=$QUERY
   fi
 
-  if [ -d "$PROJECT_DIR/$ORG/$REPO" ]; then
-    cd $PROJECT_DIR/$ORG/$REPO
+  if [ -d "$PROJECTS_DIR/$ORG/$REPO" ]; then
+    cd $PROJECTS_DIR/$ORG/$REPO
     gh repo sync
   else
-    mkd $PROJECT_DIR/$ORG
+    mkd $PROJECTS_DIR/$ORG
     gh repo clone $ORG/$REPO
     cd $REPO
   fi
@@ -55,9 +55,9 @@ function clone() {
 
 function trep() {
   if [ -z "$1" ]; then
-    tree -aCd -L 2 $PROJECT_DIR
+    tree -aCd -L 2 $PROJECTS_DIR
   else
-    tree -aCd -L 1 $PROJECT_DIR/$1
+    tree -aCd -L 1 $PROJECTS_DIR/$1
   fi
 }
 
@@ -65,7 +65,7 @@ function trep() {
 ORGS=()
 REPOS=()
 ALL_PROJECTS=()
-for org in $PROJECT_DIR/*; do
+for org in $PROJECTS_DIR/*; do
   ORGS+=("$(basename -- $org)")
   for repo in $org/*; do
     REPOS+=("$(basename -- $repo)")
