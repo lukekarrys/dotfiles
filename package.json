@@ -22,8 +22,9 @@
     "backup": "./backup-data --push",
     "bootstrap": "./bootstrap",
     "postinstall": "./bootstrap",
-    "dev": "chokidar './sync/' './bootstrap' --ignore '/\/zsh-autosuggestions\//' --ignore '/\/projects\/data.txt$/' -c './bootstrap --no-fetch'",
-    "dev:fetch": "chokidar './sync/' './bootstrap' --ignore '/\/zsh-autosuggestions\//' --ignore '/\/projects\/data.txt$/' -c './bootstrap'"
+    "watch": "chokidar './sync/' './bootstrap' --ignore '/\\/zsh-autosuggestions\\//' --ignore '/\\/projects\\/data.txt$/'",
+    "dev": "npm run watch -- -c './bootstrap --no-fetch'",
+    "dev:fetch": "npm run watch -- -c './bootstrap'"
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0"
