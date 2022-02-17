@@ -64,7 +64,6 @@ function trep() {
 # completion
 ORGS=()
 REPOS=()
-ALL_PROJECTS=()
 for org in $PROJECTS_DIR/*; do
   ORGS+=("$(basename -- $org)")
   for repo in $org/*; do
@@ -76,10 +75,9 @@ while read repo; do
   REPOS+=("$repo")
 done <$ZSH/custom/plugins/projects/data.txt
 
-ALL_PROJECTS+=($(echo "("${REPOS[@]}" "${ORGS[@]}")" | tr ' ' '\n' | sort -u))
+ALL_PROJECTS="$(echo "${REPOS[@]}" "${ORGS[@]}" | tr ' ' '\n' | sort -u | tr '\n' ' ')"
 
 # TODO: better autocomplete for this based on default gh org and specific command
-# eg clone can take 1 or 2 args
-zstyle ':completion:p' $ALL_PROJECTS
-zstyle ':completion:clone' $ALL_PROJECTS
-zstyle ':completion:trep' $ORGS
+# eg clone can take 1 or 2 args, p can take one
+compctl -k "($ALL_PROJECTS)" p clone
+compctl -k "($ORGS)" trep

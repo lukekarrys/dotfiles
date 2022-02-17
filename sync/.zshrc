@@ -56,7 +56,7 @@ ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 # Which plugins would you like to load? (plugins can be found in $HOME/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to $HOME/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(npm git git2 projects history history-substring-search zsh-autosuggestions)
+plugins=(npm my-git projects history history-substring-search zsh-autosuggestions per-directory-history)
 # disabled plugins=(z)
 
 # Appends every command to the history file once it is executed
