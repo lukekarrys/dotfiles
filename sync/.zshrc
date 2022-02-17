@@ -69,6 +69,8 @@ ulimit -n 10000
 # dont show % sign when ctrl-c'ing
 export PROMPT_EOL_MARK=""
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles
@@ -91,4 +93,5 @@ PATH="$HOME/.dotfiles-bin:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$PATH"
 
+export STARSHIP_LOG='error'
 eval "$(starship init zsh)"
