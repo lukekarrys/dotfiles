@@ -336,16 +336,18 @@ function grename() {
 
 unset git_version
 
-
-
 # These are personal git aliases that arent supplied by oh-my-zsh or override ones supplied by the plugin
 alias gs='git status -s'
 alias gss='git status -s'
-alias gdf='git diff-index --quiet HEAD -- || clear; git --no-pager diff --color --patch-with-stat | diff-so-fancy'
+#alias gdf='git diff-index --quiet HEAD -- || clear; git --no-pager diff --color --patch-with-stat | diff-so-fancy'
 alias gca='git add -A && git commit -avm'
 alias gc='git commit -vm'
 alias gaa='git add -A && git commit --amend --reuse-message=HEAD'
 alias gpu='git remote prune origin'
+
+function gdf () {
+  git --no-pager diff --color --patch-with-stat "$@" | diff-so-fancy
+}
 
 alias gpo='git push origin'
 compdef _git ggp=git-checkout

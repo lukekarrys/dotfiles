@@ -169,7 +169,7 @@ function phpserver() {
 }
 
 function findprocess() {
-    ps -x | grep "$@" | grep -v "grep"
+    ps -x | grep "ttys" | grep "$@" | grep -v "grep"
 }
 
 function rungist() {

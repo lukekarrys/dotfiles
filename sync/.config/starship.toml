@@ -1,4 +1,3 @@
-command_timeout = 1000
 continuation_prompt = "[❯](bright-black) "
 format = """
 $username\
@@ -16,6 +15,8 @@ $git_metrics\
 $git_status\
 $hg_branch\
 $docker_context\
+${custom.npm_package}\
+$package\
 $cmake\
 $cobol\
 $container\
@@ -57,11 +58,10 @@ $openstack\
 $azure\
 $env_var\
 $crystal\
-$custom\
 $sudo\
 $cmd_duration\
 $fill\
-$package\
+${custom.npm}\
 $nodejs\
 $line_break\
 $jobs\
@@ -71,12 +71,42 @@ $status\
 $shell\
 $character"""
 
+[directory]
+truncation_symbol = "…/"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
 [fill]
 symbol = "—"
 style = "bold black"
 
 [package]
-format = " [($version)]($style)"
+disabled = true
+
+[custom.npm_package]
+files = ["package.json"]
+command = "cat package.json | jq -r '(.name + \"@\" + .version)'"
+style = "bold 208"
+symbol = " "
+format = "[$symbol($output)]($style) "
+
+[custom.npm]
+files = ["package.json", ".node-version", ".nvmrc"]
+directories = ["node_modules"]
+extensions = ["js", "mjs", "cjs", "ts"]
+command = """
+volta_npm=$(volta ls npm -c --format plain)
+if npm_current=$(echo $volta_npm | grep "current"); then
+  echo $npm_current | sed -r 's/.*npm@([[:digit:].]+).*/\\1/'
+else
+  echo $volta_npm | grep "default" | sed -r 's/.*npm@([[:digit:].]+).*/\\1/'
+fi
+"""
+style = "bold red"
+symbol = " "
+format = " [$symbol($output)]($style)"
 
 [nodejs]
+style = "bold green"
 format = " [$symbol($version)]($style)"

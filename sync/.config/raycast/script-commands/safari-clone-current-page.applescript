@@ -1,13 +1,16 @@
 #!/usr/bin/osascript
 
-# @raycast.title Clone Safari URL in iTerm
-# @raycast.description Clone Safari URL in iTerm
-# @raycast.author Luke Karrys
-
-# @raycast.icon images/safari.png
-# @raycast.mode silent
-# @raycast.packageName Safari
+# Required parameters:
 # @raycast.schemaVersion 1
+# @raycast.title Clone Safari URL in iTerm
+# @raycast.mode silent
+# @raycast.packageName Navigation
+#
+# Optional parameters:
+# @raycast.icon images/iterm-logo.png
+#
+# Documentation:
+# @raycast.author Luke Karrys
 
 tell application "Safari"
 	set safariUrl to URL of front document
@@ -15,23 +18,23 @@ tell application "Safari"
   set urlParts to my the_split(githubUrl, "/")
   set org to item 1 of urlParts
   set repo to item 2 of urlParts
+  set command to "clear; clone " & org & " " & repo
 end tell
 
-tell application "iTerm2"
-  tell current window
-    select
-    create tab with default profile
-  end tell
+tell application "iTerm"
+    activate
+    set hasNoWindows to ((count of windows) is 0)
+    if hasNoWindows then
+        create window with default profile
+    end if
+    select first window
 
-  tell current tab of current window
-    select
-    set _new_session to last item of sessions
-  end tell
-
-  tell _new_session
-    select
-    write text "clone " & org & " " & repo
-  end tell
+    tell the first window
+        if hasNoWindows is false then
+            create tab with default profile
+        end if
+        tell current session to write text command
+    end tell
 end tell
 
 on the_split(theString, theDelimiter)
