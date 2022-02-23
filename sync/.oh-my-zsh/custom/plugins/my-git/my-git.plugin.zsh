@@ -348,6 +348,7 @@ alias gpu='git remote prune origin'
 function gdf () {
   git --no-pager diff --color --patch-with-stat "$@" | diff-so-fancy
 }
+compdef _git gdf=git-diff
 
 alias gpo='git push origin'
 compdef _git ggp=git-checkout
@@ -368,7 +369,7 @@ alias gl5='gl -n 5'
 function glb () {
   local branch=$1
   shift
-  gl "$@ HEAD..$branch" 
+  gl "$@ HEAD..$branch"
 }
 
 # delete all branches without a remote
@@ -391,8 +392,13 @@ function gfc () { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cg
 function gfm () { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }
 
 # Interactive rebase with the given number of latest commits
-function greb () { git rebase -i HEAD~$1; }
-function grebsha () { git rebase -i $1~1; }
+function greb () {
+  if [[ ${#1} -ge 7 ]] ; then
+    git rebase -i $1~1;
+  else
+    git rebase -i HEAD~$1;
+  fi
+}
 
 # git-log-grep and get sha for first matching commit
 function glg () { git log --all -n 1 --grep="$1" | grep commit | sed 's/commit //' | tr -d '\n' }
@@ -406,5 +412,3 @@ function gm2m {
   git branch -u origin/main main
   git remote set-head origin -a
 }
-
-
