@@ -100,3 +100,5 @@ alias cleancaches="brew cleanup"
 alias app="brew"
 
 alias npmlocal="node $PROJECTS_DIR/npm/cli"
+
+alias ghwd='gh wd'

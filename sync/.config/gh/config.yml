@@ -8,10 +8,11 @@ prompt: enabled
 pager: cat
 # Aliases allow you to create nicknames for gh commands
 aliases:
+    wd: '!gh repo view --web --branch $(git branch --show-current)'
     co: pr checkout
     dependabot: |
         api graphql -f query='query {
-          search (query: "org:npm topic:npm-cli -repo:npm/abbrev-js", type: REPOSITORY, first: 100) {
+          search (query: "org:npm topic:npm-cli", type: REPOSITORY, first: 100) {
             nodes {
               ... on Repository {
                 nameWithOwner
@@ -34,7 +35,7 @@ aliases:
         {{- end}}'
     autoreleases: |
         api graphql -f query='query {
-          search (query: "org:npm topic:npm-cli -repo:npm/abbrev-js", type: REPOSITORY, first: 100) {
+          search (query: "org:npm topic:npm-cli", type: REPOSITORY, first: 100) {
             nodes {
               ... on Repository {
                 nameWithOwner

@@ -412,3 +412,5 @@ function gm2m {
   git branch -u origin/main main
   git remote set-head origin -a
 }
+
+alias gugh='git add . && git commit --amend --no-edit'
