@@ -141,7 +141,7 @@ const parseArgs = raw => {
   const result = {
     create: false,
     update: null,
-    repo: "npm/cli",
+    repo: "npm/statusboard",
     label: "release-manager",
     assignee: "@me",
     date: date(),
@@ -162,6 +162,8 @@ const parseArgs = raw => {
     u: "update",
   }
 
+  // parse argv into array of [k,v] pairs
+  // works with --x=1 --x 1 --x -x
   const argv = raw
     .join(" ")
     .split(/(?:^|\s+)\-/g)
