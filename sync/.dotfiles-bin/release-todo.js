@@ -86,14 +86,12 @@ const ghIssue = args => {
 }
 
 const getSection = (content, args) => {
-  // find a section from markdown and return it with a new title
-  // this uses h3 (###) to find a section
-  const heading = "###"
+  const [, heading, section] = args.section.match(/^(#+)\s(.*)/)
 
   // remove the title since we are making a new one
   const [title, ...lines] = content
     .split(`${heading} `)
-    .find(s => s.split("\n")[0].match(new RegExp(args.section, "i")))
+    .find(s => s.split("\n")[0].match(new RegExp(section, "i")))
     .trim()
     .split("\n")
 
@@ -147,7 +145,8 @@ const parseArgs = raw => {
     date: date(),
     version: "X.Y.Z",
     replacements: {},
-    section: "cli",
+    // look for that heading level with a match for the portion after
+    section: "### .*cli.*",
     release:
       "https://raw.githubusercontent.com/wiki/npm/cli/Release-Process.md",
   }
