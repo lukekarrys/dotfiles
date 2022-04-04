@@ -151,6 +151,12 @@ const parseArgs = raw => {
       "https://raw.githubusercontent.com/wiki/npm/cli/Release-Process.md",
   }
 
+  const clean = {
+    // this script will not work correctly with the tag style
+    // of the version (prefixed with a v) so strip it out
+    version: v => v.replace(/^v/g, ""),
+  }
+
   const shorts = {
     R: "repo",
     l: "label",
@@ -178,7 +184,7 @@ const parseArgs = raw => {
   for (const [dash, key, value] of argv) {
     const k = dash.length < 2 ? shorts[key] : key
     if (Object.hasOwn(result, k)) {
-      result[k] = value
+      result[k] = clean[k] ? clean(value) : value
     } else {
       result.replacements[k] = value
     }
@@ -198,7 +204,7 @@ const parseArgs = raw => {
 
   if (result.help) {
     console.error(usage())
-    process.exit(0)
+    return process.exit(0)
   }
 
   return result
