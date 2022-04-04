@@ -184,7 +184,7 @@ const parseArgs = raw => {
   for (const [dash, key, value] of argv) {
     const k = dash.length < 2 ? shorts[key] : key
     if (Object.hasOwn(result, k)) {
-      result[k] = clean[k] ? clean(value) : value
+      result[k] = clean[k] ? clean[k](value) : value
     } else {
       result.replacements[k] = value
     }
