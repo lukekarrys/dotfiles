@@ -20,3 +20,4 @@ aliases:
         }
       }
     }' --jq '.data.search.nodes[].name'
+  token: "!gh auth status -t 2>&1 >/dev/null | grep Token | sed -n -e 's/^.*Token: //p'"
