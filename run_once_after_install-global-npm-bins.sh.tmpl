@@ -1,0 +1,10 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# package.json hash: {{ include "dot_npm-global/package.json.tmpl" | sha256sum }}
+PATH={{ .chezmoi.homeDir }}/.npm-global/node/bin:{{ .chezmoi.homeDir }}/.npm-global/npm/bin:$PATH
+{{ .chezmoi.homeDir }}/.npm-global/node/bin/node \
+{{ .chezmoi.homeDir }}/.npm-global/npm/index.js \
+--prefix={{ .chezmoi.homeDir }}/.npm-global \
+install
+{{ end -}}

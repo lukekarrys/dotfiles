@@ -1,0 +1,25 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: ssh
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor: code -r
+# When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
+prompt: enabled
+# A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
+pager: cat
+# Aliases allow you to create nicknames for gh commands
+aliases:
+  wd: "!gh repo view --web --branch $(git branch --show-current)"
+  co: pr checkout
+  ls-repos-name: |-
+    api graphql -F search='$1 archived:false' -f query='query ($search: String!) {
+      search (query: $search, type: REPOSITORY, first: 100) {
+        nodes {
+          ... on Repository {
+            name
+          }
+        }
+      }
+    }' --jq '.data.search.nodes[].name'
+  token: "!gh auth status -t 2>&1 >/dev/null | grep Token | sed -n -e 's/^.*Token: //p'"
+  nwo: repo view --json nameWithOwner --jq .nameWithOwner
+  rvl: '!gh run view $(gh run list -w "$1" -L 1 --json databaseId -q ".[0].databaseId")'

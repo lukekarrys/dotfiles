@@ -1,0 +1,107 @@
+continuation_prompt = "[❯](bright-black) "
+format = """
+$username\
+$hostname\
+$localip\
+$shlvl\
+$singularity\
+$kubernetes\
+$directory\
+$vcsh\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$hg_branch\
+$docker_context\
+${custom.npm_package}\
+$package\
+$cmake\
+$cobol\
+$container\
+$dart\
+$deno\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$lua\
+$nim\
+$ocaml\
+$perl\
+$php\
+$pulumi\
+$purescript\
+$python\
+$rlang\
+$red\
+$ruby\
+$rust\
+$scala\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$azure\
+$env_var\
+$crystal\
+$sudo\
+$cmd_duration\
+$fill\
+${custom.npm}\
+$nodejs\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$shell\
+$character"""
+
+[directory]
+truncation_symbol = "…/"
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+
+[fill]
+symbol = "—"
+style = "bold black"
+
+[package]
+disabled = true
+
+[custom.npm_package]
+files = ["package.json"]
+command = "cat package.json | jq -r '(.name + \"@\" + .version)'"
+style = "bold 208"
+symbol = " "
+format = "[$symbol($output)]($style) "
+
+[custom.npm]
+files = ["package.json", ".node-version", ".nvmrc"]
+directories = ["node_modules"]
+extensions = ["js", "mjs", "cjs", "ts"]
+command = """
+npm --version
+"""
+style = "bold red"
+symbol = " "
+format = " [$symbol($output)]($style)"
+
+[nodejs]
+style = "bold green"
+format = " [$symbol($version)]($style)"

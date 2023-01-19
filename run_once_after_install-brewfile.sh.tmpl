@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Brewfile hash: {{ include "dot_Brewfile" | sha256sum }}
+brew bundle --no-lock --file={{ .chezmoi.homeDir }}/.Brewfile
+{{ end -}}

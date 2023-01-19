@@ -1,0 +1,9 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+data_path={{ .chezmoi.homeDir }}/.oh-my-zsh-custom/plugins/projects/data.txt
+rm -rf $data_path
+gh ls-repos-name "org:npm topic:npm-cli" >> $data_path
+gh ls-repos-name "org:bracketclub" >> $data_path
+gh ls-repos-name "org:lukekarrys" >> $data_path
+{{ end -}}

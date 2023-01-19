@@ -1,0 +1,27 @@
+[".npm-global/node"]
+    type = "archive"
+    url = "https://nodejs.org/dist/v{{ .nodeVersion }}/node-v{{ .nodeVersion }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
+    exact = true
+    stripComponents = 1
+    include = ["*/bin", "*/bin/node", "*/include/**"]
+
+[".npm-global/npm"]
+    type = "archive"
+    url = "https://registry.npmjs.org/npm/-/npm-{{ .npmVersion }}.tgz"
+    exact = true
+    stripComponents = 1
+    exclude = ["*/man/**", "*/docs/**", "*/bin/**"]
+
+[".oh-my-zsh"]
+    type = "archive"
+    url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh-custom/plugins/zsh-autosuggestions"]
+    type = "archive"
+    url = "https://github.com/zsh-users/zsh-autosuggestions/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"

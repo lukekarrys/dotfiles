@@ -1,0 +1,22 @@
+import fs from "node:fs/promises"
+import { dirname, join } from "path"
+import { fileURLToPath } from "url"
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
+const npmBinDir = join(__dirname, "node_modules", ".bin")
+const myBinDir = join(__dirname, "bin")
+
+await fs.rm(myBinDir, { force: true, recursive: true })
+await fs.mkdir(myBinDir)
+
+for (const bin of await fs.readdir(npmBinDir)) {
+  const data =
+    [
+      "#!/usr/bin/env zsh",
+      "DIR=$(dirname ${0:a:h})",
+      'PATH=$DIR/node/bin:$DIR/npm/bin:$PATH',
+      `$DIR/node_modules/.bin/${bin} $@`,
+    ].join("\n") + "\n"
+  await fs.writeFile(join(myBinDir, bin), data, "utf-8")
+  await fs.chmod(join(myBinDir, bin), 0o755)
+}

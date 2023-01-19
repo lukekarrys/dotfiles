@@ -1,0 +1,25 @@
+{
+  "name": "npm-global-bin",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@lhci/cli": "^0.10.0",
+    "chokidar-cli": "^3.0.0",
+    "diff-so-fancy": "^1.4.3",
+    "eslint": "^8.32.0",
+    "fast-cli": "^3.2.0",
+    "fixpack": "^4.0.0",
+    "gzip-size-cli": "^5.1.0",
+    "html": "^1.0.0",
+    "html-to-text": "^9.0.3",
+    "nodemon": "^2.0.20",
+    "npm-check-updates": "^16.6.2",
+    "npmwd": "^1.1.0",
+    "prettier": "^2.8.3",
+    "pretty-bytes-cli": "^3.0.0",
+    "strip-ansi-cli": "^3.0.2"
+  },
+  "scripts": {
+    "postinstall": "{{ .chezmoi.homeDir }}/.npm-global/node/bin/node link-bins.mjs"
+  }
+}

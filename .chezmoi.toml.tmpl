@@ -1,0 +1,20 @@
+{{/* node architecture is different from go's */}}
+{{- $nodeArch := .chezmoi.arch -}}
+{{- if eq $nodeArch "amd64" -}}
+{{-   $nodeArch = "x64" -}}
+{{- end -}}
+
+{{/* default github org */}}
+{{- $githubOrg := "npm" -}}
+
+umask = 0o022
+
+[data]
+  nodeArch = {{ $nodeArch | quote }}
+  nodeVersion = "19.4.0"
+  npmVersion = "9.3.1"
+  username = "lukekarrys"
+  email = "luke@lukekarrys.com"
+  name = "Luke Karrys"
+  githubOrg = {{ $githubOrg | quote }}
+  opPersonal = "D4L6GSCIN5CLHA6MQOWD24NBK4"
