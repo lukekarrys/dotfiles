@@ -285,7 +285,7 @@ alias gstp='git stash pop'
 alias gsts='git stash show --text'
 alias gstu='gsta --include-untracked'
 alias gstall='git stash --all'
-alias gsu='git submodule update'
+# alias gsu='git submodule update'
 alias gsw='git switch'
 alias gswc='git switch -c'
 alias gswm='git switch $(git_main_branch)'
@@ -398,6 +398,7 @@ function glg () { git log --all -n 1 --grep="$1" | grep commit | sed 's/commit /
 # set upstream for remote to current branch
 function gso() { git branch --set-upstream-to=origin/`git symbolic-ref --short HEAD` `git symbolic-ref --short HEAD` }
 function gsup() { gso }
+function gsu() { gso }
 
 function gm2m {
   git branch -m master main
