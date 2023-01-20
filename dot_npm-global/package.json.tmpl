@@ -20,6 +20,6 @@
     "strip-ansi-cli": "^3.0.2"
   },
   "scripts": {
-    "postinstall": "{{ .chezmoi.homeDir }}/.npm-global/node/bin/node link-bins.mjs"
+    "postinstall": "{{ .globalNodeBin }}/node link-bins.mjs"
   }
 }
