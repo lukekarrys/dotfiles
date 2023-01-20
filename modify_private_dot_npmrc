@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+npmrc="$(mktemp)"
+trap 'rm -rf "${npmrc}"' EXIT
+cat > "${npmrc}"
+
+if ! grep -q "^sign-git-tag=" "${npmrc}"; then
+  cat "sign-git-tag=true" >> "${npmrc}"
+else
+  sed -i'' -e "s/^sign-git-tag=.*/sign-git-tag=true/g" "${npmrc}"
+fi
+
+if ! grep -q "^registry=" "${npmrc}"; then
+  cat "registry=https://registry.npmjs.org/" >> "${npmrc}"
+else
+  sed -i'' -e "s/^registry=.*/registry=https:\/\/registry.npmjs.org\//" "${npmrc}"
+fi
+
+cat "${npmrc}"

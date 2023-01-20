@@ -3,11 +3,6 @@ function mkd() {
 	mkdir -p "$@" && cd "$@";
 }
 
-# turn mkv into mp4
-function mp4() {
-    ffmpeg -i `basename $@` -c:v copy -c:a copy `basename $@ .mkv`.mp4
-}
-
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";
@@ -180,33 +175,12 @@ function findport() {
     sudo lsof -n -i4TCP:$@ | grep LISTEN
 }
 
-function ssh-add-all {
-  for file in $HOME/.ssh/keys/*; do
-    ssh-add -K "$file";
-  done;
-  unset file;
-}
-
-function ssh-tunnel {
-  ssh -NTnf -L $@
-}
-
 function gitignore() {
   curl -s https://raw.githubusercontent.com/github/gitignore/master/$1.gitignore
 }
 
 function license() {
   curl -s https://raw.githubusercontent.com/github/choosealicense.com/gh-pages/_licenses/$1.txt | sed '1,/---/d' | tail -n +2 | head -n -1 | sed "s/\[fullname\]/$GIT_AUTHOR_NAME/" | sed "s/\[year\]/`date +%Y`/"
-}
-
-function make-electron-app() {
-  nativefier -f --name $@ /Applications
-  mv /Applications/$1-darwin-x64/$1.app /Applications/$1.app && rm -rf /Applications/$1-darwin-x64
-}
-
-function delete-electron-app() {
-  rm -rf /Applications/$1.app
-  rm -rf $HOME/Library/Application\ Support/`echo "$1" | tr '[:upper:]' '[:lower:]'`-nativefier-*
 }
 
 # Schedule sleep at a certain time, use like: sleep-at 60
@@ -226,7 +200,7 @@ function pc() {
 }
 
 function npmg() {
-	( export PATH={{ .chezmoi.homeDir }}/.npm-global/node/bin:{{ .chezmoi.homeDir }}/.npm-global/npm/bin:$PATH; {{ .chezmoi.homeDir }}/.npm-global/node/bin/node {{ .chezmoi.homeDir }}/.npm-global/npm/index.js --prefix={{ .chezmoi.homeDir }}/.npm-global $@ )
+	( export PATH={{ .globalNodeBin }}:{{ .globalNpmBin }}:$PATH; {{ .globalNodeBin }}/node {{ .globalNpmIndex }} --prefix={{ .globalJsDir }} $@ )
 }
 
 function brewdump() {
@@ -235,5 +209,5 @@ function brewdump() {
 
 function ncu() {
 	# ncu and node contributors config files conflict
-	{{ .chezmoi.homeDir }}/.npm-global/bin/ncu --configFileName=.ncurc.yml $@
+	{{ .globalJsBin }}/ncu --configFileName=.ncurc.yml $@
 }

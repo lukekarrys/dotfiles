@@ -7,6 +7,8 @@
 {{/* default github org */}}
 {{- $githubOrg := "npm" -}}
 
+{{- $npmGlobal := (printf "%s%s" .chezmoi.homeDir "/.npm-global") }}
+
 umask = 0o022
 
 [data]
@@ -18,3 +20,9 @@ umask = 0o022
   name = "Luke Karrys"
   githubOrg = {{ $githubOrg | quote }}
   opPersonal = "D4L6GSCIN5CLHA6MQOWD24NBK4"
+  homeDir = {{ .chezmoi.homeDir | quote }}
+  globalJsDir = {{ $npmGlobal | quote }}
+  globalJsBin = "{{ $npmGlobal }}/bin"
+  globalNodeBin = "{{ $npmGlobal }}/node/bin"
+  globalNpmBin = "{{ $npmGlobal }}/npm/bin"
+  globalNpmIndex = "{{ $npmGlobal }}/npm/index.js"
