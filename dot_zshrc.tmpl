@@ -42,13 +42,14 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
 
-plugins=(my-git projects zsh-autosuggestions)
-# disabled plugins=(z npm)
-# disabled history stuff while i try out atuin
-# plugins=(history history-substring-search per-directory-history)
-# Appends every command to the history file once it is executed
-# setopt inc_append_history
-# HIST_STAMPS="yyyy-mm-dd"
+plugins=(my-git projects zsh-autosuggestions history history-substring-search)
+
+setopt inc_append_history
+setopt HIST_FIND_NO_DUPS
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
+export HISTFILE=~/.zsh_history
+HIST_STAMPS="yyyy-mm-dd"
 
 # Node
 ulimit -n 10000
@@ -83,12 +84,4 @@ export PATH="$PATH"
 
 export STARSHIP_LOG='error'
 eval "$(starship init zsh)"
-
-export ATUIN_NOBIND="true"
 eval "$(atuin init zsh)"
-
-bindkey '^r' _atuin_search_widget
-
-# depends on terminal mode
-# bindkey '^[[A' _atuin_search_widget
-# bindkey '^[OA' _atuin_search_widget
