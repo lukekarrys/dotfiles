@@ -6,24 +6,16 @@ export DEFAULT_USER="{{ .username }}"
 export PROJECTS_DIR="{{ .homeDir }}/projects"
 export ZSH={{ .homeDir }}/.oh-my-zsh
 
-# ssh completion
-zstyle -s ':completion:*:hosts' hosts _ssh_config
-[[ -r {{ .homeDir }}/.ssh/config ]] && _ssh_config+=($(cat {{ .homeDir }}/.ssh/config | sed -ne 's/Host[=\t ]//p'))
-zstyle ':completion:*:hosts' hosts $_ssh_config
-
 # Git credentials
 export GIT_AUTHOR_NAME="{{ .name }}"
 export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 export GIT_AUTHOR_EMAIL="{{ .email }}"
 export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
 # ================================
 # zsh auto suggestion stuff
 # ================================
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -41,15 +33,39 @@ zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # https://github.com/zsh-users/zsh-autosuggestions/issues/351
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
-plugins=(my-git projects zsh-autosuggestions history history-substring-search)
+# fzf-tab
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with exa when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'exa -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
+
+plugins=(my-git projects history history-substring-search fzf-tab zsh-autosuggestions zsh-syntax-highlighting)
 
 setopt inc_append_history
 setopt HIST_FIND_NO_DUPS
 export HISTFILESIZE=1000000000
 export HISTSIZE=1000000000
 export HISTFILE=~/.zsh_history
-HIST_STAMPS="yyyy-mm-dd"
+export HIST_STAMPS="yyyy-mm-dd"
+
+# option up/down for history substring search
+# atuin get plain up key
+# n/p used to be in inputrc mapped to history-search-forward/history-search-back but
+# i dont think those are necessary anymore when using the substring search plugin?
+# i might be wrong though, if something is weird in the future those can be added
+# back to inputrc
+bindkey '^[' history-substring-search-up
+bindkey '^N' history-substring-search-up
+bindkey '^]' history-substring-search-down
+bindkey '^P' history-substring-search-down
 
 # Node
 ulimit -n 10000
@@ -70,7 +86,7 @@ unset file;
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
-PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
+PATH="/usr/local/opt/fzf/bin:$PATH"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 PATH="/usr/local/opt/ruby/bin:$PATH"

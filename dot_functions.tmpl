@@ -204,7 +204,7 @@ function npmg() {
 }
 
 function brewdump() {
-	brew bundle dump --global --force
+	brew bundle dump --force --file={{ .chezmoi.sourceDir }}/Brewfile
 }
 
 function ncu() {

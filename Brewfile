@@ -10,6 +10,8 @@ brew "glib"
 brew "python@3.9"
 brew "chezmoi"
 brew "coreutils"
+brew "exa"
+brew "fd"
 brew "findutils"
 brew "fzf"
 brew "gh"
@@ -24,10 +26,10 @@ brew "moreutils"
 brew "nghttp2"
 brew "node"
 brew "poppler"
-brew "postgresql@14"
 brew "qt"
 brew "ripgrep"
 brew "ruby"
+brew "rust"
 brew "starship", link: false
 brew "tree"
 brew "vips"
@@ -43,6 +45,7 @@ cask "dropbox"
 cask "flux"
 cask "font-ubuntu-mono-nerd-font"
 cask "istat-menus"
+cask "postgres-unofficial"
 cask "qlcolorcode"
 cask "qlimagesize"
 cask "qlmarkdown"
@@ -64,5 +67,6 @@ mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Soro", id: 1550457805
+mas "TestFlight", id: 899247664
 mas "Tweaks for Twitter", id: 1567751529
 mas "Userscripts", id: 1463298887
