@@ -22,4 +22,5 @@ aliases:
     }' --jq '.data.search.nodes[].name'
   token: "!gh auth status -t 2>&1 >/dev/null | grep Token | sed -n -e 's/^.*Token: //p'"
   nwo: repo view --json nameWithOwner --jq .nameWithOwner
-  rvl: '!gh run view $(gh run list -w "$1" -L 1 --json databaseId -q ".[0].databaseId")'
+  run-view-latest: '!gh run view $(gh run list -w "$1" -L 1 --json databaseId -q ".[0].databaseId")'
+  run-watch-latest: '!gh run watch $(gh run list -w "$1" -L 1 --json databaseId -q ".[0].databaseId")'
