@@ -1,0 +1,16 @@
+{
+  "files.exclude": {
+    ".cache/": true,
+    ".cargo/": true,
+    ".cups/": true,
+    ".Trash/": true,
+    "[A-Z]*/": true,
+    "projects/": true,
+    ".node-gyp/": true,
+    ".electron/": true,
+    ".docker/": true,
+    ".zcompdump-*": true,
+    ".zsh_sessions/": true,
+    ".node_repl_history": true,
+  }
+}
