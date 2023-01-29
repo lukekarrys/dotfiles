@@ -8,7 +8,7 @@ prompt: enabled
 pager: cat
 # Aliases allow you to create nicknames for gh commands
 aliases:
-  prvw: "gh pr view --web"
+  prvw: "!gh pr view --web"
   wd: "!gh repo view --web --branch $(git branch --show-current)"
   co: pr checkout
   ls-repos-name: |-
