@@ -12,5 +12,10 @@
     ".zcompdump-*": true,
     ".zsh_sessions/": true,
     ".node_repl_history": true,
+    ".vscode/extensions": true,
+    ".vscode/argv.json": true,
+    ".config/chezmoi/": true,
+    ".config/op/": true,
+    ".local/state/": true
   }
 }
