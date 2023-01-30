@@ -1,5 +1,5 @@
 {
-  "name": "npm-global-bin",
+  "name": "{{ .githubOrg }}-global-bin",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
@@ -12,8 +12,9 @@
     "gzip-size-cli": "^5.1.0",
     "html": "^1.0.0",
     "html-to-text": "^9.0.3",
-    "nodemon": "^2.0.20",
-    "npm-check-updates": "^16.6.2",
+    "http-server": "^14.1.1",
+    "nodemon": "^2.0.{{ .chezmoi.gid }}",
+    "{{ .githubOrg }}-check-updates": "^16.6.2",
     "npmwd": "^1.1.0",
     "prettier": "^2.8.3",
     "pretty-bytes-cli": "^3.0.0",
