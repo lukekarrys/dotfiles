@@ -96,7 +96,7 @@ files = ["package.json", ".node-version", ".nvmrc"]
 directories = ["node_modules"]
 extensions = ["js", "mjs", "cjs", "ts"]
 command = """
-npm --version
+npm --version --cache=/dev/null
 """
 style = "bold red"
 symbol = " "
