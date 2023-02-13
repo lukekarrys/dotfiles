@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+node "$PROJECTS_DIR/npm/cli/bin/npm-cli.js" "$@"
