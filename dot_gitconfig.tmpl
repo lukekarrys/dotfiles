@@ -38,7 +38,7 @@
 
 	editor = code -r -w
 
-	# diff-so-fancy (installed via npm)
+	# diff-so-fancy (installed via {{ .githubOrg }})
 	pager = diff-so-fancy | less --tabs=2 -RFX
 
 [remote "origin"]
@@ -150,3 +150,5 @@
 [gpg "ssh"]
 
   program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[init]
+	defaultBranch = main
