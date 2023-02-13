@@ -23,7 +23,6 @@ aliases:
     }' --jq '.data.search.nodes[].name'
   token: "!gh auth status -t 2>&1 >/dev/null | grep Token | sed -n -e 's/^.*Token: //p'"
   nwo: repo view --json nameWithOwner --jq .nameWithOwner
-  run-view-latest: '!gh run view $(gh run list -w "$1" -L 1 --json databaseId -q ".[].databaseId")'
-  run-watch-latest: '!gh run watch $(gh run list -w "$1" -L 1 --json databaseId -q ".[].databaseId")'
+  run-id: '!gh run list -w "$1" -L 1 --json databaseId -q ".[].databaseId"'
   pr-release: |-
     !gh pr view "$@" $(gh pr list --search='label:"autorelease: tagged","autorelease: pending"' --state=all -L 1 --json number -q ".[].number")
