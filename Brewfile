@@ -32,7 +32,7 @@ brew "qt"
 brew "ripgrep"
 brew "ruby"
 brew "rust"
-brew "starship", link: false
+brew "starship"
 brew "tree"
 brew "vips"
 brew "volta"
