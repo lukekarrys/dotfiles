@@ -25,7 +25,6 @@ projects/
 .local/state/
 .gnupg
 .lesshst
-.local
 .npm
 .npm-global/.DS_Store
 .ssh/known_hosts
