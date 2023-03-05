@@ -4,21 +4,21 @@ db_path = "~/.local/share/atuin/history.db"
 # TODO: setup syning on local docker container on synology
 
 # where to store your encryption key, default is your system data directory
-# key_path = "~/.key"
+key_path = "~/.local/share/atuin/.key"
 
 # where to store your auth session token, default is your system data directory
-# session_path = "~/.key"
+session_path = "~/.local/share/atuin/.token"
 
 # enable or disable automatic sync
-auto_sync = false
+auto_sync = true
 
 # how often to sync history. note that this is only triggered when a command
 # is ran, so sync intervals may well be longer
 # set it to 0 to sync after every command
-# sync_frequency = "5m"
+sync_frequency = "10s"
 
 # address of the sync server
-# sync_address = "https://api.atuin.sh"
+sync_address = "http://hummingbird.local:8888"
 
 # enable or disable automatic update checks
 update_check = false

@@ -23,6 +23,10 @@ projects/
 .config/chezmoi/
 .config/op/
 .local/state/
+.local/share/*
+!.local/share/atuin/
+.local/share/atuin/*
+!.local/share/atuin/.key
 .gnupg
 .lesshst
 .npm
