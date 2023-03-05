@@ -1,8 +1,6 @@
 # where to store your database, default is your system data directory
 db_path = "~/.local/share/atuin/history.db"
 
-# TODO: setup syning on local docker container on synology
-
 # where to store your encryption key, default is your system data directory
 key_path = "~/.local/share/atuin/.key"
 
