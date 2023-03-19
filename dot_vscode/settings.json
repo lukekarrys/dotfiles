@@ -17,6 +17,7 @@
     ".config/chezmoi/": true,
     ".config/op/": true,
     ".config/raycast/": true,
+    ".config/iterm2/": true,
     ".local/state/": true,
     ".rustup/": true,
     ".volta/": true
