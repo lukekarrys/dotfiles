@@ -1,6 +1,13 @@
-ZSH_DISABLE_COMPFIX="true"
-DISABLE_AUTO_UPDATE="true"
-ZSH_CUSTOM={{ .chezmoi.homeDir }}/.oh-my-zsh-custom
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+export ZSH_DISABLE_COMPFIX="true"
+export DISABLE_AUTO_UPDATE="true"
+export ZSH_CUSTOM={{ .chezmoi.homeDir }}/.oh-my-zsh-custom
 
 export DEFAULT_USER="{{ .chezmoi.username }}"
 export PROJECTS_DIR="{{ .chezmoi.homeDir }}/projects"
@@ -12,31 +19,28 @@ export GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
 export GIT_AUTHOR_EMAIL="{{ .email }}"
 export GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
 
-# ================================
-# zsh auto suggestion stuff
-# ================================
-ZSH_AUTOSUGGEST_STRATEGY=(match_prev_cmd history completion)
+source $ZSH_CUSTOM/plugins/powerlevel10k/powerlevel10k.zsh-theme
+
+_zsh_autosuggest_strategy_atuin() {
+  suggestion=$(atuin search --cmd-only --limit=1 --filter-mode=directory --search-mode=prefix "$1" || atuin search --cmd-only --limit=1 --filter-mode=global --search-mode=prefix "$1")
+}
+ZSH_AUTOSUGGEST_STRATEGY=(atuin completion)
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=21
 
-# disable these since its no longer needed with DISABLE_MAGIC_FUNCTIONS
-# trying to speed up atuin enter being set to the current command input
-DISABLE_MAGIC_FUNCTIONS="true"
-# # This speeds up pasting w/ autosuggest
-# # https://github.com/zsh-users/zsh-autosuggestions/issues/238
-# pasteinit() {
-#   OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
-#   zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
-# }
-
-# pastefinish() {
-#   zle -N self-insert $OLD_SELF_INSERT
-# }
-
-# zstyle :bracketed-paste-magic paste-init pasteinit
-# zstyle :bracketed-paste-magic paste-finish pastefinish
+# This speeds up pasting w/ autosuggest
+# https://github.com/zsh-users/zsh-autosuggestions/issues/238
+pasteinit() {
+  OLD_SELF_INSERT=${${(s.:.)widgets[self-insert]}[2,3]}
+  zle -N self-insert url-quote-magic # I wonder if you'd need `.url-quote-magic`?
+}
+pastefinish() {
+  zle -N self-insert $OLD_SELF_INSERT
+}
+zstyle :bracketed-paste-magic paste-init pasteinit
+zstyle :bracketed-paste-magic paste-finish pastefinish
 
 # # https://github.com/zsh-users/zsh-autosuggestions/issues/351
-# ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste)
+ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(bracketed-paste accept-line)
 
 # fzf-tab
 # disable sort when completing `git checkout`
@@ -53,50 +57,17 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 plugins=(
   my-git
   projects
-  history
-  history-substring-search
   fzf-tab
-  # this makes paste from atuin too slow
-  # probably someway to speed it up similar to the workaround with magic functions above
-  # but for now just disable
-  # zsh-autosuggestions
+  zsh-autosuggestions
   zsh-syntax-highlighting
 )
 
-setopt inc_append_history
-setopt HIST_FIND_NO_DUPS
-export HISTFILESIZE=1000000000
-export HISTSIZE=10000
-export HISTFILE=~/.zsh_history
-export HIST_STAMPS="yyyy-mm-dd"
-
-# option up/down for history substring search
-# atuin get plain up key
-# n/p used to be in inputrc mapped to history-search-forward/history-search-back but
-# i dont think those are necessary anymore when using the substring search plugin?
-# i might be wrong though, if something is weird in the future those can be added
-# back to inputrc
-bindkey '^[' history-substring-search-up
-bindkey '^N' history-substring-search-up
-bindkey '^]' history-substring-search-down
-bindkey '^P' history-substring-search-down
-
-# Node
-ulimit -n 10000
+export HISTFILESIZE=1
+export HISTSIZE=1
+export HISTFILE=~/.zsh_history2
 
 # dont show % sign when ctrl-c'ing
 export PROMPT_EOL_MARK=""
-
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-
-source $ZSH/oh-my-zsh.sh
-
-# Load the shell dotfiles
-for file in {{ .chezmoi.homeDir }}/.{exports,aliases,functions}; do
-    [ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
-unset file;
 
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
@@ -112,8 +83,18 @@ PATH="{{ .chezmoi.homeDir }}/.dotfiles-bin:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$PATH"
 
-export STARSHIP_LOG='error'
-eval "$(starship init zsh)"
+source $ZSH/oh-my-zsh.sh
+
+# Load the shell dotfiles
+for file in {{ .chezmoi.homeDir }}/.{exports,aliases,functions}; do
+    [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+
 eval "$(atuin init zsh)"
 eval "$(direnv hook zsh)"
 eval "$(fnm env)"
+source ~/.p10k.zsh

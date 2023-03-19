@@ -16,6 +16,9 @@
     ".vscode/argv.json": true,
     ".config/chezmoi/": true,
     ".config/op/": true,
-    ".local/state/": true
+    ".config/raycast/": true,
+    ".local/state/": true,
+    ".rustup/": true,
+    ".volta/": true
   }
 }

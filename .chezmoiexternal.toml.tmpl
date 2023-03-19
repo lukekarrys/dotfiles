@@ -18,6 +18,28 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+    exclude = [
+        "lib/bzr.zsh",
+        "lib/cli.zsh",
+        # "lib/clipboard.zsh",
+        "lib/compfix.zsh",
+        # "lib/completion.zsh",
+        "lib/correction.zsh",
+        "lib/diagnostics.zsh",
+        # "lib/directories.zsh",
+        "lib/functions.zsh",
+        # "lib/git.zsh",
+        "lib/grep.zsh",
+        "lib/history.zsh",
+        # "lib/key-bindings.zsh",
+        # "lib/misc.zsh",
+        "lib/nvm.zsh",
+        "lib/prompt_info_functions.zsh",
+        "lib/spectrum.zsh",
+        # "lib/termsupport.zsh",
+        "lib/theme-and-appearance.zsh",
+        "lib/vcs_info.zsh",
+    ]
 
 [".oh-my-zsh-custom/plugins/zsh-autosuggestions"]
     type = "archive"
@@ -36,6 +58,20 @@
 [".oh-my-zsh-custom/plugins/zsh-syntax-highlighting"]
     type = "archive"
     url = "https://github.com/zsh-users/zsh-syntax-highlighting/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh-custom/plugins/evalcache"]
+    type = "archive"
+    url = "https://github.com/mroth/evalcache/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+
+[".oh-my-zsh-custom/plugins/powerlevel10k"]
+    type = "archive"
+    url = "https://github.com/romkatv/powerlevel10k/archive/master.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"

@@ -26,7 +26,7 @@ dialect = "us"
 
 # which search mode to use
 # possible values: prefix, fulltext, fuzzy
-search_mode = "prefix"
+search_mode = "fuzzy"
 
 # which style to use
 # possible values: auto, full, compact
