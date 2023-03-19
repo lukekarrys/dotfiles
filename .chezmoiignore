@@ -4,7 +4,7 @@ install.sh
 .npm-global/bin/
 .npm-global/cache/
 .npm-global/node_modules/
-.DS_Store
+**/.DS_Store
 .cache/
 .cargo/
 .cups/
