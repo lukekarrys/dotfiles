@@ -1611,10 +1611,13 @@
   # typeset -g POWERLEVEL9K_EXAMPLE_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   function prompt_npm_version() {
-    local which_npm=$(which npm)
+    local which_npm=$(which npm 2>/dev/null || true)
     local real_npm=$(realpath "$which_npm")
-    local real_npm_root=$(dirname "$(dirname "$real_npm")")
-    local version=$(cat "$real_npm_root/package.json" | jq -r .version)
+    local real_npm_root="$(dirname "$(dirname "$real_npm")")/package.json"
+    if [ ! -f "$real_npm_root" ]; then
+      return
+    fi
+    local version=$(cat "$real_npm_root" | jq -r .version)
     p10k segment -f red -i '' -t $version
   }
 

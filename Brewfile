@@ -32,7 +32,7 @@ brew "qt"
 brew "ripgrep"
 brew "ruby"
 brew "rust"
-brew "starship"
+brew "rustup-init"
 brew "tree"
 brew "vips"
 brew "volta"
@@ -59,6 +59,7 @@ cask "quicklookase"
 cask "raycast"
 cask "sonos"
 cask "suspicious-package"
+cask "twitch-studio"
 mas "1Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
 mas "Drafts", id: 1435957248
