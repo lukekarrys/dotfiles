@@ -39,5 +39,6 @@ projects/
 .vscode/.DS_Store
 .wget-hsts
 .zsh_history*
+.bash_history*
 .zcompdump*
 .rustup/
