@@ -36,7 +36,6 @@
 .vscode/argv.json
 .vscode/extensions
 .wget-hsts
-.zcompdump-*
 .zcompdump*
 .zsh_sessions/
 [A-Z]*/
