@@ -20,6 +20,8 @@
     ".config/iterm2/": true,
     ".local/state/": true,
     ".rustup/": true,
-    ".volta/": true
+    ".volta/": true,
+    ".pm2/": true,
+    ".oracle_jre_usage/": true
   }
 }

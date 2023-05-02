@@ -1,4 +1,5 @@
 .*_history*
+.arduino-create/
 .cache/
 .cargo/
 .config/chezmoi/
@@ -26,6 +27,8 @@
 .oh-my-zsh/cache/**
 .oh-my-zsh-custom/plugins/**/*.zwc
 .oh-my-zsh-custom/plugins/projects/data.txt
+.oracle_jre_usage/
+.pm2/
 .rustup/
 .ssh/known_hosts
 .ssh/known_hosts.old

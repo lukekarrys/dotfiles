@@ -3,14 +3,22 @@
     url = "https://nodejs.org/dist/v{{ .nodeVersion }}/node-v{{ .nodeVersion }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
     exact = true
     stripComponents = 1
-    include = ["*/bin", "*/bin/node", "*/include/**"]
+    include = [
+        "*/bin",
+        "*/bin/node",
+        "*/include/**",
+    ]
 
 [".npm-global/npm"]
     type = "archive"
     url = "https://registry.npmjs.org/npm/-/npm-{{ .npmVersion }}.tgz"
     exact = true
     stripComponents = 1
-    exclude = ["*/man/**", "*/docs/**", "*/bin/**"]
+    exclude = [
+        "*/man/**",
+        "*/docs/**",
+        "*/bin/**",
+    ]
 
 [".oh-my-zsh"]
     type = "archive"
@@ -19,26 +27,26 @@
     stripComponents = 1
     refreshPeriod = "168h"
     exclude = [
-        "lib/bzr.zsh",
-        "lib/cli.zsh",
-        # "lib/clipboard.zsh",
-        "lib/compfix.zsh",
-        # "lib/completion.zsh",
-        "lib/correction.zsh",
-        "lib/diagnostics.zsh",
-        # "lib/directories.zsh",
-        "lib/functions.zsh",
-        # "lib/git.zsh",
-        "lib/grep.zsh",
-        "lib/history.zsh",
-        # "lib/key-bindings.zsh",
-        # "lib/misc.zsh",
-        "lib/nvm.zsh",
-        "lib/prompt_info_functions.zsh",
-        "lib/spectrum.zsh",
-        # "lib/termsupport.zsh",
-        "lib/theme-and-appearance.zsh",
-        "lib/vcs_info.zsh",
+        "*/lib/bzr.zsh",
+        "*/lib/cli.zsh",
+      # "*/lib/clipboard.zsh",
+        "*/lib/compfix.zsh",
+      # "*/lib/completion.zsh",
+        "*/lib/correction.zsh",
+        "*/lib/diagnostics.zsh",
+      # "*/lib/directories.zsh",
+      # "*/lib/functions.zsh",
+      # "*/lib/git.zsh",
+        "*/lib/grep.zsh",
+        "*/lib/history.zsh",
+      # "*/lib/key-bindings.zsh",
+      # "*/lib/misc.zsh",
+        "*/lib/nvm.zsh",
+        "*/lib/prompt_info_functions.zsh",
+        "*/lib/spectrum.zsh",
+      # "*/lib/termsupport.zsh",
+        "*/lib/theme-and-appearance.zsh",
+        "*/lib/vcs_info.zsh",
     ]
 
 [".oh-my-zsh-custom/plugins/zsh-autosuggestions"]
