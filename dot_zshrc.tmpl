@@ -73,6 +73,8 @@ export HISTFILE=~/.zsh_history2
 # dont show % sign when ctrl-c'ing
 export PROMPT_EOL_MARK=""
 
+export HOMEBREW_GITHUB_API_TOKEN={{- (onepasswordDetailsFields "3si35oyzu7wzs7irbtecpsxad4").password.value }}
+
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 PATH="/usr/local/opt/fzf/bin:$PATH"
