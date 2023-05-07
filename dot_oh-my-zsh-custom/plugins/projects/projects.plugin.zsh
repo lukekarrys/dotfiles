@@ -64,12 +64,20 @@ function trep() {
 # completion
 ORGS=()
 REPOS=()
-for org in $PROJECTS_DIR/*; do
-  ORGS+=("$(basename -- $org)")
-  for repo in $org/*; do
-    REPOS+=("$(basename -- $repo)")
-  done
-done
+if [ -d "$PROJECTS_DIR" ]; then
+  if [ "$(ls -A $PROJECTS_DIR)" ]; then
+    for org in $PROJECTS_DIR/*; do
+      ORGS+=("$(basename -- $org)")
+      if [ -d "$org" ]; then
+        if [ "$(ls -A $org)" ]; then
+          for repo in $org/*; do
+            REPOS+=("$(basename -- $repo)")
+          done
+        fi
+      fi
+    done
+  fi
+fi
 
 while read repo; do
   REPOS+=("$repo")
