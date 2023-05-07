@@ -207,6 +207,10 @@ function brewdump() {
 	brew bundle dump --force --file={{ .chezmoi.sourceDir }}/Brewfile
 }
 
+function brewg() {
+	brew bundle $@ --file={{ .chezmoi.sourceDir }}/Brewfile
+}
+
 function ncu() {
 	# ncu and node contributors config files conflict
 	{{ .globalJsBin }}/ncu --configFileName=.ncurc.yml $@
