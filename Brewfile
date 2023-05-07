@@ -1,5 +1,4 @@
 tap "1password/tap"
-tap "ellie/atuin"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-drivers"
