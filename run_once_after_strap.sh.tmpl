@@ -1,0 +1,6 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# hash: {{ include (print .chezmoi.homeDir "/.dotfiles-bin/strap.sh") | sha256sum }}
+bash .dotfiles-bin/strap.sh
+{{ end -}}

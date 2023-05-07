@@ -33,4 +33,6 @@ Some notes from last time I did this:
 - Some things are now in [this `onchange` script](run_onchange_after_macos_defaults.sh.tmpl)
 - Turn off all notifications sounds and some off altogether
 - Map Caps Lock to Escape in keyboard shortcuts
+- Finder view everything as list
+- Unlock with Apple Watch
 
