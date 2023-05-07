@@ -75,19 +75,21 @@ export PROMPT_EOL_MARK=""
 
 export HOMEBREW_GITHUB_API_TOKEN={{- (onepasswordDetailsFields "3si35oyzu7wzs7irbtecpsxad4" "" .opPersonal).password.value }}
 
-export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+export MANPATH="{{ .brewPrefix }}/opt/coreutils/libexec/gnuman:$MANPATH"
 
-PATH="/usr/local/opt/fzf/bin:$PATH"
+PATH="{{ .brewPrefix }}/opt/fzf/bin:$PATH"
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
-PATH="/usr/local/opt/ruby/bin:$PATH"
+PATH="{{ .brewPrefix }}/opt/python@3.9/libexec/bin:$PATH"
+PATH="{{ .brewPrefix }}/opt/ruby/bin:$PATH"
 PATH="`gem environment gemdir`/bin:$PATH"
 PATH="`go env GOPATH`/bin:$PATH"
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+PATH="{{ .brewPrefix }}/opt/coreutils/libexec/gnubin:$PATH"
 PATH="{{ .globalJsBin }}:$PATH"
 PATH="{{ .chezmoi.homeDir }}/.dotfiles-bin:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$PATH"
+
+FPATH="{{ .brewPrefix }}/share/zsh/site-functions:${FPATH}"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -97,8 +99,8 @@ for file in {{ .chezmoi.homeDir }}/.{exports,aliases,functions}; do
 done;
 unset file;
 
-source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+source "{{ .brewPrefix }}/opt/fzf/shell/completion.zsh" 2> /dev/null
+source "{{ .brewPrefix }}/opt/fzf/shell/key-bindings.zsh"
 
 eval "$(atuin init zsh)"
 eval "$(fnm env)"

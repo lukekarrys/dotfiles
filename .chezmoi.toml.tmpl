@@ -4,6 +4,11 @@
 {{-   $nodeArch = "x64" -}}
 {{- end -}}
 
+{{- $brewPrefix := "/usr/local" -}}
+{{- if eq .chezmoi.arch "arm64" -}}
+{{-   $brewPrefix = "/opt/homebrew" -}}
+{{- end -}}
+
 {{/* default github org */}}
 {{- $githubOrg := "npm" -}}
 
@@ -30,3 +35,4 @@ umask = 0o022
   globalNodeBin = "{{ $npmGlobal }}/node/bin"
   globalNpmBin = "{{ $npmGlobal }}/npm/bin"
   globalNpmIndex = "{{ $npmGlobal }}/npm/index.js"
+  brewPrefix = {{ $brewPrefix | quote }}
