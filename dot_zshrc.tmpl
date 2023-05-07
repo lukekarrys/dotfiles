@@ -86,6 +86,7 @@ PATH="`go env GOPATH`/bin:$PATH"
 PATH="{{ .brewPrefix }}/opt/coreutils/libexec/gnubin:$PATH"
 PATH="{{ .globalJsBin }}:$PATH"
 PATH="{{ .chezmoi.homeDir }}/.dotfiles-bin:$PATH"
+PATH="{{ .chezmoi.homeDir }}/.node/bin:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$PATH"
 

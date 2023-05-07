@@ -1,3 +1,11 @@
+{{- $nodeLatest := (index (output "curl" "-s" "https://nodejs.org/download/release/index.json" | fromJson) 0).version }}
+
+[".node"]
+    type = "archive"
+    url = "https://nodejs.org/dist/{{ $nodeLatest }}/node-{{ $nodeLatest }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
+    exact = true
+    stripComponents = 1
+
 [".npm-global/node"]
     type = "archive"
     url = "https://nodejs.org/dist/v{{ .nodeVersion }}/node-v{{ .nodeVersion }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
