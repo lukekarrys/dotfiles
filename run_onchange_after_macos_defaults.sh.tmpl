@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 10
+{{ end -}}
