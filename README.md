@@ -23,3 +23,14 @@
     sudo sh -c "echo $(which zsh) >> /etc/shells"
     chsh -s $(which zsh)
     ```
+
+## macOS Defaults
+
+### 2023-05-07
+
+Some notes from last time I did this:
+
+- Some things are now in [this `onchange` script](run_onchange_after_macos_defaults.sh.tmpl)
+- Turn off all notifications sounds and some off altogether
+- Map Caps Lock to Escape in keyboard shortcuts
+
