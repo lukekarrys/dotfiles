@@ -204,6 +204,7 @@ function npmg() {
 }
 
 function brewdump() {
+	brew bundle cleanup --force --file={{ .chezmoi.sourceDir }}/Brewfile
 	brew bundle dump --force --file={{ .chezmoi.sourceDir }}/Brewfile
 }
 
