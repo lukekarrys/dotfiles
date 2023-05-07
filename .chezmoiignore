@@ -47,3 +47,5 @@ Brewfile
 install.sh
 projects/
 README.md
+.bash_sessions/
+.vscode-cli/
