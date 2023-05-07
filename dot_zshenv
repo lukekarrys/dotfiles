@@ -1,4 +1,4 @@
-[ -f "$HOME/.cargo/env" ] . "$HOME/.cargo/env"
+[ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
 
 export TRANSCODE_BATCH_DATA_DIR="/Users/lukekarrys/Library/Mobile Documents/com~apple~CloudDocs/Transcoding"
 export TRANSCODE_BATCH_FILE_DIR="/Volumes/T7/Transcoding"
