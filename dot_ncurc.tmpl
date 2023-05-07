@@ -1,4 +1,4 @@
 {
   "username": "{{ .chezmoi.username }}",
-  "token": "{{- (onepasswordDetailsFields "2xt4jkctrklstliqufl4c2tvle").password.value }}"
+  "token": "{{- (onepasswordDetailsFields "2xt4jkctrklstliqufl4c2tvle" "" .opPersonal).password.value }}"
 }
