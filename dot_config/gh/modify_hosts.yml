@@ -1,9 +1,0 @@
-{{- /* chezmoi:modify-template */ -}}
-github.com:
-{{-
-  index (fromYaml (or (index . "chezmoi.stdin") "github.com:\n")) "github.com" | 
-  setValueAtPath "user" .username |
-  setValueAtPath "git_protocol" "ssh" |
-  toYaml |
-  nindent 4
--}}
