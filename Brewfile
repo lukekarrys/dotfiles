@@ -21,7 +21,6 @@ brew "wangle"
 brew "fbthrift"
 brew "fb303"
 brew "fd"
-brew "harfbuzz"
 brew "ffmpeg"
 brew "findutils"
 brew "fnm"
@@ -130,6 +129,7 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
+mas "Okta Verify", id: 490179405
 mas "Pages", id: 409201541
 mas "Soro", id: 1550457805
 mas "TestFlight", id: 899247664
