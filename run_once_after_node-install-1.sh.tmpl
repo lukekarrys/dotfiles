@@ -1,0 +1,6 @@
+{{- if .isMain -}}
+#!/bin/bash
+
+# latest npm: {{ .npmLatestVersion }}
+npm install npm@{{ .npmLatestVersion }} -g
+{{- end -}}

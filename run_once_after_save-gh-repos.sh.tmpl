@@ -1,15 +1,13 @@
-{{- if eq .chezmoi.os "darwin" -}}
+{{- if .isMain -}}
 #!/bin/bash
 
-{{ if stat (joinPath .userConfig "weekly.json") -}}
-# weekly hash: {{ include (joinPath .userConfig "weekly.json") | sha256sum }}
-{{ else }}
-# weekly hash: {{ output "echo" "$RANDOM" | sha256sum }}
-{{- end -}}
+{{ template "weeklyHash" . }}
 
 data_path="{{ .homeDir }}/.oh-my-zsh-custom/plugins/projects/data.txt"
 rm -rf $data_path
+
 {{- range .githubProjects }}
 gh ls-repos-name "{{ . }}" >> $data_path
 {{- end -}}
+
 {{- end -}}

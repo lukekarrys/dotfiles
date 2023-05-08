@@ -1,5 +1,5 @@
 {
-  "name": "npm-global-bin",
+  "name": "{{ trimAll "." .npmBinsName }}-bin",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
@@ -23,6 +23,6 @@
     "strip-ansi-cli": "^3.0.2"
   },
   "scripts": {
-    "postinstall": "{{ .globalNodeBin }}/node link-bins.mjs"
+    "postinstall": "{{ .npmBinsNodeBin }}/node link-bins.mjs"
   }
 }

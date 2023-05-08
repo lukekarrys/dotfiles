@@ -200,7 +200,7 @@ function pc() {
 }
 
 function npmg() {
-	( export PATH={{ .globalNodeBin }}:{{ .globalNpmBin }}:$PATH; {{ .globalNodeBin }}/node {{ .globalNpmIndex }} --prefix={{ .globalJsDir }} $@ )
+	( export PATH={{ .npmBinsPathPrefix }}$PATH; {{ .npmBinsCommand }} $@ )
 }
 
 function brewdump() {
@@ -214,5 +214,9 @@ function brewg() {
 
 function ncu() {
 	# ncu and node contributors config files conflict
-	{{ .globalJsBin }}/ncu --configFileName=.ncurc.yml $@
+	{{ .npmBinsBin }}/ncu --configFileName=.ncurc.yml $@
+}
+
+function use_local_npm() {
+	export PATH="{{ joinPath .homeDir ".override-local-npm" }}:$PATH";
 }

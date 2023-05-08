@@ -1,16 +1,16 @@
-[".config/{{ .username }}/daily.json"]
+[{{ joinPath .userConfigRel "daily.json" | quote }}]
     type = "file"
     url = "http://worldtimeapi.org/api/timezone/America/Phoenix?daily"
     refreshPeriod = "24h"
 
-[".config/{{ .username }}/weekly.json"]
+[{{ joinPath .userConfigRel "weekly.json" | quote }}]
     type = "file"
     url = "http://worldtimeapi.org/api/timezone/America/Phoenix?weekly"
     refreshPeriod = "168h"
 
 [".node-bin"]
     type = "archive"
-    url = "https://nodejs.org/dist/{{ .nodeLatest }}/node-{{ .nodeLatest }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
+    url = "https://nodejs.org/dist/{{ .nodeLatestVersion }}/node-{{ .nodeLatestVersion }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
     stripComponents = 1
     exclude = [
         "*/lib/node_modules/npm/**",
@@ -18,13 +18,13 @@
 
 [".npm-bin"]
     type = "archive"
-    url = "https://registry.npmjs.org/npm/-/npm-{{ .npmLatest }}.tgz"
+    url = "https://registry.npmjs.org/npm/-/npm-{{ .npmLatestVersion }}.tgz"
     exact = true
     stripComponents = 1
 
-[".npm-global/node"]
+[{{ joinPath .npmBinsName "node" | quote }}]
     type = "archive"
-    url = "https://nodejs.org/dist/v{{ .globalNodeVersion }}/node-v{{ .globalNodeVersion }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
+    url = "https://nodejs.org/dist/v{{ .npmBinsNodeVersion }}/node-v{{ .npmBinsNodeVersion }}-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
     exact = true
     stripComponents = 1
     include = [
@@ -33,9 +33,9 @@
         "*/include/**",
     ]
 
-[".npm-global/npm"]
+[{{ joinPath .npmBinsName "npm"  | quote}}]
     type = "archive"
-    url = "https://registry.npmjs.org/npm/-/npm-{{ .globalNpmVersion }}.tgz"
+    url = "https://registry.npmjs.org/npm/-/npm-{{ .npmBinsNpmVersion }}.tgz"
     exact = true
     stripComponents = 1
     exclude = [

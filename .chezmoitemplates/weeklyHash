@@ -1,0 +1,6 @@
+{{- $weeklyJson := joinPath .userConfig "weekly.json" -}}
+{{- if stat $weeklyJson -}}
+# weekly hash: {{ include $weeklyJson | sha256sum }}
+{{- else -}}
+# weekly hash: {{ output "echo" "$RANDOM" | sha256sum }}
+{{- end -}}

@@ -1,4 +1,4 @@
-{{- if eq .chezmoi.os "darwin" -}}
+{{- if .isMain -}}
 #!/bin/bash
 
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
