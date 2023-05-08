@@ -1,9 +1,15 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-data_path={{ .chezmoi.homeDir }}/.oh-my-zsh-custom/plugins/projects/data.txt
+{{ if stat (joinPath .userConfig "weekly.json") -}}
+# weekly hash: {{ include (joinPath .userConfig "weekly.json") | sha256sum }}
+{{ else }}
+# weekly hash: {{ output "echo" "$RANDOM" | sha256sum }}
+{{- end -}}
+
+data_path="{{ .homeDir }}/.oh-my-zsh-custom/plugins/projects/data.txt"
 rm -rf $data_path
-gh ls-repos-name "org:npm topic:npm-cli" >> $data_path
-gh ls-repos-name "org:bracketclub" >> $data_path
-gh ls-repos-name "org:lukekarrys" >> $data_path
-{{ end -}}
+{{- range .githubProjects }}
+gh ls-repos-name "{{ . }}" >> $data_path
+{{- end -}}
+{{- end -}}

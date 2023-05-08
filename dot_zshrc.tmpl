@@ -11,11 +11,11 @@ fi
 
 export ZSH_DISABLE_COMPFIX="true"
 export DISABLE_AUTO_UPDATE="true"
-export ZSH_CUSTOM={{ .chezmoi.homeDir }}/.oh-my-zsh-custom
+export ZSH_CUSTOM={{ .homeDir }}/.oh-my-zsh-custom
 
-export DEFAULT_USER="{{ .chezmoi.username }}"
-export PROJECTS_DIR="{{ .chezmoi.homeDir }}/projects"
-export ZSH={{ .chezmoi.homeDir }}/.oh-my-zsh
+export DEFAULT_USER="{{ .username }}"
+export PROJECTS_DIR="{{ .homeDir }}/projects"
+export ZSH={{ .homeDir }}/.oh-my-zsh
 
 # Git credentials
 export GIT_AUTHOR_NAME="{{ .name }}"
@@ -85,8 +85,8 @@ PATH="`gem environment gemdir`/bin:$PATH"
 PATH="`go env GOPATH`/bin:$PATH"
 PATH="{{ .brewPrefix }}/opt/coreutils/libexec/gnubin:$PATH"
 PATH="{{ .globalJsBin }}:$PATH"
-PATH="{{ .chezmoi.homeDir }}/.dotfiles-bin:$PATH"
-PATH="{{ .chezmoi.homeDir }}/.node/bin:$PATH"
+PATH="{{ .homeDir }}/.dotfiles-bin:$PATH"
+PATH="{{ .homeDir }}/.node-bin/bin:$PATH"
 PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"
 export PATH="$PATH"
 
@@ -95,7 +95,7 @@ FPATH="{{ .brewPrefix }}/share/zsh/site-functions:${FPATH}"
 source $ZSH/oh-my-zsh.sh
 
 # Load the shell dotfiles
-for file in {{ .chezmoi.homeDir }}/.{exports,aliases,functions}; do
+for file in {{ .homeDir }}/.{exports,aliases,functions}; do
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 unset file;

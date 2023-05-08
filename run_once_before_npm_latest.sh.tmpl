@@ -1,0 +1,11 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+{{- if stat (joinPath .userConfig "weekly.json") -}}
+# weekly hash: {{ include (joinPath .userConfig "weekly.json") | sha256sum }}
+{{- else -}}
+# weekly hash: {{ output "echo" "$RANDOM" | sha256sum }}
+{{- end -}}
+
+curl -s https://registry.npmjs.org/npm > "{{ joinPath .userConfig "npm.json" }}"
+{{- end -}}

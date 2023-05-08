@@ -19,7 +19,7 @@
 .local/state/
 .node_repl_history
 .node-gyp/
-.npm
+.npm/
 .npm-global/.DS_Store
 .npm-global/bin/
 .npm-global/cache/

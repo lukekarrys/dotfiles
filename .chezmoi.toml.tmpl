@@ -1,18 +1,37 @@
-{{/* node architecture is different from go's */}}
-{{- $nodeArch := .chezmoi.arch -}}
-{{- if eq $nodeArch "amd64" -}}
-{{-   $nodeArch = "x64" -}}
-{{- end -}}
+{{- $githubOrg := "npm" -}}
+{{- $username := "lukekarrys" -}}
 
 {{- $brewPrefix := "/usr/local" -}}
 {{- if eq .chezmoi.arch "arm64" -}}
 {{-   $brewPrefix = "/opt/homebrew" -}}
 {{- end -}}
 
-{{/* default github org */}}
-{{- $githubOrg := "npm" -}}
+{{- $globalNpmDir := (joinPath .chezmoi.homeDir ".npm-global") }}
+{{- $globalNpmVersion := "9.3.1" }}
+{{- $globalNodeVersion := "19.4.0" }}
 
-{{- $npmGlobal := (printf "%s%s" .chezmoi.homeDir "/.npm-global") }}
+{{- $userConfig := (joinPath .chezmoi.homeDir ".config" $username) -}}
+
+{{- $nodeLatestUrl := "https://nodejs.org/download/release/index.json" -}}
+{{- $nodeLatest := "" -}}
+{{- if stat (joinPath $userConfig "node.json") -}}
+{{-   $nodeLatest = (index (include (joinPath $userConfig "node.json") | fromJson) 0).version -}}
+{{- else -}}
+{{-   $nodeLatest = (index (output "curl" "-s" $nodeLatestUrl | fromJson) 0).version -}}
+{{- end -}}
+
+{{- $nodeArch := .chezmoi.arch -}}
+{{- if eq $nodeArch "amd64" -}}
+{{-   $nodeArch = "x64" -}}
+{{- end -}}
+
+{{- $npmLatestUrl := "https://registry.npmjs.org/npm" -}}
+{{- $npmLatest := "" -}}
+{{- if stat (joinPath $userConfig "npm.json") -}}
+{{-   $npmLatest = (index (include (joinPath $userConfig "npm.json") | fromJson) "dist-tags").latest -}}
+{{- else -}}
+{{-   $npmLatest = (index (output "curl" "-s" $npmLatestUrl | fromJson) "dist-tags").latest -}}
+{{- end -}}
 
 umask = 0o022
 
@@ -21,18 +40,32 @@ umask = 0o022
   autoPush = true
 
 [data]
-  nodeArch = {{ $nodeArch | quote }}
-  nodeVersion = "19.4.0"
-  npmVersion = "9.3.1"
-  username = "lukekarrys"
+  username = {{ $username | quote }}
   email = "luke@lukekarrys.com"
   name = "Luke Karrys"
   githubOrg = {{ $githubOrg | quote }}
   opPersonal = "D4L6GSCIN5CLHA6MQOWD24NBK4"
+  githubProjects = [
+    "org:npm topic:npm-cli",
+    "org:bracketclub",
+    "org:lukekarrys",
+  ]
+
+  userConfig = {{ $userConfig | quote }}
   homeDir = {{ .chezmoi.homeDir | quote }}
-  globalJsDir = {{ $npmGlobal | quote }}
-  globalJsBin = "{{ $npmGlobal }}/bin"
-  globalNodeBin = "{{ $npmGlobal }}/node/bin"
-  globalNpmBin = "{{ $npmGlobal }}/npm/bin"
-  globalNpmIndex = "{{ $npmGlobal }}/npm/index.js"
+
   brewPrefix = {{ $brewPrefix | quote }}
+
+  nodeLatest = {{ $nodeLatest | quote }}
+  npmLatest = {{ $npmLatest | quote }}
+  nodeArch = {{ $nodeArch | quote }}
+
+  globalNodeVersion = {{ $globalNodeVersion | quote }}
+  globalNpmVersion = {{ $globalNpmVersion | quote }}
+  globalJsDir = {{ $globalNpmDir | quote }}
+  globalJsBin = "{{ $globalNpmDir }}/bin"
+  globalNodeBin = "{{ $globalNpmDir }}/node/bin"
+  globalNpmBin = "{{ $globalNpmDir }}/npm/bin"
+  globalNpmIndex = "{{ $globalNpmDir }}/npm/index.js"
+
+  

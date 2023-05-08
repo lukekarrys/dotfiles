@@ -6,4 +6,4 @@ brew bundle --no-lock --no-upgrade --file={{ .chezmoi.sourceDir }}/Brewfile
 if [ ! -f "$HOME/.cargo/env" ]; then
   rustup-init --no-modify-path -y
 fi
-{{ end -}}
+{{- end -}}
