@@ -7,5 +7,5 @@
 # weekly hash: {{ output "echo" "$RANDOM" | sha256sum }}
 {{- end -}}
 
-curl -s https://nodejs.org/download/release/index.json > "{{ joinPath .userConfig "node.json" }}"
+curl -s {{ .nodeLatestUrl }} > "{{ joinPath .userConfig "node.json" }}"
 {{- end -}}
