@@ -203,8 +203,11 @@ function npmg() {
 	( export PATH={{ .npmBinsPathPrefix }}$PATH; {{ .npmBinsCommand }} $@ )
 }
 
-function brewdump() {
+function brewcleanup() {
 	brew bundle cleanup --force --file={{ .chezmoi.sourceDir }}/Brewfile
+}
+
+function brewdump() {
 	brew bundle dump --force --file={{ .chezmoi.sourceDir }}/Brewfile
 }
 

@@ -113,6 +113,7 @@ cask "transmission"
 cask "twitch-studio"
 cask "visual-studio-code"
 cask "vlc"
+cask "zoom"
 mas "1Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
