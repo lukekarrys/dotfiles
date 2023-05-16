@@ -35,4 +35,4 @@ Some notes from last time I did this:
 - Map Caps Lock to Escape in keyboard shortcuts
 - Finder view everything as list
 - Unlock with Apple Watch
-
+- Open Logi Options to install Bolt and restore from backup
