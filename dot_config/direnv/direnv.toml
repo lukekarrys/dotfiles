@@ -1,2 +1,3 @@
 [whitelist]
+# https://gist.github.com/lukekarrys/74ed35921e29decb893b1ad43a17c44e#instructions
 prefix = [ "/Users/lukekarrys/Desktop/npm-debug" ]
