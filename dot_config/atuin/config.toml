@@ -5,7 +5,7 @@ db_path = "~/.local/share/atuin/history.db"
 key_path = "~/.local/share/atuin/.key"
 
 # where to store your auth session token, default is your system data directory
-# session_path = "~/.local/share/atuin/.token"
+session_path = "~/.local/share/atuin/.token"
 
 # enable or disable automatic sync
 auto_sync = false
