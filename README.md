@@ -36,3 +36,4 @@ Some notes from last time I did this:
 - Finder view everything as list
 - Unlock with Apple Watch
 - Open Logi Options to install Bolt and restore from backup
+- Turn on accounts in system settings so Raycast, etc can access calendars
