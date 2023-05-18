@@ -8,7 +8,7 @@ key_path = "~/.local/share/atuin/.key"
 session_path = "~/.local/share/atuin/.token"
 
 # enable or disable automatic sync
-auto_sync = false
+auto_sync = true
 
 # how often to sync history. note that this is only triggered when a command
 # is ran, so sync intervals may well be longer
