@@ -22,7 +22,6 @@ brew "wangle"
 brew "fbthrift"
 brew "fb303"
 brew "fd"
-brew "harfbuzz"
 brew "ffmpeg"
 brew "findutils"
 brew "fnm"
@@ -135,6 +134,7 @@ mas "Keynote", id: 409183694
 mas "Noir", id: 1592917505
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Photomator", id: 1444636541
 mas "Soro", id: 1550457805
 mas "TestFlight", id: 899247664
 mas "Things", id: 904280696
