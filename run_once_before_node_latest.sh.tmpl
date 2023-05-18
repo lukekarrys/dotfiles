@@ -3,5 +3,7 @@
 
 {{ template "weeklyHash" . }}
 
+mkdir -p "{{ dir .nodeLatestConfig }}"
+touch "{{ .nodeLatestConfig }}"
 curl -s {{ .nodeLatestUrl }} > "{{ .nodeLatestConfig }}"
 {{- end -}}

@@ -3,5 +3,7 @@
 
 {{ template "dailyHash" . }}
 
+mkdir -p "{{ dir .npmLatestConfig }}"
+touch "{{ .npmLatestConfig }}"
 curl -s {{ .npmLatestUrl }} > "{{ .npmLatestConfig }}"
 {{- end -}}
