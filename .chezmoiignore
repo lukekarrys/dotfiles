@@ -6,6 +6,7 @@
 .config/iterm2/
 .config/op/
 .config/raycast/
+.config/configstore/
 .config/lukekarrys/node.json
 .config/lukekarrys/npm.json
 .cups/
@@ -50,3 +51,4 @@ projects/
 README.md
 .bash_sessions/
 .vscode-cli/
+.fnm/

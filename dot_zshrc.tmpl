@@ -106,5 +106,5 @@ source "{{ .brewPrefix }}/opt/fzf/shell/completion.zsh" 2> /dev/null
 source "{{ .brewPrefix }}/opt/fzf/shell/key-bindings.zsh"
 
 eval "$(atuin init zsh)"
-eval "$(fnm env)"
+eval "$(fnm env --fnm-dir={{ .homeDir }}/.fnm)"
 source ~/.p10k.zsh
