@@ -1,5 +1,5 @@
 {
-  "name": "npm-bins-bin",
+  "name": "{{ trimAll "." .npmBinsName }}-bin",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
@@ -26,6 +26,6 @@
     "verdaccio": "^5.25.0"
   },
   "scripts": {
-    "postinstall": "/Users/lukekarrys/.npm-bins/node/bin/node link-bins.mjs"
+    "postinstall": "{{ .npmBinsNodeBin }}/node link-bins.mjs"
   }
 }
