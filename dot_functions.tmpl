@@ -200,7 +200,15 @@ function pc() {
 }
 
 function npmg() {
-	( export PATH={{ .npmBinsPathPrefix }}$PATH; {{ .npmBinsCommand }} $@ )
+	(
+		export PATH={{ .npmBinsPathPrefix }}$PATH;
+		{{ .npmBinsCommand }} $@;
+		if [[ "$1" == "install" ]]; then
+			{{ .npmBinsCommand }} run postinsall;
+			jq --argjson deps "$(jq '.dependencies | tojson' {{ joinPath .npmBinsDir "package.json" }})" '.dependencies = ($deps | fromjson)' {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.tmpl" }} > {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.new" }}
+			mv {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.new" }} {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.tmpl" }}
+		fi
+	)
 }
 
 function brewcleanup() {
@@ -222,4 +230,10 @@ function ncu() {
 
 function use_local_npm() {
 	export PATH="{{ joinPath .homeDir ".override-local-npm" }}:$PATH";
+}
+
+function npm_publish_token() {
+	local package="$1"
+	local repo=$(npm view $package --json repository | jq -r .url | sed 's/.*github.com\/\(.*\).git$/\1/')
+	op item get "npm cli ops (npm)" --account=github.1password.com --fields label=$package | repo_secret -R $repo -N PUBLISH_TOKEN
 }

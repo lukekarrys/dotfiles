@@ -89,6 +89,7 @@ umask = 0o022
   nodeArch = {{ $nodeArch | quote }}
 
   npmBinsName = {{ $npmBinsName | quote }}
+  npmBinsPackageName = "{{ (trimAll "." $npmBinsName) }}-bin"
   npmBinsDir = {{ $npmBinsDir | quote }}
   npmBinsNpmVersion = {{ $npmBinsNpmVersion | quote }}
   npmBinsNodeVersion = {{ $npmBinsNodeVersion | quote }}
