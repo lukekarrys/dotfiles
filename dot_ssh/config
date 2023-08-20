@@ -16,3 +16,8 @@ Host hummingbird
 Hostname hummingbird.local
 User lukekarrys
 IdentityFile ~/.ssh/keys/hummingbird
+
+Host tweedy
+Hostname tweedy.local
+User lukekarrys
+IdentityFile ~/.ssh/keys/tweedy
