@@ -21,3 +21,8 @@ Host tweedy
 Hostname tweedy.local
 User lukekarrys
 IdentityFile ~/.ssh/keys/tweedy
+
+Host pieholden
+Hostname pieholden-m1.local
+User lukekarrys
+IdentityFile ~/.ssh/keys/pieholden-m1

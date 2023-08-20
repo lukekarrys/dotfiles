@@ -95,7 +95,7 @@
 [user]
 	name = {{ .name }}
 	email = {{ .email }}
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICkcqx1DYnrnG6Eazl4DwjJi+HYvPXkRmswguDk49UWD
+	signingkey = {{ (onepasswordDetailsFields "7r7kkjthejhjz4tafimxqms6pa" "" .opPersonal).public_key.value }}
 
 [commit]
 	gpgsign = true
