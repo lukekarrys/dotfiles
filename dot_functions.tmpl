@@ -237,3 +237,7 @@ function npm_publish_token() {
 	local repo=$(npm view $package --json repository | jq -r .url | sed 's/.*github.com\/\(.*\).git$/\1/')
 	op item get "npm cli ops (npm)" --account=github.1password.com --fields label=$package | repo_secret -R $repo -N PUBLISH_TOKEN
 }
+
+function node_repl() {
+        fnm install "$1" 2> /dev/null && fnm exec --using="$1" node
+}
