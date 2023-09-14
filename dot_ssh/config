@@ -2,6 +2,11 @@ Host *
 	IdentitiesOnly yes
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+Host vault-bastion.githubapp.com
+Hostname vault-bastion.githubapp.com
+User lukekarrys
+IdentityFile ~/.ssh/keys/github
+
 Host github.com
 Hostname github.com
 User git

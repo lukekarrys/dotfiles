@@ -204,7 +204,7 @@ function npmg() {
 		export PATH={{ .npmBinsPathPrefix }}$PATH;
 		{{ .npmBinsCommand }} $@;
 		if [[ "$1" == "install" ]]; then
-			{{ .npmBinsCommand }} run postinsall;
+			{{ .npmBinsCommand }} run postinstall;
 			jq --argjson deps "$(jq '.dependencies | tojson' {{ joinPath .npmBinsDir "package.json" }})" '.dependencies = ($deps | fromjson)' {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.tmpl" }} > {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.new" }}
 			mv {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.new" }} {{ joinPath .chezmoi.sourceDir  "dot_npm-bins/package.json.tmpl" }}
 		fi
