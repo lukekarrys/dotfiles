@@ -3,3 +3,11 @@ hosts[]={{- (onepasswordItemFields "u637pqyrfdn4jht7i4mdmj6n3u" "" .opPersonal).
 hosts[]={{- (onepasswordItemFields "u637pqyrfdn4jht7i4mdmj6n3u" "" .opPersonal).host2.value }}
 hosts[]={{- (onepasswordItemFields "u637pqyrfdn4jht7i4mdmj6n3u" "" .opPersonal).host3.value }}
 ssl=true
+
+[staging-tfe]
+hosts[]={{- (onepasswordItemFields "u637pqyrfdn4jht7i4mdmj6n3u" "" .opPersonal).staginghost1.value }}
+ssl=true
+
+[local]
+hosts=localhost:2379
+ssl=false
