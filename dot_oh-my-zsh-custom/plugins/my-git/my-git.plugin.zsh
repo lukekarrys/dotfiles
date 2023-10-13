@@ -96,10 +96,25 @@ function gccd() {
 }
 compdef _git gccd=git-clone
 
+function git-checkout-alias-main() {
+  if [ "$1" = "main" ] || [ "$1" = "master" ] || [ "$1" = "latest" ]; then
+    if [ `git rev-parse --verify main 2>/dev/null` ]; then
+      git checkout main;
+    elif [ `git rev-parse --verify master 2>/dev/null` ]; then
+      git checkout master;
+    elif [ `git rev-parse --verify latest 2>/dev/null` ]; then
+      git checkout latest;
+    fi
+	else
+	  git checkout $@;
+	fi
+}
+compdef _git git-checkout-alias-main=git-checkout
+
 alias gcl='git clone --recurse-submodules'
 alias gclean='git clean -id'
 alias gpristine='git reset --hard && git clean -dffx'
-alias gcm='git checkout $(git_main_branch)'
+alias gcm='git-checkout-alias-main main'
 alias gcd='git checkout $(git_develop_branch)'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
@@ -198,7 +213,7 @@ alias ghh='git help'
 
 alias gignore='git update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
-alias git-svn-dcommit-push='git svn dcommit && git push github $(git_main_branch):svntrunk'
+alias git-svn-dcommit-push='git svn dcommit && git push github $(c):svntrunk'
 
 alias gk='\gitk --all --branches &!'
 alias gke='\gitk --all $(git log -g --pretty=%h) &!'

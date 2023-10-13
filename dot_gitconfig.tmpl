@@ -1,6 +1,18 @@
 [alias]
 	# checkout
-	co = checkout
+		co = "!f() { \
+					if [ "$1" = "main" ] || [ "$1" = "master" ] || [ "$1" = "latest" ]; then \
+						if [ `git rev-parse --verify main 2>/dev/null` ]; then \
+							git checkout main; \
+						elif [ `git rev-parse --verify master 2>/dev/null` ]; then \
+							git checkout master; \
+						elif [ `git rev-parse --verify latest 2>/dev/null` ]; then \
+							git checkout latest; \
+						fi \
+					else \
+						git checkout $@; \
+					fi \
+			  }; f"
 	# Push
 	p = push
 	# Show verbose output about tags, branches or remotes
