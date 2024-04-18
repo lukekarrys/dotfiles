@@ -21,7 +21,7 @@ aliases:
         }
       }
     }' --jq '.data.search.nodes[].name'
-  token: "!gh auth status -t 2>&1 >/dev/null | grep Token | sed -n -e 's/^.*Token: //p'"
+  token: "!gh auth status -t | grep 'Token:' | sed -n -e 's/^.*Token: //p'"
   nwo: repo view --json nameWithOwner --jq .nameWithOwner
   run-id: '!gh run list -w "$1" -L 1 --json databaseId -q ".[].databaseId"'
   pr-release: |-
