@@ -1,5 +1,5 @@
 {
-  "name": "npm-bins-bin",
+  "name": "{{ .npmBinsPackageName }}",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
@@ -25,6 +25,6 @@
     "zx": "^7.2.3"
   },
   "scripts": {
-    "postinstall": "/Users/lukekarrys/.npm-bins/node/bin/node link-bins.mjs"
+    "postinstall": "{{ .npmBinsNodeBin }}/node link-bins.mjs"
   }
 }
