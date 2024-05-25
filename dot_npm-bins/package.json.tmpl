@@ -1,14 +1,10 @@
 {
-  "name": "{{ .npmBinsPackageName }}",
+  "name": "npm-bins-bin",
   "private": true,
   "version": "1.0.0",
   "dependencies": {
-    "@lhci/cli": "^0.10.0",
-    "@npmcli/promise-spawn": "^6.0.2",
     "chokidar-cli": "^3.0.0",
     "diff-so-fancy": "^1.4.3",
-    "esbuild": "^0.19.2",
-    "eslint": "^8.33.0",
     "fast-cli": "^3.2.0",
     "fixpack": "^4.0.0",
     "gzip-size-cli": "^5.1.0",
@@ -16,13 +12,11 @@
     "html-to-text": "^9.0.3",
     "http-server": "^14.1.1",
     "json": "^11.0.0",
-    "libsodium-wrappers": "^0.7.11",
     "node-core-utils": "^3.1.0",
     "nodemon": "^2.0.20",
     "npm-check-updates": "^16.6.3",
     "npmwd": "^1.1.0",
     "pm2": "^5.3.0",
-    "pnpm": "^9.1.2",
     "prettier": "^2.8.3",
     "pretty-bytes-cli": "^3.0.0",
     "random-word-slugs": "^0.1.7",
@@ -31,6 +25,6 @@
     "zx": "^7.2.3"
   },
   "scripts": {
-    "postinstall": "{{ .npmBinsNodeBin }}/node link-bins.mjs"
+    "postinstall": "/Users/lukekarrys/.npm-bins/node/bin/node link-bins.mjs"
   }
 }

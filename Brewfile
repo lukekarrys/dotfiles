@@ -26,6 +26,7 @@ brew "fbthrift"
 brew "fb303"
 brew "edencommon"
 brew "exiftool"
+brew "eza"
 brew "fd"
 brew "unbound"
 brew "gnutls"
@@ -144,9 +145,7 @@ cask "zoom"
 mas "1Blocker", id: 1365531024
 mas "1Password for Safari", id: 1569813296
 mas "DaisyDisk", id: 411643860
-mas "Day One", id: 1055511498
 mas "Drafts", id: 1435957248
-mas "Due", id: 524373870
 mas "Duplicate Photos Fixer Pro", id: 963642514
 mas "Fantastical", id: 975937182
 mas "GarageBand", id: 682658836
