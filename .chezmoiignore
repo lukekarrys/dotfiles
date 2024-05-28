@@ -19,6 +19,9 @@
 .local/share/atuin/*
 !.local/share/atuin/
 !.local/share/atuin/.key
+!.local/share/gh/
+.local/share/gh/extensions/*/*
+!.local/share/gh/extensions/*/manifest.yml
 .local/state/
 .node_repl_history
 .node-gyp/
