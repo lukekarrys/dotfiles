@@ -1,3 +1,0 @@
-[submodule "external_awssume"]
-	path = dot_dotfiles-bin/external_awssume
-	url = git@github.com:github/awssume.git
