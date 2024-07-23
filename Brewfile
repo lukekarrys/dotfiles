@@ -78,7 +78,7 @@ brew "postgresql@14", restart_service: true
 brew "python@3.9"
 brew "rename"
 brew "ripgrep"
-brew "rustup-init"
+brew "rustup"
 brew "sox"
 brew "ssh-copy-id"
 brew "tmux"
@@ -113,7 +113,7 @@ cask "istat-menus"
 cask "iterm2"
 cask "kap"
 cask "keepingyouawake"
-cask "logitech-options"
+cask "logi-options-plus"
 cask "makemkv"
 cask "microsoft-auto-update"
 cask "microsoft-teams"
@@ -160,7 +160,7 @@ mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Photomator", id: 1444636541
 mas "Soro", id: 1550457805
-mas "StopTheScript", id: 1588394487
+mas "StopTheMadness Pro", id: 6471380298
 mas "TestFlight", id: 899247664
 mas "Things", id: 904280696
 mas "Userscripts-Mac-App", id: 1463298887
@@ -184,6 +184,7 @@ vscode "hashicorp.terraform"
 vscode "idleberg.applescript"
 vscode "jinliming2.vscode-go-template"
 vscode "lesgrieve.paste-indent"
+vscode "mechatroner.rainbow-csv"
 vscode "meezilla.json"
 vscode "ms-azuretools.vscode-docker"
 vscode "ms-vscode-remote.remote-containers"
