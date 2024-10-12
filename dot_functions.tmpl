@@ -240,3 +240,11 @@ function use_local_npm() {
 function node_repl() {
 	fnm install "$1" 2> /dev/null && fnm exec --using="$1" node
 }
+
+function npm_manifest() {
+	curl -s https://registry.npmjs.org/$1
+}
+
+function npm_corgi() {
+	curl -s --header "Accept: application/vnd.npm.install-v1+json" https://registry.npmjs.org/$1
+}
