@@ -2,5 +2,7 @@
 #!/bin/bash
 
 # hash: {{ include (joinPath .homeDir ".dotfiles-bin" "strap.sh") | sha256sum }}
-bash .dotfiles-bin/strap.sh
+# Set STRAP_CI environ to disable software updates since those tend to take
+# a long time and I do those out-of-band from running chezmoi apply
+STRAP_CI=1 bash .dotfiles-bin/strap.sh
 {{- end -}}
