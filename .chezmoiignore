@@ -2,6 +2,7 @@
 .arduino-create/
 .cache/
 .cargo/
+.codemod/
 .config/chezmoi/
 .config/iterm2/
 .config/op/
@@ -14,6 +15,7 @@
 .electron/
 .gem/
 .gnupg
+.deno/
 .lesshst
 .local/share/*
 .local/share/atuin/*
@@ -33,6 +35,7 @@
 .oh-my-zsh-custom/plugins/**/*.zwc
 .oh-my-zsh-custom/plugins/projects/data.txt
 .oracle_jre_usage/
+.pkg-cache/
 .pm2/
 .rustup/
 .ssh/known_hosts
