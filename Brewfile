@@ -176,6 +176,7 @@ mas "TestFlight", id: 899247664
 mas "Things", id: 904280696
 mas "Userscripts-Mac-App", id: 1463298887
 mas "Xcode", id: 497799835
+vscode "astro-build.astro-vscode"
 vscode "aytee17.vscode-oceanic-next-sublime"
 vscode "bierner.markdown-preview-github-styles"
 vscode "dbaeumer.vscode-eslint"

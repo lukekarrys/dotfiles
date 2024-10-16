@@ -15,8 +15,8 @@
 .electron/
 .gem/
 .gnupg
-.deno/
 .lesshst
+.local/data/
 .local/share/*
 .local/share/atuin/*
 !.local/share/atuin/
