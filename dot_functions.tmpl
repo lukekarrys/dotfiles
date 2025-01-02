@@ -225,12 +225,12 @@ function brewg() {
 
 function ncu() {
 	# ncu and node contributors config files conflict
-	{{ .npmBinsBin }}/ncu --configFileName=.ncurc.yml $@
+	{{ .npmBinsBin }}/ncu $@
 }
 
 function ncug() {
 	# ncu and node contributors config files conflict
-	{{ .npmBinsBin }}/ncu --configFileName=.ncurc.yml --packageFile {{ .npmBinsDir }}/package.json $@
+	{{ .npmBinsBin }}/ncu --packageFile {{ .npmBinsDir }}/package.json $@
 }
 
 function use_local_npm() {
