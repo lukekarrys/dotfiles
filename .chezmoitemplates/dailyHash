@@ -1,6 +1,0 @@
-{{- $dailyJson := joinPath .userConfig "daily.json" -}}
-{{- if stat $dailyJson -}}
-# daily hash: {{ include $dailyJson | sha256sum }}
-{{- else -}}
-# daily hash: {{ output "echo" "$RANDOM" | sha256sum }}
-{{- end -}}

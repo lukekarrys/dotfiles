@@ -1,0 +1,199 @@
+{{- if .isMain -}}
+#!/bin/bash
+
+#/ Usage: strap.sh [--debug]
+#/ Install development dependencies on macOS.
+
+#/ Copied and modified from https://github.com/MikeMcQuaid/strap/blob/main/strap.sh
+#/ under the AGPLv3 License
+
+set -e
+
+STRAP_SUCCESS=""
+
+sudo_askpass() {
+  if [ -n "$SUDO_ASKPASS" ]; then
+    sudo --askpass "$@"
+  else
+    sudo "$@"
+  fi
+}
+
+cleanup() {
+  set +e
+  sudo_askpass rm -rf "$CLT_PLACEHOLDER" "$SUDO_ASKPASS" "$SUDO_ASKPASS_DIR"
+  sudo --reset-timestamp
+  if [ -z "$STRAP_SUCCESS" ]; then
+    if [ -n "$STRAP_STEP" ]; then
+      echo "!!! $STRAP_STEP FAILED" >&2
+    else
+      echo "!!! FAILED" >&2
+    fi
+    exit 1
+  fi
+}
+
+trap "cleanup" EXIT
+
+
+# We want to always prompt for sudo password at least once rather than doing
+# root stuff unexpectedly.
+sudo --reset-timestamp
+
+# Initialise (or reinitialise) sudo to save unhelpful prompts later.
+sudo_init() {
+  # If TouchID for sudo is setup: use that instead.
+  if grep -q pam_tid /etc/pam.d/sudo /etc/pam.d/sudo_local 2>/dev/null; then
+    return
+  fi
+
+  local SUDO_PASSWORD SUDO_PASSWORD_SCRIPT
+
+  if ! sudo --validate --non-interactive &>/dev/null; then
+    while true; do
+      read -rsp "--> Enter your password (for sudo access):" SUDO_PASSWORD
+      echo
+      if sudo --validate --stdin 2>/dev/null <<<"$SUDO_PASSWORD"; then
+        break
+      fi
+
+      unset SUDO_PASSWORD
+      echo "!!! Wrong password!" >&2
+    done
+
+    SUDO_PASSWORD_SCRIPT="$(
+      cat <<BASH
+#!/bin/bash
+echo "$SUDO_PASSWORD"
+BASH
+    )"
+    unset SUDO_PASSWORD
+    SUDO_ASKPASS_DIR="$(mktemp -d)"
+    SUDO_ASKPASS="$(mktemp "$SUDO_ASKPASS_DIR"/strap-askpass-XXXXXXXX)"
+    chmod 700 "$SUDO_ASKPASS_DIR" "$SUDO_ASKPASS"
+    bash -c "cat > '$SUDO_ASKPASS'" <<<"$SUDO_PASSWORD_SCRIPT"
+    unset SUDO_PASSWORD_SCRIPT
+
+    export SUDO_ASKPASS
+  fi
+}
+
+sudo_refresh() {
+  if [ -n "$SUDO_ASKPASS" ]; then
+    sudo --askpass --validate
+  else
+    sudo_init
+  fi
+}
+
+log() {
+  STRAP_STEP="$*"
+  sudo_refresh
+  echo "--> $*"
+}
+
+logn() {
+  STRAP_STEP="$*"
+  sudo_refresh
+  printf -- "--> %s " "$*"
+}
+
+logk() {
+  STRAP_STEP=""
+  echo "OK"
+}
+
+logskip() {
+  STRAP_STEP=""
+  echo "SKIPPED"
+  echo "$*"
+}
+
+# Prevent sleeping during script execution, as long as the machine is on AC power
+caffeinate -s -w $$ &
+
+# Check and, if necessary, enable sudo authentication using TouchID.
+# Don't care about non-alphanumeric filenames when doing a specific match
+# shellcheck disable=SC2010
+if ls /usr/lib/pam | grep -q "pam_tid.so"; then
+  logn "Configuring sudo authentication using TouchID:"
+  if [[ -f /etc/pam.d/sudo_local || -f /etc/pam.d/sudo_local.template ]]; then
+    # New in macOS Sonoma, survives updates.
+    PAM_FILE="/etc/pam.d/sudo_local"
+    FIRST_LINE="# sudo_local: local config file which survives system update and is included for sudo"
+    if [[ ! -f "/etc/pam.d/sudo_local" ]]; then
+      echo "$FIRST_LINE" | sudo_askpass tee "$PAM_FILE" >/dev/null
+    fi
+  else
+    PAM_FILE="/etc/pam.d/sudo"
+    FIRST_LINE="# sudo: auth account password session"
+  fi
+  if grep -q pam_tid.so "$PAM_FILE"; then
+    logk
+  elif ! head -n1 "$PAM_FILE" | grep -q "$FIRST_LINE"; then
+    logskip "$PAM_FILE is not in the expected format!"
+  else
+    TOUCHID_LINE="auth       sufficient     pam_tid.so"
+    sudo_askpass sed -i .bak -e \
+      "s/$FIRST_LINE/$FIRST_LINE\n$TOUCHID_LINE/" \
+      "$PAM_FILE"
+    sudo_askpass rm "$PAM_FILE.bak"
+    logk
+  fi
+fi
+
+# Set some basic security settings.
+logn "Configuring security settings:"
+sudo_askpass defaults write com.apple.screensaver askForPassword -int 1
+sudo_askpass defaults write com.apple.screensaver askForPasswordDelay -int 0
+sudo_askpass defaults write /Library/Preferences/com.apple.alf globalstate -int 1
+sudo_askpass launchctl load /System/Library/LaunchDaemons/com.apple.alf.agent.plist 2>/dev/null
+logk
+
+# Check and enable full-disk encryption.
+logn "Checking full-disk encryption status:"
+if fdesetup status | grep -q -E "FileVault is (On|Off, but will be enabled after the next restart)."; then
+  logk
+else
+  echo
+  log "Enabling full-disk encryption on next reboot:"
+  sudo_askpass fdesetup enable -user "$USER" |
+    tee ~/Desktop/"FileVault Recovery Key.txt"
+  logk
+fi
+
+# Install the Xcode Command Line Tools.
+if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
+  log "Installing the Xcode Command Line Tools:"
+  CLT_PLACEHOLDER="/tmp/.com.apple.dt.CommandLineTools.installondemand.in-progress"
+  sudo_askpass touch "$CLT_PLACEHOLDER"
+
+  CLT_PACKAGE=$(softwareupdate -l |
+    grep -B 1 "Command Line Tools" |
+    awk -F"*" '/^ *\*/ {print $2}' |
+    sed -e 's/^ *Label: //' -e 's/^ *//' |
+    sort -V |
+    tail -n1)
+  sudo_askpass softwareupdate -i "$CLT_PACKAGE"
+  sudo_askpass rm -f "$CLT_PLACEHOLDER"
+  if ! [ -f "/Library/Developer/CommandLineTools/usr/bin/git" ]; then
+    echo
+    logn "Requesting user install of Xcode Command Line Tools:"
+    xcode-select --install
+  fi
+  logk
+fi
+
+# Check if the Xcode license is agreed to and agree if not.
+xcode_license() {
+  if /usr/bin/xcrun clang 2>&1 | grep -q license; then
+    logn "Asking for Xcode license confirmation:"
+    sudo_askpass xcodebuild -license
+    logk
+  fi
+}
+xcode_license
+
+STRAP_SUCCESS="1"
+log "Your system is now Strap'd!"
+{{- end -}}

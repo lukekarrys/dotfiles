@@ -1,0 +1,60 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format="""$all"""
+right_format = """$custom$nodejs$battery$time"""
+
+[line_break]
+disabled = true
+
+[time]
+disabled = false
+time_format = '%l:%M%P'
+format=' [$time]($style)'
+use_12hr = true
+
+[cmd_duration]
+min_time = 50
+show_milliseconds = true
+format = '[$duration](bold yellow) '
+
+[[battery.display]]
+threshold = 20
+style = 'bold red'
+
+[[battery.display]]
+threshold = 90
+style = ''
+
+[status]
+disabled = false
+
+[nodejs]
+disabled = true
+
+# get the current npm version in a fast way, only works with fnm
+[custom.npm]
+# jq is a few ms slower
+# command = "jq -r .version $(realpath $(which node) | sed 's|/bin/node|/lib/node_modules/npm/package.json|')"
+command = "grep -m 1 '\"version\"' $(realpath $(which node) | sed 's|/bin/node|/lib/node_modules/npm/package.json|') | sed -n 's/.*\"version\": \"\\([^\"]*\\)\",/\\1/p'"
+style = 'bold red'
+symbol = " "
+format = "[$symbol$output]($style)"
+detect_extensions =	['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
+detect_files = ['package.json', '.node-version', '.nvmrc']	
+detect_folders = ['node_modules']
+shell = ['sh']
+
+# 9ms vs 23ms for the builtin nodejs section which runs node --version
+# only works with fnm
+[custom.node]
+command = "realpath $(which node) | sed -n 's|.*/node-versions/v\\([^/]*\\)/.*|\\1|p'"
+style = 'bold green'
+symbol = " "
+format = " [$symbol$output]($style)"
+detect_extensions =	['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
+detect_files = ['package.json', '.node-version', '.nvmrc']	
+detect_folders = ['node_modules']
+shell = ['sh']

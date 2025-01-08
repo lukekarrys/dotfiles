@@ -1,0 +1,62 @@
+{{- $isWork := eq (substr 0 9 .chezmoi.hostname) "pieholden" -}}
+{{- $isMac := eq .chezmoi.os "darwin" -}}
+{{- $isCodespace := env "CODESPACES" | not | not -}}
+{{- $isCi := env "CI" | not | not -}}
+{{- $isPermanent := and (not $isCodespace) (not $isCi) -}}
+{{- $isMain := and $isPermanent $isMac -}}
+{{- $isPersonal := and $isMain (not $isWork) -}}
+
+{{- $brewPrefix := "/usr/local" -}}
+{{- if eq .chezmoi.arch "arm64" -}}
+{{-   $brewPrefix = "/opt/homebrew" -}}
+{{- end -}}
+
+{{- $nodeArch := .chezmoi.arch -}}
+{{- if eq $nodeArch "amd64" -}}
+{{-   $nodeArch = "x64" -}}
+{{- end -}}
+
+{{- $npmBins := (joinPath .chezmoi.homeDir ".npm-bins") -}}
+{{- $npmBinsBin := (joinPath $npmBins "bin") -}}
+{{- $npmBinsNpm := (joinPath $npmBins "npm/bin") -}}
+{{- $npmBinsNode := (joinPath $npmBins "node/bin") -}}
+
+umask = 0o022
+
+[data]
+  username = "lukekarrys"
+  email = "luke@lukekarrys.com"
+  name = "Luke Karrys"
+
+  isWork = {{ $isWork }}
+  isMac = {{ $isMac }}
+  isCodespace = {{ $isCodespace }}
+  isCi = {{ $isCi }}
+  isPermanent = {{ $isPermanent }}
+  isMain = {{ $isMain }}
+  isPersonal = {{ $isPersonal }}
+
+  homeDir = {{ .chezmoi.homeDir | quote }}
+  brewPrefix = {{ $brewPrefix | quote }}
+  nodeArch = {{ $nodeArch | quote }}
+
+[data.github]
+  username = "lukekarrys"
+  defaultOrg = "vltpkg"
+  projects = [
+    "org:vltpkg",
+    "org:bracketclub",
+    "org:lukekarrys",
+    "org:nodejs"
+  ]
+
+[data.onepassword.personal]
+  vault = "5chnupnoo6zc5bijsqv6upxa5e"
+  account = "lukekarrys.1password.com"
+
+[data.npmBins]
+  dir = "{{ $npmBins }}"
+  bin = "{{ $npmBinsBin }}"
+  node = "{{ $npmBinsNode }}"
+  pathPrefix = "{{ $npmBinsNode }}:{{ $npmBinsNpm }}:"
+  command = "{{ $npmBinsNode }}/node {{ $npmBins }}/npm/index.js --prefix={{ $npmBins }}"

@@ -1,0 +1,80 @@
+# Fish
+set --global fish_greeting;
+
+# Less
+set --global --export LESSHISTFILE "-";
+
+# XDG
+set --global --export XDG_CONFIG_HOME "$HOME/.config";
+set --global --export XDG_CACHE_HOME "$HOME/.cache";
+set --global --export XDG_DATA_HOME "$HOME/.local/data";
+set --global --export XDG_STATE_HOME "$HOME/.local/state";
+
+# User / Projects
+set --global --export DEFAULT_USER "{{ .chezmoi.username }}";
+set --global --export PROJECTS_DIR "{{ .homeDir }}/projects";
+
+# Git credentials
+set --global --export GIT_AUTHOR_NAME "{{ .name }}";
+set --global --export GIT_COMMITTER_NAME "$GIT_AUTHOR_NAME";
+set --global --export GIT_AUTHOR_EMAIL "{{ .email }}";
+set --global --export GIT_COMMITTER_EMAIL "$GIT_AUTHOR_EMAIL";
+
+# dont show % sign when ctrl-c'ing
+set --global --export PROMPT_EOL_MARK "";
+
+# TODO
+# export MANPATH="{{ .brewPrefix }}/opt/coreutils/libexec/gnuman:$MANPATH"
+# PATH="{{ .brewPrefix }}/opt/fzf/bin:$PATH"
+# PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+# PATH="{{ .brewPrefix }}/opt/python@3.9/libexec/bin:$PATH"
+# PATH="{{ .brewPrefix }}/opt/ruby/bin:$PATH"
+# PATH="`gem environment gemdir`/bin:$PATH"
+# PATH="`go env GOPATH`/bin:$PATH"
+# PATH="{{ .brewPrefix }}/opt/coreutils/libexec/gnubin:$PATH"
+# PATH="{{ .npmBins.bin }}:$PATH"
+# PATH="{{ .homeDir }}/.dotfiles-bin:$PATH"
+# PATH="{{ .homeDir }}/.docker/bin:$PATH"
+# export PATH="$PATH"
+
+# VSCode as the default editor
+set --global --export EDITOR "code -r -w";
+
+# Prefer US English and use UTF-8
+set --global --export LANG "en_US.UTF-8";
+set --global --export LC_ALL "en_US.UTF-8";
+
+# Don’t clear the screen after quitting a manual page
+# set --global --export MANPAGER "less -X";
+
+# Always enable colored `grep` output
+set --global --export GREP_OPTIONS "--color=auto";
+
+# 1Password for SSH
+set --global --export SSH_AUTH_SOCK $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock;
+
+# Global bins installed from registry.npmjs.org
+fish_add_path --global "$HOME/.npm-bins/bin"
+
+# Homebrew
+set --global --export HOMEBREW_NO_ENV_HINTS "1";
+set --global --export HOMEBREW_CASK_OPTS "--appdir=/Applications"; # Link Homebrew casks in `/Applications` rather than `~/Applications`
+set --global --export HOMEBREW_BUNDLE_DUMP_NO_VSCODE "1";
+{{ output (joinPath .brewPrefix "bin/brew") "shellenv" "fish" | trim }}
+
+# History
+set -g fish_history ""
+{{ output (joinPath .brewPrefix "bin/atuin") "init" "fish" | trim }}
+
+# Node
+fnm env --shell=fish --fnm-dir "$XDG_DATA_HOME/fnm" | source # fnm is designed to run on every shell init
+
+# Rust
+{{ include (joinPath .homeDir ".cargo/env.fish") | trim }}
+
+# Prompt
+# function starship_transient_prompt_func
+#   starship module character
+# end
+{{ output (joinPath .brewPrefix "bin/starship") "init" "fish" "--print-full-init" | trim }}
+# enable_transience

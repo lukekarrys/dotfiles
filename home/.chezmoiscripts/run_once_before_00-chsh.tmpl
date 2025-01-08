@@ -1,0 +1,13 @@
+{{- if .isMain -}}
+#!/bin/bash
+
+set -euo pipefail
+
+if ! ggrep --fixed-strings "$(which fish)" /etc/shells ; then
+  which fish | sudo tee -a /etc/shells
+fi
+
+if [[ "$SHELL" != "$(which fish)" ]] ; then
+  sudo chsh -s "$(which fish)" "{{ .chezmoi.username }}"
+fi
+{{- end -}}

@@ -1,0 +1,66 @@
+# Always ignore all of these files
+**/.DS_Store
+
+# Top-level directories that are not chezmoi-able
+/.Trash/
+/Applications/
+/Desktop/
+/Documents/
+/Downloads/
+/Library/
+/Movies/
+/Music/
+/Pictures/
+/Public/
+/projects/
+
+# Tool directories that are only cache/data/state
+/.cache/
+/.rustup/
+# maybe unignore .rustup/settings.toml?
+/.cargo/
+/.codemod/
+/.cups/
+/.docker/
+/.vscode/
+/.pkg-cache/
+/.npm/
+/.config/raycast/
+/.config/.wrangler/
+/.config/iterm2/
+/.config/op/
+
+# XDG local data/state
+/.local/data/
+/.local/state/
+
+# XDG local share
+# This is created by chezmoi but has entries that need to be ignored
+.local/share/*
+.local/share/atuin/*
+!.local/share/atuin/
+!.local/share/atuin/.key
+!.local/share/gh/
+.local/share/gh/extensions/*
+!.local/share/gh/extensions/*/manifest.yml
+
+# Generated Fish shell variables (I think?)
+/.config/fish/fish_variables/
+
+# Top level cache files
+/.node_repl_history
+/.ts_node_repl_history
+/.viminfo
+/.wget-hsts
+
+# SSH
+/.ssh/1Password/
+/.ssh/known_hosts*
+
+# .npm-bins cache/state
+/.npm-bins/bin/
+/.npm-bins/cache/
+/.npm-bins/node_modules/
+
+# Chezmoi
+/.config/chezmoi/

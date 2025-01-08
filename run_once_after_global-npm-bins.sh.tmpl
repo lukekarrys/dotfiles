@@ -1,7 +1,0 @@
-{{- if .isMain -}}
-#!/bin/bash
-
-# package.json hash: {{ include (joinPath .npmBinsDir "package.json") | sha256sum }}
-PATH={{ .npmBinsPathPrefix }}$PATH
-{{ .npmBinsCommand }} install
-{{- end -}}

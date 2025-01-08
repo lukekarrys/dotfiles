@@ -1,0 +1,28 @@
+Host *
+	IdentitiesOnly yes
+	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
+Host github.com
+Hostname github.com
+User git
+IdentityFile ~/.ssh/keys/github
+
+Host gist.github.com
+Hostname gist.github.com
+User git
+IdentityFile ~/.ssh/keys/github
+
+Host hummingbird
+Hostname hummingbird.local
+User lukekarrys
+IdentityFile ~/.ssh/keys/hummingbird
+
+Host tweedy
+Hostname tweedy.local
+User lukekarrys
+IdentityFile ~/.ssh/keys/tweedy
+
+Host pieholden
+Hostname pieholden-m1.local
+User lukekarrys
+IdentityFile ~/.ssh/keys/pieholden-m1

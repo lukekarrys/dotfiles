@@ -1,5 +1,0 @@
-#!/usr/bin/env node
-
-const { generateSlug } = require('{{ joinPath .npmBinsDir "node_modules" "random-word-slugs" }}')
-
-process.stdout.write(`lk/${generateSlug(3, { format: 'kebab' })}`)

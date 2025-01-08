@@ -1,9 +1,0 @@
-{{- if .isMain -}}
-#!/bin/bash
-
-# latest node: {{ .nodeLatestVersion }}
-if [ "$(fnm current)" != "{{ .nodeLatestVersion }}" ]; then
-  fnm install {{ .nodeLatestVersion }}
-  fnm default {{ .nodeLatestVersion }}
-fi
-{{- end -}}

@@ -1,0 +1,7 @@
+github.com:
+    users:
+        {{ .github.username }}:
+            oauth_token: {{ template "password" list "gh CLI PAT" .onepassword.personal }}
+    git_protocol: ssh
+    user: {{ .github.username }}
+    oauth_token: {{ template "password" list "gh CLI PAT" .onepassword.personal }}

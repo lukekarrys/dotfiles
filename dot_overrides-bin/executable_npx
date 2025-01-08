@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-node "$PROJECTS_DIR/npm/cli/bin/npx-cli.js" "$@"
