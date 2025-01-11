@@ -1,0 +1,18 @@
+function clone
+  set -l repo
+  if test (count $argv) -eq 2
+    set repo "$argv[1]/$argv[2]"
+  else if string match -q "*/*" $argv[1]
+    set repo $argv[1]
+  else
+    set repo {{ .github.username }}/$argv[1]
+  end
+  set -l repoDir {{ .homeDir }}/projects/$repo
+  if test -d $repoDir
+    cd $repoDir
+    gh repo sync
+  else
+    gh repo clone $repo {{ .homeDir }}/projects/$repo
+    cd $repoDir
+  end
+end

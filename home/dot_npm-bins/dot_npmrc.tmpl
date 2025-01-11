@@ -1,4 +1,4 @@
-//registry.npmjs.org/:_authToken={{ template "password" list "npm token" .onepassword.personal }}
+registry=https://registry.npmjs.org/
 userconfig={{ .npmBins.dir }}/ENOENT1
 globalconfig={{ .npmBins.dir }}/ENOENT2
 cache={{ .npmBins.dir }}/cache
@@ -11,4 +11,5 @@ foreground-scripts=true
 audit=false
 fund=false
 save-exact=true
-registry=https://registry.npmjs.org/
+install-links=true
+engine-strict=true

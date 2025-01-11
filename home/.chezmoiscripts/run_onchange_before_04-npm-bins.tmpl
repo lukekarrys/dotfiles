@@ -1,7 +1,11 @@
 {{- if .isMain -}}
 #!/bin/bash
 
-# package.json hash: {{ include (joinPath .npmBins.dir "package.json") | sha256sum }}
-PATH={{ .npmBins.pathPrefix }}$PATH
-{{ .npmBins.command }} install
+# package.json {{ include (joinPath .npmBins.dir "package.json") | sha256sum }}
+# node {{ include (joinPath .npmBins.localNodeBin "node") | sha256sum }}
+# npm {{ include (joinPath (dir .npmBins.localNodeBin) "lib/node_modules/npm/package.json") | sha256sum }}
+
+PATH={{ .npmBins.localNodeBin }}:$PATH
+npm --prefix={{ .npmBins.dir }} install
+npm --prefix={{ .npmBins.dir }} run dependencies
 {{- end -}}

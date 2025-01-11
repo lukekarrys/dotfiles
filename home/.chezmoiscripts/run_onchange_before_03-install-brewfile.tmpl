@@ -1,6 +1,0 @@
-{{- if .isMain -}}
-#!/bin/bash
-
-# Brewfile: {{ include (joinPath .chezmoi.workingTree "home/Brewfile") | sha256sum }}
-brew bundle --no-lock --no-upgrade --file={{ joinPath .chezmoi.workingTree "home/Brewfile" }}
-{{- end -}}

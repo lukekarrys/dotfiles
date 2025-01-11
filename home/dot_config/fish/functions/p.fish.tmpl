@@ -1,0 +1,23 @@
+function p
+  set -l projectDir {{ .homeDir }}/projects
+  if test (count $argv) -eq 0
+    cd $projectDir
+  else
+    set -l owners (string replace -a "/" "" (string replace -a "$projectDir" "" (command ls -d $projectDir/*/)))
+    set -l repos (command ls -d $projectDir/*/*/ | string split "/" -f(math (string split "/" $projectDir | count) + 2))
+    if contains $argv[1] $repos
+      cd $projectDir/*/$argv[1]
+    else if contains $argv[1] $owners
+      cd $projectDir/$argv[1]
+    else
+      echo "No project found with name or owner: $argv[1]"
+    end
+  end
+end
+
+complete -c p -f
+complete -c p -a "(
+  set -l projectDir $HOME/projects;
+  command ls -d $projectDir/*/*/ | string split '/' -f(math (string split '/' $projectDir | count) + 2);
+  string replace -a '/' '' (string replace -a '$projectDir' '' (command ls -d $projectDir/*/))
+)"

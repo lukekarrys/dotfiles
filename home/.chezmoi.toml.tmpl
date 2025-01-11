@@ -17,9 +17,6 @@
 {{- end -}}
 
 {{- $npmBins := (joinPath .chezmoi.homeDir ".npm-bins") -}}
-{{- $npmBinsBin := (joinPath $npmBins "bin") -}}
-{{- $npmBinsNpm := (joinPath $npmBins "npm/bin") -}}
-{{- $npmBinsNode := (joinPath $npmBins "node/bin") -}}
 
 umask = 0o022
 
@@ -56,7 +53,5 @@ umask = 0o022
 
 [data.npmBins]
   dir = "{{ $npmBins }}"
-  bin = "{{ $npmBinsBin }}"
-  node = "{{ $npmBinsNode }}"
-  pathPrefix = "{{ $npmBinsNode }}:{{ $npmBinsNpm }}:"
-  command = "{{ $npmBinsNode }}/node {{ $npmBins }}/npm/index.js --prefix={{ $npmBins }}"
+  bin = "{{ joinPath $npmBins "bin" }}"
+  localNodeBin = "{{ joinPath $npmBins "node/bin" }}"

@@ -3,18 +3,19 @@
     url = "https://nodejs.org/dist/v22.4.0/node-v22.4.0-{{ .chezmoi.os }}-{{ .nodeArch }}.tar.gz"
     exact = true
     stripComponents = 1
-    include = [
-        "*/bin",
-        "*/bin/node",
-        "*/include/**",
-    ]
-
-["{{ joinPath (base .npmBins.dir) "npm" }}"]
-    type = "archive"
-    url = "https://registry.npmjs.org/npm/-/npm-10.8.1.tgz"
-    exact = true
-    stripComponents = 1
     exclude = [
-        "*/man/**",
-        "*/docs/**",
+        "*/CHANGELOG.md",
+        "*/README.md",
+        "*/bin/corepack",
+        "*/bin/npx",
+        "*/share/**",
+        "*/lib/node_modules/corepack/**",
+        "*/lib/node_modules/npm/README.md",
+        "*/lib/node_modules/npm/man/**",
+        "*/lib/node_modules/npm/docs/**",
+        "*/lib/node_modules/npm/bin/npx*",
+        "*/lib/node_modules/npm/bin/npm",
+        "*/lib/node_modules/npm/bin/npm-prefix.js",
+        "*/lib/node_modules/npm/bin/npm.cmd",
+        "*/lib/node_modules/npm/bin/npm.ps1",
     ]
