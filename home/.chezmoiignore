@@ -47,11 +47,14 @@
 # Generated Fish shell variables (I think?)
 /.config/fish/fish_variables/
 
-# Top level cache files
+# Top level history-ish files
 /.node_repl_history
 /.ts_node_repl_history
 /.viminfo
 /.wget-hsts
+/.zsh_history
+/.lesshst
+/.bash_history
 
 # SSH
 /.ssh/1Password/
