@@ -14,53 +14,28 @@
 /Public/
 /projects/
 
-# Tool directories that are only cache/data/state
+# Configured XDG directories
 /.cache/
-/.rustup/
-# maybe unignore .rustup/settings.toml?
-/.cargo/
-/.codemod/
-/.cups/
-/.docker/
-/.vscode/
-/.pkg-cache/
-/.npm/
-/.config/raycast/
-/.config/.wrangler/
-/.config/iterm2/
-/.config/op/
-
-# XDG local data/state
 /.local/data/
 /.local/state/
 
-# XDG local share
-# This is created by chezmoi but has entries that need to be ignored
-.local/share/*
-.local/share/atuin/*
-!.local/share/atuin/
-!.local/share/atuin/.key
-!.local/share/gh/
-.local/share/gh/extensions/*
-!.local/share/gh/extensions/*/manifest.yml
-
-# Generated Fish shell variables (I think?)
-/.config/fish/fish_variables/
-
-# Top level history-ish files
-/.node_repl_history
-/.ts_node_repl_history
-/.viminfo
+# Root $HOME that are only cache/data/state or can't be moved
+/.vscode/
+/.config/raycast/
+/.config/.wrangler/
+/.config/op/
+/.cups
 /.wget-hsts
 /.zsh_history
-/.lesshst
 /.bash_history
+/.wget-hists
 
 # SSH
 /.ssh/1Password/
 /.ssh/known_hosts*
 
 # .npm-bins cache/state
+# TODO: these could be divided among the xdg dirs
 /.npm-bins/bin/
 /.npm-bins/cache/
 /.npm-bins/node_modules/

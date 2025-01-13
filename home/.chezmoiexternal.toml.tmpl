@@ -19,3 +19,19 @@
         "*/lib/node_modules/npm/bin/npm.cmd",
         "*/lib/node_modules/npm/bin/npm.ps1",
     ]
+
+[".local/data/xdg-ninja"]
+    type = "archive"
+    url = "https://github.com/b3nj5m1n/xdg-ninja/archive/main.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    exclude = [
+        "*/programs/bash.json",
+        "*/programs/cups.json",
+        "*/programs/login.json",
+        "*/programs/profile.json",
+        "*/programs/trash.json",
+        "*/programs/wget.json", # ignore because there is no way to set .wget-hsts without aliasing
+        "*/programs/zsh.json",
+    ]

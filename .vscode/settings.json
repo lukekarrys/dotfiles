@@ -1,0 +1,8 @@
+{
+  "files.associations": {
+    "*.sh.tmpl": "shellscript",
+    "*profile": "shellscript",
+    "*.fish.tmpl": "fish",
+    "*.toml.tmpl": "toml",
+  }
+}

@@ -2,16 +2,25 @@
 
 ## Prerequisites
 
-- 1Password
-    - `brew install --cask 1password`
-    - `brew install 1password-cli`
-    - Login to 1Password.app and connect it to the CLI in "Developer" settings
-    - Confirm with `op whoami`
-
+- Install 1Password
 - [`chezmoi`](https://www.chezmoi.io/install/#one-line-package-install)
     ```
     sh -c "$(curl -fsLS get.chezmoi.io)" -- init --ssh --apply lukekarrys
     ```
+
+## Notes
+
+### Check if entries are in $HOME that should be managed or moved
+
+```sh
+# This should return nothing. If it does list entries, they should either
+# be added to .chezmoiignore, managed with chezmoi, or moved somewhere else.
+chezmoi unmanaged
+
+# This can be used to help see if any of the entries in $HOME can be moved
+# somwhere else by setting a environ or the tool handles it natively
+xdg-ninja --skip-unsupported 
+```
 
 ## macOS Defaults
 

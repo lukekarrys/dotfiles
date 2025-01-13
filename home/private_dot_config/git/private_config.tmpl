@@ -1,0 +1,127 @@
+[alias]
+	# checkout
+	co = checkout
+	# Push
+	p = push
+	# Show verbose output about tags, branches or remotes
+	tags = tag -l
+	branches = branch -a
+	remotes = remote -v
+	# List contributors with number of commits
+	contributors = shortlog --summary --numbered
+	# Amend the currently staged files to the latest commit
+	amend = commit --amend --reuse-message=HEAD
+
+[apply]
+	# Detect whitespace errors when applying a patch
+	whitespace = fix
+
+[core]
+	excludesfile = ~/.config/git/ignore
+	# Treat spaces before tabs and all kinds of trailing whitespace as an error
+	# [default] trailing-space: looks for spaces at the end of a line
+	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+	whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+	# Make `git rebase` safer on OS X
+	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
+	trustctime = false
+	editor = code -r -w
+	pager = diff-so-fancy | less --tabs=2 -RFX
+	untrackedCache = true
+
+[remote "origin"]
+	prune = true
+
+[color]
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = true
+
+[color "branch"]
+	current = yellow black
+	local = yellow
+	remote = green
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = black
+
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+	branch = magenta
+
+[diff]
+	# Detect copies as well as renames
+	renames = copies
+
+[help]
+	# Automatically correct and execute mistyped commands
+	autocorrect = 1
+	format = web
+
+[branch]
+	autosetupmerge = true
+
+[push]
+	default = simple
+
+# URL shorthands
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+[user]
+	name = {{ .name }}
+	email = {{ .email }}
+	signingkey = {{ template "password" list "GitHub SSH and Commit Signing Key" .onepassword.personal "public_key" }}
+
+[commit]
+	gpgsign = true
+
+[tag]
+	gpgsign = true
+
+[fetch]
+	prune = true
+
+[pull]
+	rebase = true
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+
+[init]
+	defaultBranch = main
+
+[feature]
+	manyFiles = true
+
+[credential]
+	helper = osxkeychain
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true

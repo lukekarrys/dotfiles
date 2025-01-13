@@ -1,0 +1,53 @@
+# where to store your database, default is your system data directory
+db_path = "~/.local/data/atuin/history.db"
+
+# where to store your encryption key, default is your system data directory
+key_path = "~/.config/atuin/.key"
+
+# where to store your auth session token, default is your system data directory
+session_path = "~/.local/data/atuin/.token"
+
+# enable or disable automatic sync
+auto_sync = true
+
+# how often to sync history. note that this is only triggered when a command
+# is ran, so sync intervals may well be longer
+# set it to 0 to sync after every command
+sync_frequency = "10m"
+
+# address of the sync server
+sync_address = "http://hummingbird.local:8888"
+
+# enable or disable automatic update checks
+update_check = false
+
+# date format used, either "us" or "uk"
+dialect = "us"
+
+# which search mode to use
+# possible values: prefix, fulltext, fuzzy
+search_mode = "fuzzy"
+
+# which style to use
+# possible values: auto, full, compact
+style = "compact"
+inline_height = 20
+show_preview = false
+show_tabs = false
+show_help = false
+
+# what to do when the escape key is pressed when searching
+# possible values: return-original, return-query
+exit_mode = "return-original"
+
+# default filter mode when invoked via command
+filter_mode = "global"
+
+# use directory by default when invoked with key up
+filter_mode_shell_up_key_binding = "directory"
+
+[sync]
+records = true
+
+[dotfiles]
+enabled = false

@@ -1,0 +1,25 @@
+{{- if .isMain -}}
+#!/bin/bash
+
+set -euo pipefail
+
+{{ $fishBin := joinPath .brewPrefix "bin/fish" }}
+{{ $zshBin := joinPath .brewPrefix "bin/zsh" }}
+{{ $bashBin := joinPath .brewPrefix "bin/bash" }}
+
+if ! ggrep --fixed-strings "{{ $fishBin }}" /etc/shells ; then
+  echo {{ $fishBin }} | sudo tee -a /etc/shells
+fi
+
+if ! ggrep --fixed-strings "{{ $zshBin }}" /etc/shells ; then
+  echo {{ $zshBin }} | sudo tee -a /etc/shells
+fi
+
+if ! ggrep --fixed-strings "{{ $bashBin }}" /etc/shells ; then
+  echo {{ $bashBin }} | sudo tee -a /etc/shells
+fi
+
+if [[ "$SHELL" != "{{ $fishBin }}" ]] ; then
+  sudo chsh -s "{{ $fishBin }}" "{{ .chezmoi.username }}"
+fi
+{{- end -}}

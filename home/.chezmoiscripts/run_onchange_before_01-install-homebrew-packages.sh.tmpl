@@ -1,0 +1,7 @@
+{{- if .isMain -}}
+#!/bin/bash
+
+{{- $brewfile := joinPath .chezmoi.sourceDir "private_dot_config/packages/Brewfile" -}}
+# {{ include $brewfile | sha256sum }}
+brew bundle --no-upgrade --file={{ $brewfile }}
+{{- end -}}
