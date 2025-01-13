@@ -1,7 +1,7 @@
 # Alias / Abbr
 # Go to direcctories
-alias dl="cd {{ .homeDir }}/Downloads"
-alias dt="cd {{ .homeDir }}/Desktop"
+alias dl="cd {{ .dirs.home }}/Downloads"
+alias dt="cd {{ .dirs.home }}/Desktop"
 
 # ls
 alias l="eza --classify --long --no-permissions --no-user --time-style long-iso"
@@ -27,24 +27,24 @@ alias dotedit="chezmoi edit"
 alias cz='chezmoi'
 
 # Fish
-set -g fish_greeting;
+set -g fish_greeting
 
 # XDG
-set -gx XDG_CONFIG_HOME "$HOME/.config";
-set -gx XDG_CACHE_HOME "$HOME/.cache";
-set -gx XDG_DATA_HOME "$HOME/.local/data";
-set -gx XDG_STATE_HOME "$HOME/.local/state";
+set -gx XDG_CONFIG_HOME "{{ .xdg.config }}"
+set -gx XDG_CACHE_HOME "{{ .xdg.cache }}"
+set -gx XDG_DATA_HOME "{{ .xdg.data }}"
+set -gx XDG_STATE_HOME "{{ .xdg.state }}"
 
 # User
-set -gx DEFAULT_USER "{{ .chezmoi.username }}";
+set -gx DEFAULT_USER "{{ .chezmoi.username }}"
 # Git credentials
-set -gx GIT_AUTHOR_NAME "{{ .name }}";
-set -gx GIT_COMMITTER_NAME "$GIT_AUTHOR_NAME";
-set -gx GIT_AUTHOR_EMAIL "{{ .email }}";
-set -gx GIT_COMMITTER_EMAIL "$GIT_AUTHOR_EMAIL";
+set -gx GIT_AUTHOR_NAME "{{ .name }}"
+set -gx GIT_COMMITTER_NAME "{{ .name }}"
+set -gx GIT_AUTHOR_EMAIL "{{ .email }}"
+set -gx GIT_COMMITTER_EMAIL "{{ .email }}"
 
 # dont show % sign when ctrl-c'ing
-set -gx PROMPT_EOL_MARK "";
+set -gx PROMPT_EOL_MARK ""
 
 # PATH / MANPATH
 # Make sure MANPATH is always set https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-421833616
@@ -53,43 +53,43 @@ set -q MANPATH || set MANPATH ''
 # always use newer coreutils from homebrew
 # this might have adverse effects if other tools expect older versions
 # but it hasn't bitten me yet and its nicer to have. fingers crossed
-fish_add_path --global "{{ .brewPrefix }}/opt/coreutils/libexec/gnubin"
-fish_add_path --global "{{ .brewPrefix }}/opt/findutils/libexec/gnubin"
-set -gxp MANPATH $MANPATH "{{ .brewPrefix }}/opt/coreutils/libexec/gnuman"
-set -gxp MANPATH $MANPATH "{{ .brewPrefix }}/opt/findutils/libexec/gnuman"
+fish_add_path --global "{{ .dirs.brew }}/opt/coreutils/libexec/gnubin"
+fish_add_path --global "{{ .dirs.brew }}/opt/findutils/libexec/gnubin"
+set -gxp MANPATH $MANPATH "{{ .dirs.brew }}/opt/coreutils/libexec/gnuman"
+set -gxp MANPATH $MANPATH "{{ .dirs.brew }}/opt/findutils/libexec/gnuman"
 
 # trash, installed from homebrew
-fish_add_path --global "{{ .brewPrefix }}/opt/trash/bin"
+fish_add_path --global "{{ .dirs.brew }}/opt/trash/bin"
 
 # bins that are written by dotfiles repo
-fish_add_path --global "{{ .homeDir }}/.bin"
+fish_add_path --global "{{ .dirs.home }}/.bin"
 
 # Global bins installed from registry.npmjs.org
-fish_add_path --global "$HOME/.npm-bins/bin"
+fish_add_path --global "{{ .npmGlobal.path }}"
 
 # Ruby
 # I don't have much need for anything beyond a single, modern ruby
 # so use one from homebrew. If this changes, use a ruby version manager
-fish_add_path --global "{{ .brewPrefix }}/opt/ruby/bin"
+fish_add_path --global "{{ .dirs.brew }}/opt/ruby/bin"
 
 # Python
 # Use python3.9 as the default python. Python is mostly used by node-gyp
 # and this version works well for that.
-fish_add_path --global "{{ .brewPrefix }}/opt/python@3.9/libexec/bin"
+fish_add_path --global "{{ .dirs.brew }}/opt/python@3.9/libexec/bin"
 
 # TODO
 # gem environment gemdir
 # go env GOPATH
  
 # VSCode as the default editor
-set -gx EDITOR "code -r -w";
+set -gx EDITOR "code -r -w"
 
 # Prefer US English and use UTF-8
-set -gx LANG "en_US.UTF-8";
-set -gx LC_ALL "en_US.UTF-8";
+set -gx LANG "en_US.UTF-8"
+set -gx LC_ALL "en_US.UTF-8"
 
 # Always enable colored `grep` output
-set -gx GREP_OPTIONS "--color=auto";
+set -gx GREP_OPTIONS "--color=auto"
 
 # Move things reported by xdg-ninja
 set -gx NODE_REPL_HISTORY "$XDG_STATE_HOME/node_repl_history"
@@ -99,20 +99,17 @@ set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
 set -gx NPM_CONFIG_CACHE "$XDG_CACHE_HOME/npm"
 set -gx NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npmrc"
 
-# 1Password for SSH
-set -gx SSH_AUTH_SOCK $HOME/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-
 # Homebrew
 set -gx HOMEBREW_NO_ENV_HINTS "1"
-set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications"; # Link Homebrew casks in `/Applications` rather than `~/Applications`
+set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications" # Link Homebrew casks in `/Applications` rather than `~/Applications`
 set -gx HOMEBREW_BUNDLE_DUMP_NO_VSCODE "1"
 set -gx HOMEBREW_NO_AUTO_UPDATE "1"
-set -gx HOMEBREW_BUNDLE_FILE "{{ joinPath .chezmoi.homeDir ".config/packages/Brewfile" }}"
-{{ output (joinPath .brewPrefix "bin/brew") "shellenv" "fish" | trim }}
+set -gx HOMEBREW_BUNDLE_FILE "{{ joinPath .xdg.config "packages/Brewfile" }}"
+{{ output (joinPath .dirs.brewBin "brew") "shellenv" "fish" | trim }}
 
 # History
 set -g fish_history ""
-{{ output (joinPath .brewPrefix "bin/atuin") "init" "fish" | trim }}
+{{ output (joinPath .dirs.brewBin "atuin") "init" "fish" | trim }}
 
 # Node
 fnm env --shell=fish --fnm-dir "$XDG_DATA_HOME/fnm" | source # fnm is designed to run on every shell init
@@ -120,11 +117,11 @@ fnm env --shell=fish --fnm-dir "$XDG_DATA_HOME/fnm" | source # fnm is designed t
 # Rust
 set -gx CARGO_HOME "$XDG_DATA_HOME"/cargo
 set -gx RUSTUP_HOME "$XDG_DATA_HOME"/rustup
-{{ include (joinPath .homeDir ".local/data/cargo/env.fish") | trim }}
+{{ include (joinPath .xdg.data "cargo/env.fish") | trim }}
 
 # Prompt
 # function starship_transient_prompt_func
 #   starship module character
 # end
-{{ output (joinPath .brewPrefix "bin/starship") "init" "fish" "--print-full-init" | trim }}
+{{ output (joinPath .dirs.brewBin "starship") "init" "fish" "--print-full-init" | trim }}
 # enable_transience

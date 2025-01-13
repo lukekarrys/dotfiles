@@ -1,5 +1,5 @@
 ## functions
-```
+```shell
 # Use Git’s colored diff when available
 hash git &>/dev/null;
 if [ $? -eq 0 ]; then
@@ -30,7 +30,7 @@ function npm_corgi() {
 ```
 
 # fzf-tab
-```
+```shell
 # disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
 # set descriptions format to enable group support
@@ -47,7 +47,7 @@ zstyle ':fzf-tab:*' switch-group ',' '.'
 
 ## projects
 
-```
+```shell
 function trep() {
   if [ -z "$1" ]; then
     tree -aCd -L 2 $PROJECTS_DIR
@@ -59,7 +59,7 @@ function trep() {
 
 ## mygit
 
-```
+```shell
 alias gco='git checkout'
 alias gdw='git diff --word-diff'
 

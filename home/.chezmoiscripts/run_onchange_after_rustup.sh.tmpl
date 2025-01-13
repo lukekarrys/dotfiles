@@ -1,6 +1,0 @@
-{{- if .isMain -}}
-#!/bin/bash
-
-# env hash: {{ include (joinPath .homeDir ".local/data/cargo/env") | sha256sum }}
-rustup-init --no-modify-path -y
-{{- end -}}

@@ -1,0 +1,11 @@
+{{- if .is.Main -}}
+#!/bin/bash
+
+# package.json {{ include (joinPath .npmGlobal.root "package.json") | sha256sum }}
+# node {{ include (joinPath .npmGlobal.localNodeBin "node") | sha256sum }}
+# npm {{ include (joinPath (dir .npmGlobal.localNodeBin) "lib/node_modules/npm/package.json") | sha256sum }}
+
+PATH="{{ .npmGlobal.localNodeBin }}:$PATH"
+{{ joinPath .npmGlobal.localNodeBin "npm" }} --prefix={{ .npmGlobal.root }} install
+{{ joinPath .npmGlobal.localNodeBin "npm" }} --prefix={{ .npmGlobal.root }} run dependencies
+{{- end -}}

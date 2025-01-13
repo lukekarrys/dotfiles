@@ -1,0 +1,8 @@
+{{- if .is.Main -}}
+#!/bin/bash
+
+# Weekly {{ output "date" "+%V" | trim }}
+echo "Updating node"
+fnm install {{ .node.default }}
+fnm default {{ .node.default }}
+{{- end -}}

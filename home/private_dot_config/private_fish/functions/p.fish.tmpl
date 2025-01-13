@@ -1,5 +1,5 @@
 function p
-  set -l projectDir {{ .homeDir }}/projects
+  set -l projectDir {{ .dirs.projects }}
   if test (count $argv) -eq 0
     cd $projectDir
   else
@@ -17,7 +17,7 @@ end
 
 complete -c p -f
 complete -c p -a "(
-  set -l projectDir $HOME/projects;
+  set -l projectDir {{ .dirs.projects }};
   command ls -d $projectDir/*/*/ | string split '/' -f(math (string split '/' $projectDir | count) + 2);
   string replace -a '/' '' (string replace -a '$projectDir' '' (command ls -d $projectDir/*/))
 )"

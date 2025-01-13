@@ -1,0 +1,9 @@
+function npmg
+  set --export --local --prepend --path PATH "{{ .npmGlobal.localNodeBin }}"
+  npm --prefix={{ .npmGlobal.root }} $argv
+end
+
+function ncug
+  set --export --local --prepend --path PATH "{{ .npmGlobal.localNodeBin }}"
+  ncu --packageFile={{ joinPath .npmGlobal.root "package.json" }} $argv
+end

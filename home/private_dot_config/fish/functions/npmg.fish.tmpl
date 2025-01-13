@@ -1,9 +1,0 @@
-function npmg
-  set --export --local --prepend --path PATH "{{ .npmBins.localNodeBin }}"
-  npm --prefix={{ .npmBins.dir }} $argv
-end
-
-function ncug
-  set --export --local --prepend --path PATH "{{ .npmBins.localNodeBin }}"
-  ncu --packageFile {{ .npmBins.dir }}/package.json $argv
-end

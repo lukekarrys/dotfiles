@@ -7,12 +7,12 @@ function clone
   else
     set repo {{ .github.username }}/$argv[1]
   end
-  set -l repoDir {{ .homeDir }}/projects/$repo
+  set -l repoDir {{ .dirs.projects }}/$repo
   if test -d $repoDir
     cd $repoDir
     gh repo sync
   else
-    gh repo clone $repo {{ .homeDir }}/projects/$repo
+    gh repo clone $repo {{ .dirs.projects }}/$repo
     cd $repoDir
   end
 end

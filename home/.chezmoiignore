@@ -23,6 +23,9 @@
 /.vscode/
 /.config/raycast/
 /.config/.wrangler/
+/.config/packages/npm/bin/
+/.config/packages/npm/cache/
+/.config/packages/npm/node_modules/
 /.config/op/
 /.cups
 /.wget-hsts
@@ -33,12 +36,6 @@
 # SSH
 /.ssh/1Password/
 /.ssh/known_hosts*
-
-# .npm-bins cache/state
-# TODO: these could be divided among the xdg dirs
-/.npm-bins/bin/
-/.npm-bins/cache/
-/.npm-bins/node_modules/
 
 # Chezmoi
 /.config/chezmoi/

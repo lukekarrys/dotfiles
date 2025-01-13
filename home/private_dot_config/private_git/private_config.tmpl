@@ -7,17 +7,13 @@
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
-	# List contributors with number of commits
-	contributors = shortlog --summary --numbered
-	# Amend the currently staged files to the latest commit
-	amend = commit --amend --reuse-message=HEAD
 
 [apply]
 	# Detect whitespace errors when applying a patch
 	whitespace = fix
 
 [core]
-	excludesfile = ~/.config/git/ignore
+	excludesfile = {{ joinPath .xdg.config "git/ignore" }}
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
 	# [default] trailing-space: looks for spaces at the end of a line
 	# [default] space-before-tab: looks for spaces before tabs at the beginning of a line
@@ -32,61 +28,18 @@
 [remote "origin"]
 	prune = true
 
-[color]
-	# Use colors in Git commands that are capable of colored output when
-	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = true
-
-[color "branch"]
-	current = yellow black
-	local = yellow
-	remote = green
-
-[color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = black
-
-[color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
-	branch = magenta
-
 [diff]
 	# Detect copies as well as renames
 	renames = copies
 
 [help]
-	# Automatically correct and execute mistyped commands
 	autocorrect = 1
-	format = web
 
 [branch]
 	autosetupmerge = true
 
 [push]
 	default = simple
-
-# URL shorthands
-
-[url "git@github.com:"]
-	insteadOf = "gh:"
-	pushInsteadOf = "github:"
-	pushInsteadOf = "git://github.com/"
-
-[url "git://github.com/"]
-	insteadOf = "github:"
-
-[url "git@gist.github.com:"]
-	insteadOf = "gst:"
-	pushInsteadOf = "gist:"
-	pushInsteadOf = "git://gist.github.com/"
-
-[url "git://gist.github.com/"]
-	insteadOf = "gist:"
 
 [user]
 	name = {{ .name }}
@@ -116,9 +69,6 @@
 
 [feature]
 	manyFiles = true
-
-[credential]
-	helper = osxkeychain
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f

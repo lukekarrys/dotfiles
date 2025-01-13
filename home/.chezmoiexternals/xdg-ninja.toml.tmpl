@@ -1,0 +1,15 @@
+[{{ joinPath .xdg.data "xdg-ninja" | quote }}]
+    type = "archive"
+    url = "https://github.com/b3nj5m1n/xdg-ninja/archive/main.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "672h" # 4 weeks
+    exclude = [
+        "*/programs/bash.json",
+        "*/programs/cups.json",
+        "*/programs/login.json",
+        "*/programs/profile.json",
+        "*/programs/trash.json",
+        "*/programs/wget.json", # ignore because there is no way to set .wget-hsts without aliasing
+        "*/programs/zsh.json",
+    ]

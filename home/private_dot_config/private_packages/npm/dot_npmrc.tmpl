@@ -1,7 +1,7 @@
 registry=https://registry.npmjs.org/
-userconfig={{ .npmBins.dir }}/ENOENT1
-globalconfig={{ .npmBins.dir }}/ENOENT2
-cache={{ .npmBins.dir }}/cache
+userconfig={{ joinPath .npmGlobal.root "ENOENT1" }}
+globalconfig={{ joinPath .npmGlobal.root "ENOENT2" }}
+cache={{ joinPath .npmGlobal.root "cache" }}
 logs-max=0
 update-notifier=false
 install-strategy=shallow

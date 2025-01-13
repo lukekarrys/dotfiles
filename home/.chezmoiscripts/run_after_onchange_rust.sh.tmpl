@@ -1,0 +1,7 @@
+{{- if .is.Main -}}
+#!/bin/bash
+
+# {{ include (joinPath .xdg.data "cargo/env") | sha256sum }}
+rustup-init --no-modify-path -y
+# TODO: some sort of update?
+{{- end -}}

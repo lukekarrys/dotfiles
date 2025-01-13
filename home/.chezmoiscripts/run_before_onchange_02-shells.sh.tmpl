@@ -1,11 +1,11 @@
-{{- if .isMain -}}
+{{- if .is.Main -}}
 #!/bin/bash
 
 set -euo pipefail
 
-{{ $fishBin := joinPath .brewPrefix "bin/fish" }}
-{{ $zshBin := joinPath .brewPrefix "bin/zsh" }}
-{{ $bashBin := joinPath .brewPrefix "bin/bash" }}
+{{ $fishBin := joinPath .dirs.brewBin "fish" }}
+{{ $zshBin := joinPath .dirs.brewBin "zsh" }}
+{{ $bashBin := joinPath .dirs.brewBin "bash" }}
 
 if ! ggrep --fixed-strings "{{ $fishBin }}" /etc/shells ; then
   echo {{ $fishBin }} | sudo tee -a /etc/shells
