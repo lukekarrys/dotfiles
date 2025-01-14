@@ -1,0 +1,2 @@
+{{- $bin := joinPath .dirs.brewBin "atuin" -}}
+{{ output $bin "gen-completions" "--shell=fish" | trim }}

@@ -1,2 +1,2 @@
-{{- $rustup := joinPath .dirs.brewBin "rustup" -}}
-{{ output $rustup "completions" "fish" | trim }}
+{{- $bin := joinPath .dirs.brewBin "rustup" -}}
+{{ output $bin "completions" "fish" | trim }}

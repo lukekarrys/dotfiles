@@ -109,9 +109,8 @@ set -gx HOMEBREW_BUNDLE_FILE "{{ joinPath .xdg.config "packages/Brewfile" }}"
 {{ output $brew "shellenv" "fish" | trim }}
 
 # History
-set -g fish_history ""
 {{ $atuin := joinPath .dirs.brewBin "atuin" }}
-{{ output $atuin "init" "fish" | trim }}
+{{ output $atuin "init" "fish" "--disable-up-arrow" | trim }}
 
 # Node
 fnm env --shell=fish --fnm-dir {{ joinPath .xdg.data "fnm" | quote }} | source # fnm is designed to run on every shell init
@@ -123,12 +122,12 @@ set -gx RUSTUP_HOME {{ joinPath .xdg.data "rustup" | quote }}
 {{ include $cargo | trim }}
 
 # Prompt
-# function starship_transient_prompt_func
-#   starship module character
-# end
+function starship_transient_prompt_func
+  starship module character
+end
 {{ $starship := joinPath .dirs.brewBin "starship" }}
 {{ output $starship "init" "fish" "--print-full-init" | trim }}
-# enable_transience
+enable_transience
 
 # Use git + diff-so-fancy colored diff when available
 if type -q git
