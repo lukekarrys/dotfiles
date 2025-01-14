@@ -1,1 +1,2 @@
-{{ output (joinPath .dirs.brewBin "chezmoi") "completion" "fish" | trim }}
+{{- $chezmoi := joinPath .dirs.brewBin "chezmoi" -}}
+{{ output $chezmoi "completion" "fish" | trim }}

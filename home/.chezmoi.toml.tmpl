@@ -11,7 +11,12 @@
 {{-   $brewPrefix = "/opt/homebrew" -}}
 {{- end -}}
 
-{{- $npmGlobal := ".config/packages/npm" -}}
+{{- $home := .chezmoi.homeDir -}}
+{{- $xdgConfig := ".config" -}}
+{{- $xdgCache := ".cache" -}}
+{{- $xdgData := ".local/data" -}}
+{{- $xdgState := ".local/state" -}}
+{{- $npmGlobal := joinPath $xdgConfig "packages/npm" -}}
 
 umask = 0o022
 
@@ -30,20 +35,26 @@ umask = 0o022
   Main = {{ $isMain }}
   Personal = {{ $isPersonal }}
 
+[data.xdgRel]
+  config = {{ $xdgConfig | quote }}
+  cache = {{ $xdgCache | quote }}
+  data = {{ $xdgData | quote }}
+  state = {{ $xdgState | quote }}
+
 [data.xdg]
-  config = {{ joinPath .chezmoi.homeDir ".config" | quote }}
-  cache = {{ joinPath .chezmoi.homeDir ".cache" | quote }}
-  data = {{ joinPath .chezmoi.homeDir ".local/data" | quote }}
-  state = {{ joinPath .chezmoi.homeDir ".local/state" | quote }}
+  config = {{ joinPath $home $xdgConfig | quote }}
+  cache = {{ joinPath $home $xdgCache | quote }}
+  data = {{ joinPath $home $xdgData | quote }}
+  state = {{ joinPath $home $xdgState | quote }}
 
 [data.dirs]
-  home = {{ .chezmoi.homeDir | quote }}
-  projects = {{ joinPath .chezmoi.homeDir "projects" | quote }}
+  home = {{ $home | quote }}
+  projects = {{ joinPath $home "projects" | quote }}
   brew = {{ $brewPrefix | quote }}
   brewBin = {{ joinPath $brewPrefix "bin" | quote }}
 
 [data.npmGlobal]
   rel = {{ $npmGlobal | quote }}
-  root = {{ joinPath .chezmoi.homeDir $npmGlobal | quote }}
-  path = {{ joinPath .chezmoi.homeDir $npmGlobal "bin" | quote }}
-  localNodeBin = {{ joinPath .chezmoi.homeDir $npmGlobal "node/bin" | quote }}
+  root = {{ joinPath $home $npmGlobal | quote }}
+  path = {{ joinPath $home $npmGlobal "bin" | quote }}
+  localNodeBin = {{ joinPath $home $npmGlobal "node/bin" | quote }}
