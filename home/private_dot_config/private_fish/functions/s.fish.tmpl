@@ -1,0 +1,37 @@
+function s
+  set -l projectDir {{ .dirs.projects }}
+
+  # If no arguments are provided, open the cwd
+  if test (count $argv) -eq 0
+    code .
+    return
+  end
+
+  # Collect repos (2-level deep directories)
+  set -l repos (find $projectDir -mindepth 2 -maxdepth 2 -type d | while read -l dir
+    echo (basename $dir)
+  end)
+
+  # Get the first argument
+  set -l arg $argv[1]
+
+  # Navigate to the appropriate directory based on input
+  if contains $arg $repos
+    # Match and navigate to the correct repo directory
+    code (find $projectDir -mindepth 2 -maxdepth 2 -type d | while read -l dir
+      if test (basename $dir) = $arg
+        echo $dir
+      end
+    end)
+  else
+    code $argv
+  end
+end
+
+complete -c s -f
+complete -c s -f -a '(
+  set -l projectDir {{ .dirs.projects }}
+  find $projectDir -mindepth 2 -maxdepth 2 -type d | while read -l dir
+    echo (basename $dir)
+  end
+)'

@@ -105,12 +105,12 @@ set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications" # Link Homebrew casks in `/A
 set -gx HOMEBREW_BUNDLE_DUMP_NO_VSCODE "1"
 set -gx HOMEBREW_NO_AUTO_UPDATE "1"
 set -gx HOMEBREW_BUNDLE_FILE "{{ joinPath .xdg.config "packages/Brewfile" }}"
-{{- $brew := joinPath .dirs.brewBin "brew" -}}
+{{ $brew := joinPath .dirs.brewBin "brew" }}
 {{ output $brew "shellenv" "fish" | trim }}
 
 # History
 set -g fish_history ""
-{{- $atuin := joinPath .dirs.brewBin "atuin" -}}
+{{ $atuin := joinPath .dirs.brewBin "atuin" }}
 {{ output $atuin "init" "fish" | trim }}
 
 # Node
@@ -119,13 +119,13 @@ fnm env --shell=fish --fnm-dir {{ joinPath .xdg.data "fnm" | quote }} | source #
 # Rust
 set -gx CARGO_HOME {{ joinPath .xdg.data "cargo" | quote }}
 set -gx RUSTUP_HOME {{ joinPath .xdg.data "rustup" | quote }}
-{{- $cargo := joinPath .xdg.data "cargo/env.fish" -}}
+{{ $cargo := joinPath .xdg.data "cargo/env.fish" }}
 {{ include $cargo | trim }}
 
 # Prompt
 # function starship_transient_prompt_func
 #   starship module character
 # end
-{{- $starship := joinPath .dirs.brewBin "starship" -}}
+{{ $starship := joinPath .dirs.brewBin "starship" }}
 {{ output $starship "init" "fish" "--print-full-init" | trim }}
 # enable_transience

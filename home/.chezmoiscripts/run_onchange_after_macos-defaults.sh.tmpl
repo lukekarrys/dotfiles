@@ -1,5 +1,6 @@
 {{- if .is.Main -}}
 #!/bin/bash
+set -eufo pipefail
 
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false

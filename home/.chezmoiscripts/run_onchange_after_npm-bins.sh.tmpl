@@ -4,7 +4,6 @@
 {{- end -}}
 {{- if .is.Main -}}
 #!/bin/bash
-
 set -eufo pipefail
 
 # package.json {{ include (joinPath .npmGlobal.root "package.json") | sha256sum }}
@@ -19,6 +18,7 @@ if [ -d "$LOCAL_NODE_DIR" ]; then
     rm -rf "$LOCAL_NODE_DIR"
   fi
 fi
+
 if [ ! -d "$LOCAL_NODE_DIR" ]; then
   mkdir -p "$LOCAL_NODE_DIR"
   curl -fsSL https://nodejs.org/dist/$NODE_VERSION/node-$NODE_VERSION-{{ .chezmoi.os }}-{{ $nodeArch }}.tar.gz \

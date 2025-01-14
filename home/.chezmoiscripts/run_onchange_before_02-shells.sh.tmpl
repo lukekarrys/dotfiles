@@ -1,22 +1,20 @@
+{{- $fishBin := joinPath .dirs.brewBin "fish" -}}
+{{- $zshBin := joinPath .dirs.brewBin "zsh" -}}
+{{- $bashBin := joinPath .dirs.brewBin "bash" -}}
 {{- if .is.Main -}}
 #!/bin/bash
+set -eufo pipefail
 
-set -euo pipefail
-
-{{ $fishBin := joinPath .dirs.brewBin "fish" }}
-{{ $zshBin := joinPath .dirs.brewBin "zsh" }}
-{{ $bashBin := joinPath .dirs.brewBin "bash" }}
-
-if ! ggrep --fixed-strings "{{ $fishBin }}" /etc/shells ; then
-  echo {{ $fishBin }} | sudo tee -a /etc/shells
+if ! ggrep --fixed-strings "{{ $fishBin }}" /etc/shells > /dev/null; then
+  echo {{ $fishBin }} | sudo tee -a /etc/shells > /dev/null
 fi
 
-if ! ggrep --fixed-strings "{{ $zshBin }}" /etc/shells ; then
-  echo {{ $zshBin }} | sudo tee -a /etc/shells
+if ! ggrep --fixed-strings "{{ $zshBin }}" /etc/shells > /dev/null; then
+  echo {{ $zshBin }} | sudo tee -a /etc/shells > /dev/null
 fi
 
-if ! ggrep --fixed-strings "{{ $bashBin }}" /etc/shells ; then
-  echo {{ $bashBin }} | sudo tee -a /etc/shells
+if ! ggrep --fixed-strings "{{ $bashBin }}" /etc/shells > /dev/null; then
+  echo {{ $bashBin }} | sudo tee -a /etc/shells > /dev/null
 fi
 
 if [[ "$SHELL" != "{{ $fishBin }}" ]] ; then

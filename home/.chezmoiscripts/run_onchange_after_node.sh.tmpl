@@ -1,8 +1,8 @@
 {{- if .is.Main -}}
 #!/bin/bash
+set -eufo pipefail
 
 # Weekly {{ output "date" "+%V" | trim }}
-echo "Updating node"
-fnm install {{ .node.default }}
-fnm default {{ .node.default }}
+fnm install {{ .node.default }} --log-level=quiet
+fnm default {{ .node.default }} --log-level=quiet
 {{- end -}}

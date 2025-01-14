@@ -1,7 +1,8 @@
 {{- if .is.Main -}}
 #!/bin/bash
+set -eufo pipefail
 
 # {{ include (joinPath .xdg.data "cargo/env") | sha256sum }}
-rustup-init --no-modify-path -y
+RUSTUP_INIT_SKIP_PATH_CHECK=yes rustup-init --no-modify-path -y --quiet &> /dev/null
 # TODO: some sort of update?
 {{- end -}}
