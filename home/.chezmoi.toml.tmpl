@@ -54,7 +54,6 @@ umask = 0o022
   brewBin = {{ joinPath $brewPrefix "bin" | quote }}
 
 [data.npmGlobal]
-  rel = {{ $npmGlobal | quote }}
   root = {{ joinPath $home $npmGlobal | quote }}
   path = {{ joinPath $home $npmGlobal "bin" | quote }}
-  localNodeBin = {{ joinPath $home $npmGlobal "node/bin" | quote }}
+  localNode = {{ joinPath $home .xdgRel.data "npm-globals-node" | quote }}
