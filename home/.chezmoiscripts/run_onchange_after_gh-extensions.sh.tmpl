@@ -1,0 +1,15 @@
+#!/bin/bash
+set -eufo pipefail
+
+current_extensions=$(gh extension list | awk '{print $3}')
+
+install_extensions=(
+  "benelan/gh-fzf"
+)
+
+for ext in "${install_extensions[@]}"; do
+  if [[ $current_extensions != *"$ext"* ]]; then
+    echo "gh extension install $ext"
+    gh extension install "$ext" > /dev/null
+  fi
+done
