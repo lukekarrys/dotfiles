@@ -18,6 +18,7 @@
 /.cache/
 /.local/data/
 /.local/state/
+/.local/share/
 
 # Root $HOME that are only cache/data/state or can't be moved
 /.vscode/
@@ -38,3 +39,12 @@
 
 # Chezmoi
 /.config/chezmoi/
+
+# Fish
+/.config/fish/fish_variables
+/.config/fish/completions/fisher*
+/.config/fish/functions/fisher*
+/.config/fish/completions/fzf_*
+/.config/fish/conf.d/fzf*
+/.config/fish/functions/_fzf*
+/.config/fish/functions/fzf*

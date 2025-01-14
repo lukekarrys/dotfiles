@@ -129,3 +129,10 @@ set -gx RUSTUP_HOME {{ joinPath .xdg.data "rustup" | quote }}
 {{ $starship := joinPath .dirs.brewBin "starship" }}
 {{ output $starship "init" "fish" "--print-full-init" | trim }}
 # enable_transience
+
+# Use git + diff-so-fancy colored diff when available
+if type -q git
+  function diff
+    git --no-pager diff --no-index --color $argv | diff-so-fancy
+  end
+end

@@ -3,12 +3,28 @@
 	co = checkout
 	# Push
 	p = push
+	po = "!git push origin"
+	pob = "!git push origin $(git rev-parse --abbrev-ref HEAD)"
 	# Show verbose output about tags, branches or remotes
 	tags = tag -l
 	branches = branch -a
 	remotes = remote -v
-
+	# status
+	s = status
+	ss = status -s
+	# add and commit
 	ca = !git add -A && git commit -avm
+	ugh = !git add . && git commit --amend --no-edit
+	# rebase
+	reb = "!f() { if [ \"$1\" -ge 7 ]; then git rebase -i \"$1\"~1; else git rebase -i HEAD~\"$1\"; fi; }; f"
+	# diff
+	df = diff
+	df-nolock = "!f() { git diff \"$@\" \":(exclude)package-lock.json\" \":(exclude)*.lock\" }; f"
+	# log
+	l = "!f() { git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \"$@\"; }; f"
+	lb = "!f() { local branch=\"$1\"; shift; git l \"$@\" HEAD..\"$branch\"; }; f"
+	# switch or create
+	go = "!f() { local branch=\"$1\"; if git show-ref --verify --quiet refs/heads/$branch; then git switch \"$branch\"; else git switch -b \"$branch\"; fi; }; f"
 
 [apply]
 	# Detect whitespace errors when applying a patch
