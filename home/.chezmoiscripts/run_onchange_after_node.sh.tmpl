@@ -1,8 +1,21 @@
-{{- if .is.Main -}}
 #!/bin/bash
 set -eufo pipefail
 
 # Weekly {{ output "date" "+%V" | trim }}
-fnm install {{ .node.default }} --log-level=quiet
-fnm default {{ .node.default }} --log-level=quiet
+
+{{ range .node.versions }}
+echo "Installing node@{{ .version }}"
+fnm install {{ .version }} --log-level=quiet
+{{ if hasKey . "default" -}}
+echo "Setting node@{{ .version }} as default"
+fnm default {{ .version }} --log-level=quiet
+{{ end }}
+{{- $npm := $.node.defaultNpm -}}
+{{- if hasKey . "npm" -}}
+{{- $npm = .npm -}}
 {{- end -}}
+echo "Installing npm@{{ $npm }} for node@{{ .version }}"
+fnm exec --using={{ .version }} npm install -g npm@{{ $npm }} --silent
+fnm exec --using={{ .version }} node --version
+fnm exec --using={{ .version }} npm --version
+{{ end }}

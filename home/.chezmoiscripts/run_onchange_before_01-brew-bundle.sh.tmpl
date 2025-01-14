@@ -1,8 +1,7 @@
 {{- $brewfile := joinPath .chezmoi.sourceDir "private_dot_config/private_packages/Brewfile" -}}
-{{- if .is.Main -}}
 #!/bin/bash
 set -eufo pipefail
 
 # {{ include $brewfile | sha256sum }}
-brew bundle --no-upgrade --quiet --file={{ $brewfile }} > /dev/null
-{{- end -}}
+
+HOMEBREW_NO_COLOR=1 brew bundle --no-upgrade --quiet --file={{ $brewfile }}

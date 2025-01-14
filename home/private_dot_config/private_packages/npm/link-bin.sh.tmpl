@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export PATH="{{ .npmGlobal.localNode }}/bin:$PATH"
+{{ .npmGlobal.root }}/node_modules/.bin/__BIN_NAME__ "$@"

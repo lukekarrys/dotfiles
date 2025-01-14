@@ -1,13 +1,16 @@
-{{- $nodeArch := .chezmoi.arch -}}
-{{- if eq $nodeArch "amd64" -}}
-{{-   $nodeArch = "x64" -}}
-{{- end -}}
-{{- if .is.Main -}}
+{{- $nodeArch := eq .chezmoi.arch "amd64" | ternary "x64" .chezmoi.arch -}}
 #!/bin/bash
 set -eufo pipefail
 
-# package.json {{ include (joinPath .npmGlobal.root "package.json") | sha256sum }}
+# This controls the node version that all of the global npm packages are linked to
+# The npmrc uses engine-strict so it should fail to install something that is not
+# supported. 
 NODE_VERSION="v22.13.0"
+
+# package.json {{ include (joinPath .npmGlobal.root "package.json") | sha256sum }}
+# link-bins.mjs {{ include (joinPath .npmGlobal.root "link-bins.mjs") | sha256sum }}
+# link-bin.sh {{ include (joinPath .npmGlobal.root "link-bin.sh") | sha256sum }}
+# .npmrc {{ include (joinPath .npmGlobal.root ".npmrc") | sha256sum }}
 
 LOCAL_NODE_DIR="{{ .npmGlobal.localNode }}"
 LOCAL_NODE_BIN="$LOCAL_NODE_DIR/bin"
@@ -28,4 +31,5 @@ fi
 export PATH="$LOCAL_NODE_BIN:$PATH"
 $LOCAL_NODE_BIN/npm --prefix={{ .npmGlobal.root }} --silent install
 $LOCAL_NODE_BIN/npm --prefix={{ .npmGlobal.root }} --silent run dependencies
-{{- end -}}
+
+echo "Global npm packages linked to node@$(node --version)"

@@ -1,8 +1,9 @@
-{{- if .is.Main -}}
 #!/bin/bash
 set -eufo pipefail
 
+# Weekly {{ output "date" "+%V" | trim }}
 # {{ include (joinPath .xdg.data "cargo/env") | sha256sum }}
+
 RUSTUP_INIT_SKIP_PATH_CHECK=yes rustup-init --no-modify-path -y --quiet &> /dev/null
-# TODO: some sort of update?
-{{- end -}}
+RUST_VERSION=$(rustup default stable 2>/dev/null | tr -d '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
+echo "${RUST_VERSION}"

@@ -1,22 +1,47 @@
 import fs from "node:fs/promises"
-import { dirname, join } from "path"
-import { fileURLToPath } from "url"
+import { join } from "path"
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
-const npmBinDir = join(__dirname, "node_modules", ".bin")
-const myBinDir = join(__dirname, "bin")
+const ensureDir = async (dir) => {
+  await fs.rm(dir, { force: true, recursive: true })
+  await fs.mkdir(dir)
+}
 
-await fs.rm(myBinDir, { force: true, recursive: true })
-await fs.mkdir(myBinDir)
+const writeFileAndChmod = async (file, contents, mode) => {
+  await fs.writeFile(file, contents, "utf-8")
+  await fs.chmod(file, mode)
+}
 
-for (const bin of await fs.readdir(npmBinDir)) {
-  const data =
-    [
-      "#!/usr/bin/env zsh",
-      "DIR=$(dirname ${0:a:h})",
-      'PATH=$DIR/node/bin:$DIR/npm/bin:$PATH',
-      `$DIR/node_modules/.bin/${bin} $@`,
-    ].join("\n") + "\n"
-  await fs.writeFile(join(myBinDir, bin), data, "utf-8")
-  await fs.chmod(join(myBinDir, bin), 0o755)
+const NPM_BIN_DIR = join(import.meta.dirname, "node_modules", ".bin")
+const BIN_DIR = join(import.meta.dirname, "bin")
+const BIN_TEMPLATE = await fs.readFile(
+  join(import.meta.dirname, "link-bin.sh"),
+  "utf-8",
+)
+
+const NPM_BINS = await fs
+  .readdir(NPM_BIN_DIR, { withFileTypes: true })
+
+const MODE = await fs.stat(join(NPM_BINS[0].parentPath, NPM_BINS[0].name)).then((s) => s.mode) 
+
+await writeFileAndChmod(
+  join(NPM_BIN_DIR, "npmg_debug_path"),
+  [
+    "#!/bin/bash",
+    "which node",
+    "node --version",
+    "which npm",
+    "npm --version",
+    "npm --prefix={{ .npmGlobal.root }} run debug_path",
+  ].join("\n"),
+  MODE,
+)
+
+await ensureDir(BIN_DIR)
+
+for (const bin of NPM_BINS) {
+  await writeFileAndChmod(
+    join(BIN_DIR, bin.name),
+    BIN_TEMPLATE.replaceAll("__BIN_NAME__", bin.name),
+    MODE,
+  )
 }

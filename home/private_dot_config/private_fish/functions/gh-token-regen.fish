@@ -16,3 +16,8 @@ function gh-token-regen -d "Regenerate an existing GitHub token"
     return 1
   end
 end
+
+complete -c gh-token-regen -f
+complete -c gh-token-regen -f -a '(
+  op item list --tags=token --format=json | jq -r \'.[] | select(.tags[] | contains("github")) | "\\(.id)\\t\\(.title)"\'
+)'

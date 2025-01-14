@@ -1,2 +1,7 @@
 [node]
-  default = 22
+  defaultNpm = 10
+  versions = [
+    { version = 22, default = true },
+    { version = 23, npm = 11 },
+  ]
+

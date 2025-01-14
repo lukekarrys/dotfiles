@@ -1,4 +1,3 @@
-{{- if .is.Main -}}
 #!/bin/bash
 
 #/ Usage: strap.sh [--debug]
@@ -89,28 +88,26 @@ sudo_refresh() {
 log() {
   STRAP_STEP="$*"
   sudo_refresh
-  echo "--> $*"
+  # echo "--> $*"
 }
 
 logn() {
   STRAP_STEP="$*"
   sudo_refresh
-  printf -- "--> %s " "$*"
+  # printf -- "--> %s " "$*"
 }
 
 logk() {
   STRAP_STEP=""
-  echo "OK"
+  # echo "OK"
 }
 
 logskip() {
   STRAP_STEP=""
-  echo "SKIPPED"
-  echo "$*"
+  # echo "SKIPPED"
+  # echo "$*"
 }
 
-# Prevent sleeping during script execution, as long as the machine is on AC power
-caffeinate -s -w $$ &
 
 # Check and, if necessary, enable sudo authentication using TouchID.
 # Don't care about non-alphanumeric filenames when doing a specific match
@@ -196,4 +193,3 @@ xcode_license
 
 STRAP_SUCCESS="1"
 log "Your system is now Strap'd!"
-{{- end -}}

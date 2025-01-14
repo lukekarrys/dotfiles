@@ -1,23 +1,14 @@
-{{- $fishBin := joinPath .dirs.brewBin "fish" -}}
-{{- $zshBin := joinPath .dirs.brewBin "zsh" -}}
-{{- $bashBin := joinPath .dirs.brewBin "bash" -}}
-{{- if .is.Main -}}
 #!/bin/bash
 set -eufo pipefail
 
-if ! ggrep --fixed-strings "{{ $fishBin }}" /etc/shells > /dev/null; then
-  echo {{ $fishBin }} | sudo tee -a /etc/shells > /dev/null
+{{ range .shells }}
+{{- $bin := joinPath $.dirs.brewBin .bin -}}
+if ! ggrep --fixed-strings "{{ $bin }}" /etc/shells > /dev/null; then
+  echo {{ $bin }} | sudo tee -a /etc/shells > /dev/null
 fi
-
-if ! ggrep --fixed-strings "{{ $zshBin }}" /etc/shells > /dev/null; then
-  echo {{ $zshBin }} | sudo tee -a /etc/shells > /dev/null
+{{ if hasKey . "default" }}
+if [[ "$SHELL" != "{{ $bin }}" ]] ; then
+  sudo chsh -s "{{ $bin }}" "{{ $.chezmoi.username }}"
 fi
-
-if ! ggrep --fixed-strings "{{ $bashBin }}" /etc/shells > /dev/null; then
-  echo {{ $bashBin }} | sudo tee -a /etc/shells > /dev/null
-fi
-
-if [[ "$SHELL" != "{{ $fishBin }}" ]] ; then
-  sudo chsh -s "{{ $fishBin }}" "{{ .chezmoi.username }}"
-fi
-{{- end -}}
+{{ end }}
+{{ end }}

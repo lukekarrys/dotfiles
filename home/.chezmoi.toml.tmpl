@@ -6,10 +6,7 @@
 {{- $isMain := and $isPermanent $isMac -}}
 {{- $isPersonal := and $isMain (not $isWork) -}}
 
-{{- $brewPrefix := "/usr/local" -}}
-{{- if eq .chezmoi.arch "arm64" -}}
-{{-   $brewPrefix = "/opt/homebrew" -}}
-{{- end -}}
+{{- $brewPrefix := eq .chezmoi.arch "arm64" | ternary "/opt/homebrew" "/usr/local" -}}
 
 {{- $home := .chezmoi.homeDir -}}
 {{- $xdgConfig := ".config" -}}
@@ -27,13 +24,13 @@ umask = 0o022
   command = ".local/data/chezmoi/pre.sh"
 
 [data.is]
-  Work = {{ $isWork }}
-  Mac = {{ $isMac }}
-  Codespace = {{ $isCodespace }}
-  Ci = {{ $isCi }}
-  Permanent = {{ $isPermanent }}
-  Main = {{ $isMain }}
-  Personal = {{ $isPersonal }}
+  work = {{ $isWork }}
+  mac = {{ $isMac }}
+  codespace = {{ $isCodespace }}
+  ci = {{ $isCi }}
+  permanent = {{ $isPermanent }}
+  main = {{ $isMain }}
+  personal = {{ $isPersonal }}
 
 [data.xdgRel]
   config = {{ $xdgConfig | quote }}

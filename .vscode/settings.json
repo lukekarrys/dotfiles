@@ -4,7 +4,7 @@
     "*profile": "shellscript",
     "*.fish.tmpl": "fish",
     "*.toml.tmpl": "toml",
-    "**/git/*config.tmpl": "properties",
+    "**/git/*config*": "properties",
     "**/git/*ignore*": "ignore",
     "*.mjs.tmpl": "javascript",
     "*.js.tmpl": "javascript",

@@ -1,0 +1,5 @@
+shells = [
+  { bin = 'fish', default = true },
+  { bin = 'zsh' },
+  { bin = 'bash'},
+]
