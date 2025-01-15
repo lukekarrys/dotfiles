@@ -68,7 +68,7 @@ threshold = 50
 style = 'dimmed yellow'
 
 [[battery.display]]
-threshold = 100
+threshold = 98
 style = 'dimmed green'
 
 [time]
