@@ -1,47 +1,91 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
-add_newline = false
+# some characters to copy paste
+# ╭
+# ╰
+# ╮
+# ╯
+# ─
+# 
+# 
+# ❯
 
-format = """$all"""
-right_format = """$custom$nodejs$battery$time"""
+format = '[╭──](dimmed purple) $all$fill$custom$battery$time [─╮](dimmed purple)$line_break$character'
+right_format = "[╯](dimmed purple)"
+
+[package]
+symbol = '󰏓'
+format = '[$symbol $version]($style) '
+version_format = '${raw}'
+style = 'dimmed 208'
+display_private = true
 
 [line_break]
+disabled = false
+
+[status]
+disabled = false
+symbol = ""
+format = '[$symbol]($style) '
+
+[git_status]
+style = 'dimmed yellow'
+
+[nodejs]
 disabled = true
 
-[time]
-disabled = false
-time_format = '%l:%M%P'
-format=' [$time]($style)'
-use_12hr = true
+[fill]
+symbol = "─"
+style = "dimmed purple"
+
+[character]
+error_symbol = "[╰─❯](dimmed purple)"
+success_symbol = "[╰─❯](dimmed purple)"
 
 [cmd_duration]
 min_time = 50
 show_milliseconds = true
-format = '[$duration](bold yellow) '
+format = '[$duration](dimmed yellow) '
+
+[git_branch]
+format = '[$symbol$branch(:$remote_branch)]($style) '
+truncation_length = 20
+truncation_symbol = "…"
+
+# Right Prompt
+# All formats use a leading space
+
+[battery]
+format = ' [$symbol$percentage]($style)'
 
 [[battery.display]]
 threshold = 20
-style = 'bold red'
+style = 'dimmed red'
 
 [[battery.display]]
-threshold = 90
-style = ''
+threshold = 50
+style = 'dimmed yellow'
 
-[status]
+[[battery.display]]
+threshold = 100
+style = 'dimmed green'
+
+[time]
 disabled = false
-
-[nodejs]
-disabled = true
+time_format = '%-l:%M'
+format = ' [$time]($style)'
+use_12hr = true
+style = 'dimmed purple'
 
 # get the current npm version in a fast way, only works with fnm
 [custom.npm]
 # jq is a few ms slower
 # command = "jq -r .version $(realpath $(which node) | sed 's|/bin/node|/lib/node_modules/npm/package.json|')"
 command = "grep -m 1 '\"version\"' $(realpath $(which node) | sed 's|/bin/node|/lib/node_modules/npm/package.json|') | sed -n 's/.*\"version\": \"\\([^\"]*\\)\",/\\1/p'"
-style = 'bold red'
-symbol = " "
-format = "[$symbol$output]($style)"
+style = 'dimmed red'
+symbol = ""
+format = " [$symbol $output]($style)"
 detect_extensions =	['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
 detect_files = ['package.json', '.node-version', '.nvmrc']	
 detect_folders = ['node_modules']
@@ -51,9 +95,9 @@ shell = ['sh']
 # only works with fnm
 [custom.node]
 command = "realpath $(which node) | sed -n 's|.*/node-versions/v\\([^/]*\\)/.*|\\1|p'"
-style = 'bold green'
-symbol = " "
-format = " [$symbol$output]($style)"
+style = 'dimmed green'
+symbol = ""
+format = " [$symbol $output]($style)"
 detect_extensions =	['js', 'mjs', 'cjs', 'ts', 'mts', 'cts']
 detect_files = ['package.json', '.node-version', '.nvmrc']	
 detect_folders = ['node_modules']

@@ -26,6 +26,13 @@ alias dotedit="chezmoi edit"
 # Shortened program names
 alias cz='chezmoi'
 
+# Git aliases defined in gitconfig but as fish abbr
+abbr -a g 'git'
+{{ $gitAliases := list "co" "p" "po" "pob" "s" "ss" "ca" "ugh" "reb" "df" "l" "lb" "go" }}
+{{ range $gitAliases }}
+abbr -a g{{ . }} 'git {{ . }}'
+{{ end }}
+
 # Fish
 set -g fish_greeting
 
