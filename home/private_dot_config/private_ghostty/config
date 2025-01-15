@@ -1,1 +1,7 @@
 theme = Dracula
+font-family = "UbuntuMono Nerd Font Mono"
+cursor-style = bar
+font-size = 16
+window-inherit-font-size = false
+scrollback-limit = 1000000
+macos-titlebar-proxy-icon = hidden
