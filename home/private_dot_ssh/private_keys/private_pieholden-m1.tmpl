@@ -1,1 +1,5 @@
-{{ template "password" list "Pieholden M1 GitHub MacBook Pro SSH Key" .onepassword.personal "public_key" }}
+{{- if .onepassword.ssh -}}
+{{- template "publicKey" list "Pieholden M1 GitHub MacBook Pro SSH Key" .onepassword.personal -}}
+{{- else -}}
+{{- template "privateKey" list "Pieholden M1 GitHub MacBook Pro SSH Key" .onepassword.personal -}}
+{{- end }}

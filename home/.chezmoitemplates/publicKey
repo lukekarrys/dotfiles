@@ -1,0 +1,1 @@
+{{- dig "public_key" "value" "value" (onepasswordDetailsFields (index . 0) (index . 1).vault (index . 1).account) -}}

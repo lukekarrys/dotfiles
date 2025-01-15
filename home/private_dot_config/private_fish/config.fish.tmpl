@@ -80,7 +80,12 @@ fish_add_path --global "{{ .dirs.brew }}/opt/python@3.9/libexec/bin"
 # TODO
 # gem environment gemdir
 # go env GOPATH
- 
+
+# SSH
+{{ if .onepassword.ssh -}}
+set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+{{- end }}
+
 # VSCode as the default editor
 set -gx EDITOR "code -r -w"
 

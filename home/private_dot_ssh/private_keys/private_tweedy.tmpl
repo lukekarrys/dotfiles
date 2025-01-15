@@ -1,1 +1,5 @@
-{{ template "password" list "Tweedy Mac Mini SSH Key" .onepassword.personal "public_key" }}
+{{- if .onepassword.ssh -}}
+{{ template "publicKey" list "Tweedy Mac Mini SSH Key" .onepassword.personal }}
+{{- else -}}
+{{ template "privateKey" list "Tweedy Mac Mini SSH Key" .onepassword.personal }}
+{{- end }}

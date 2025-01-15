@@ -1,1 +1,5 @@
-{{ template "password" list "GitHub SSH and Commit Signing Key" .onepassword.personal "public_key" }}
+{{- if .onepassword.ssh -}}
+{{- template "publicKey" list "GitHub SSH and Commit Signing Key" .onepassword.personal -}}
+{{- else -}}
+{{- template "privateKey" list "GitHub SSH and Commit Signing Key" .onepassword.personal -}}
+{{- end }}

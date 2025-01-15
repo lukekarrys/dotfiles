@@ -1,1 +1,5 @@
-{{ template "password" list "Hummingbird Synology lukekarrys SSH Key" .onepassword.personal "public_key" }}
+{{- if .onepassword.ssh -}}
+{{- template "publicKey" list "Hummingbird Synology lukekarrys SSH Key" .onepassword.personal -}}
+{{- else -}}
+{{- template "privateKey" list "Hummingbird Synology lukekarrys SSH Key" .onepassword.personal -}}
+{{- end }}
