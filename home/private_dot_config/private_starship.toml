@@ -11,8 +11,8 @@
 # 
 # ❯
 
-format = '[╭──](dimmed purple) $all$fill$custom$battery$time [─╮](dimmed purple)$line_break$character'
-right_format = "[╯](dimmed purple)"
+format = '[╭─](dimmed purple) $all$fill$custom$battery$time [─╮](dimmed purple)$line_break$character'
+right_format = "[─╯](dimmed purple)"
 
 [package]
 symbol = '󰏓'
@@ -40,8 +40,8 @@ symbol = "─"
 style = "dimmed purple"
 
 [character]
-error_symbol = "[╰─❯](dimmed purple)"
-success_symbol = "[╰─❯](dimmed purple)"
+error_symbol = "[╰❯](dimmed purple)"
+success_symbol = "[╰❯](dimmed purple)"
 
 [cmd_duration]
 min_time = 50
