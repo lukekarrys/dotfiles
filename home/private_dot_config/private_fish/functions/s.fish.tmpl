@@ -28,8 +28,8 @@ function s
   end
 end
 
-complete -c s -f
-complete -c s -f -a '(
+complete -c s
+complete -c s -a '(
   set -l projectDir {{ .dirs.projects }}
   find $projectDir -mindepth 2 -maxdepth 2 -type d | while read -l dir
     echo (basename $dir)
