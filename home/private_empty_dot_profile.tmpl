@@ -1,0 +1,5 @@
+export HOMEBREW_PREFIX="{{ .dirs.brew }}";
+export HOMEBREW_CELLAR="{{ joinPath .dirs.brew "Cellar" }}";
+export HOMEBREW_REPOSITORY="{{ .dirs.brew }}";
+PATH="{{ joinPath .dirs.brewBin }}:{{ joinPath .dirs.brew "sbin" }}:$PATH";
+export PATH;
