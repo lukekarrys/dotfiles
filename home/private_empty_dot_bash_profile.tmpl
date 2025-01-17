@@ -1,0 +1,4 @@
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+{{ $brew := joinPath .dirs.brewBin "brew" }}
+{{ output $brew "shellenv" "bash" | trim }}

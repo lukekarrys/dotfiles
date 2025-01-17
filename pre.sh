@@ -6,10 +6,8 @@ Darwin)
     if ! type brew &> /dev/null; then
         echo "Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        shell_rcfile="${HOME}/.profile"
-        echo >> ${shell_rcfile}
-        echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"' >> ${shell_rcfile}
-        eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv)"
+        echo 'eval "\$(${HOMEBREW_PREFIX}/bin/brew shellenv bash)"' >> "${HOME}/.bash_profile"
+        eval "$(/opt/homebrew/bin/brew shellenv bash)"
     fi
 
     # Install 1Password if it's not installed
