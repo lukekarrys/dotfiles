@@ -1,8 +1,18 @@
-# Theme
+###########################
+#
+# Fish
+#
+###########################
 fish_config theme choose "Dracula Official"
+set -g fish_greeting
 
-# Alias / Abbr
-# Go to direcctories
+###########################
+#
+# Aliases / Abbreviations / Functions
+#
+###########################
+
+# Go to directories
 alias dl="cd {{ .dirs.home }}/Downloads"
 alias dt="cd {{ .dirs.home }}/Desktop"
 
@@ -31,13 +41,23 @@ alias cz='chezmoi'
 
 # Git aliases defined in gitconfig but as fish abbr
 abbr -a g 'git'
-{{ $gitAliases := list "co" "p" "po" "pob" "s" "ss" "ca" "ugh" "reb" "df" "l" "lb" "go" }}
-{{ range $gitAliases }}
+{{- $gitAliases := list "co" "p" "po" "pob" "s" "ss" "ca" "ugh" "reb" "df" "l" "lb" "go" }}
+{{- range $gitAliases }}
 abbr -a g{{ . }} 'git {{ . }}'
-{{ end }}
+{{- end }}
 
-# Fish
-set -g fish_greeting
+# Use git + diff-so-fancy colored diff when available
+if type -q git
+  function diff
+    git --no-pager diff --no-index --color $argv | diff-so-fancy
+  end
+end
+
+###########################
+#
+# Global Environment Variables
+#
+###########################
 
 # XDG
 set -gx XDG_CONFIG_HOME "{{ .xdg.config }}"
@@ -55,8 +75,15 @@ set -gx NPM_CONFIG_USERCONFIG {{ joinPath .xdg.cache "npmrc" | quote }}
 set -gx CARGO_HOME {{ joinPath .xdg.data "cargo" | quote }}
 set -gx RUSTUP_HOME {{ joinPath .xdg.data "rustup" | quote }}
 
+# Homebrew
+set -gx HOMEBREW_NO_ENV_HINTS "1"
+set -gx HOMEBREW_BUNDLE_DUMP_NO_VSCODE "1"
+set -gx HOMEBREW_NO_AUTO_UPDATE "1"
+set -gx HOMEBREW_BUNDLE_FILE "{{ joinPath .xdg.config "packages/Brewfile" }}"
+
 # User
 set -gx DEFAULT_USER "{{ .username }}"
+
 # Git credentials
 set -gx GIT_AUTHOR_NAME "{{ .name }}"
 set -gx GIT_COMMITTER_NAME "{{ .name }}"
@@ -66,8 +93,29 @@ set -gx GIT_COMMITTER_EMAIL "{{ .email }}"
 # dont show % sign when ctrl-c'ing
 set -gx PROMPT_EOL_MARK ""
 
+# SSH
+{{ if .onepassword.ssh -}}
+set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+{{- end }}
+
+# VSCode as the default editor
+set -gx EDITOR "code -r -w"
+
+# Prefer US English and use UTF-8
+set -gx LANG "en_US.UTF-8"
+set -gx LC_ALL "en_US.UTF-8"
+
+# Always enable colored `grep` output
+set -gx GREP_OPTIONS "--color=auto"
+
+###########################
+#
 # PATH / MANPATH
-# Make sure MANPATH is always set https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-421833616
+#
+###########################
+
+# Make sure MANPATH is always set
+# https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-421833616
 set -q MANPATH || set MANPATH ''
 
 # always use newer coreutils from homebrew
@@ -101,51 +149,32 @@ fish_add_path --global "{{ .dirs.brew }}/opt/python@3.9/libexec/bin"
 # gem environment gemdir
 # go env GOPATH
 
-# SSH
-{{ if .onepassword.ssh -}}
-set -gx SSH_AUTH_SOCK ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-{{- end }}
-
-# VSCode as the default editor
-set -gx EDITOR "code -r -w"
-
-# Prefer US English and use UTF-8
-set -gx LANG "en_US.UTF-8"
-set -gx LC_ALL "en_US.UTF-8"
-
-# Always enable colored `grep` output
-set -gx GREP_OPTIONS "--color=auto"
+###########################
+#
+# Tools
+#
+###########################
 
 # Homebrew
-set -gx HOMEBREW_NO_ENV_HINTS "1"
-set -gx HOMEBREW_BUNDLE_DUMP_NO_VSCODE "1"
-set -gx HOMEBREW_NO_AUTO_UPDATE "1"
-set -gx HOMEBREW_BUNDLE_FILE "{{ joinPath .xdg.config "packages/Brewfile" }}"
-{{ $brew := joinPath .dirs.brewBin "brew" }}
+{{- $brew := joinPath .dirs.brewBin "brew" }}
 {{ output $brew "shellenv" "fish" | trim }}
 
-# History
-{{ $atuin := joinPath .dirs.brewBin "atuin" }}
+# Atuin
+{{- $atuin := joinPath .dirs.brewBin "atuin" }}
 {{ output $atuin "init" "fish" "--disable-up-arrow" | trim }}
 
 # Node
-fnm env --shell=fish --fnm-dir {{ joinPath .xdg.data "fnm" | quote }} | source # fnm is designed to run on every shell init
+# fnm is designed to run on every shell init
+fnm env --shell=fish --fnm-dir {{ joinPath .xdg.data "fnm" | quote }} | source
 
 # Rust
-{{ $cargo := joinPath .xdg.data "cargo/env.fish" }}
+{{- $cargo := joinPath .xdg.data "cargo/env.fish" }}
 {{ include $cargo | trim }}
 
 # Prompt
 function starship_transient_prompt_func
   starship module character
 end
-{{ $starship := joinPath .dirs.brewBin "starship" }}
+{{- $starship := joinPath .dirs.brewBin "starship" }}
 {{ output $starship "init" "fish" "--print-full-init" | trim }}
 enable_transience
-
-# Use git + diff-so-fancy colored diff when available
-if type -q git
-  function diff
-    git --no-pager diff --no-index --color $argv | diff-so-fancy
-  end
-end
