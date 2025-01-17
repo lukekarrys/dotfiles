@@ -20,16 +20,40 @@ chezmoi unmanaged
 xdg-ninja --skip-unsupported 
 ```
 
-## macOS Defaults
+### Keeping Global Packages Synced
 
-### 2023-05-07
+#### `npm`
 
-Some notes from last time I did this:
+```sh
+# Install something
+npmg install vlt
+# Or check for updates
+ncug
+# Or update everyting
+ncug -u
+# Check if there are diffs between source and target
+cz diff ~/.config/packages/npm/package.json
+# Since the package.json is not a template, we can re-add
+cz re-add ~/.config/packages/npm/package.json
+```
 
-- Some things are now in [this `onchange` script](run_onchange_after_macos_defaults.sh.tmpl)
+### macOS Things That I'm Too Lazy to Learn How to Script
+
+### Settings
+
 - Turn off all notifications sounds and some off altogether
 - Map Caps Lock to Escape in keyboard shortcuts
 - Finder view everything as list
 - Unlock with Apple Watch
+- Turn on accounts in system settings so Raycast, Data can access calendars
+
+### Configure Casks Installed Apps
+
+- Login and sync VSCode
+- Login and sync Raycast
+- Bartender 5
+- iStat Menus
+- Choosy as the default browser
 - Open Logi Options to install Bolt and restore from backup
-- Turn on accounts in system settings so Raycast, etc can access calendars
+- Open Things and sync from backup
+- Open Data and sync calendars
