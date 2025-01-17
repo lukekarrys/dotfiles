@@ -6,8 +6,6 @@ Darwin)
     if ! type brew &> /dev/null; then
         echo "Installing Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        echo "PREFIX $HOMEBREW_PREFIX"
-        echo "eval \"\$(${HOMEBREW_PREFIX}/bin/brew shellenv bash)\"" >> "${HOME}/.bash_profile"
         eval "$(/opt/homebrew/bin/brew shellenv bash)"
     fi
 
