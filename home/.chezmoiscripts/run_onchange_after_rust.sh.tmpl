@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eufo pipefail
 
+echo "Script: rust"
+
 # Weekly {{ output "date" "+%V" | trim }}
 # {{ include (joinPath .xdg.data "cargo/env") | sha256sum }}
 

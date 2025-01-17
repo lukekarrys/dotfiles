@@ -2,6 +2,8 @@
 #!/bin/bash
 set -eufo pipefail
 
+echo "Script: brew-bundle"
+
 # {{ include $brewfile | sha256sum }}
 
 HOMEBREW_NO_COLOR=1 {{ joinPath .dirs.brewBin "brew" }} bundle --no-upgrade --quiet --file={{ $brewfile }}

@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eufo pipefail
 
+echo "Script: gh-extensions"
+
 current_extensions=$(gh extension list | awk '{print $3}')
 
 install_extensions=(

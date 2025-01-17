@@ -4,6 +4,21 @@ set -x
 
 case "$(uname -s)" in
 Darwin)
+  if [[ "$(/usr/bin/uname -m)" == "arm64" ]]; then
+    HOMEBREW_PREFIX="/opt/homebrew"
+  else
+    HOMEBREW_PREFIX="/usr/local"
+  fi
+
+  # Install Homebrew if it's not installed and then exit with instructions
+  # to add brew to the PATH and run the script again.
+  if ! type brew &> /dev/null; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo "Homebrew has been installed. Please add it to your PATH and run the script again."
+    exit 1
+  fi
+
   if [ -n "${HOMEBREW_PREFIX}" ] && [ -x "$HOMEBREW_PREFIX/bin/brew" ]; then
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv bash)"
   fi

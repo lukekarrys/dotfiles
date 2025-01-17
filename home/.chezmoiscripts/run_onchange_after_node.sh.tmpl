@@ -1,6 +1,8 @@
 #!/bin/bash
 set -eufo pipefail
 
+echo "Script: node"
+
 # Weekly {{ output "date" "+%V" | trim }}
 
 {{ range .node.versions }}
