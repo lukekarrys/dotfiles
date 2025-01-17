@@ -6,13 +6,6 @@ set -eufo pipefail
 echo "Script: rust"
 
 # Weekly {{ output "date" "+%V" | trim }}
-# {{ include (joinPath .xdg.data "cargo/env") | sha256sum }}
-
-# if RUSTUP_HOME is not set then exit
-if [ -z "${RUSTUP_HOME:-}" ]; then
-  echo "RUSTUP_HOME is not set. It should be set by chezmoi."
-  exit 1
-fi
 
 RUSTUP_INIT_SKIP_PATH_CHECK=yes {{ $rustupInit }} --no-modify-path -y --quiet &> /dev/null
 RUST_VERSION=$({{ $rustup }} default stable 2>/dev/null | tr -d '\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')
