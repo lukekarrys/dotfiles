@@ -27,6 +27,7 @@ Darwin)
 
   # symlink the brew installed op to /usr/local/bin so chezmoi can find it by default
   if [ -n "$NEEDS_OP_SYMLINK" ]; then
+    mkdir -p /usr/local/bin
     OP="/usr/local/bin/op"
     if [ ! -f "$OP" ]; then
       sudo ln -s "$HOMEBREW_PREFIX/bin/op" "$OP"
