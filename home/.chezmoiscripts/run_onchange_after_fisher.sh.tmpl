@@ -1,6 +1,18 @@
-#!{{ lookPath "fish" }}
+{{- $manifest := joinPath .chezmoi.sourceDir "private_dot_config/private_fish/fish_plugins" -}}
+{{- $fish := joinPath .dirs.brewBin "fish" -}}
+#!{{ $fish }}
 
 echo "Script: fisher"
 
-type fisher &>/dev/null || curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
-fisher install patrickf3139/fzf.fish
+# {{ include $manifest | sha256sum }}
+
+type fisher &>/dev/null || curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
+
+set --local fisher_list_output = (fisher list)
+set --local extensions (cat {{ $manifest }})
+
+for ext in $extensions
+  if not string match -q -- $ext $fisher_list_output
+    fisher install $ext
+  end
+end

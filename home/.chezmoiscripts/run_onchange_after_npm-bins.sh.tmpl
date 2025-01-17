@@ -1,3 +1,6 @@
+{{- $localPath := joinPath .npmGlobal.localNode "bin" -}}
+{{- $node := joinPath .npmGlobal.localNode "bin/node" -}}
+{{- $npm := joinPath .npmGlobal.localNode "bin/npm" -}}
 {{- $nodeArch := eq .chezmoi.arch "amd64" | ternary "x64" .chezmoi.arch -}}
 #!/bin/bash
 set -eufo pipefail
@@ -15,10 +18,9 @@ NODE_VERSION="v22.13.0"
 # .npmrc {{ include (joinPath .npmGlobal.root ".npmrc") | sha256sum }}
 
 LOCAL_NODE_DIR="{{ .npmGlobal.localNode }}"
-LOCAL_NODE_BIN="$LOCAL_NODE_DIR/bin"
 
 if [ -d "$LOCAL_NODE_DIR" ]; then
-  CURRENT_NODE_VERSION=$($LOCAL_NODE_DIR/bin/node --version)
+  CURRENT_NODE_VERSION=$({{ $node }} --version)
   if [ "$CURRENT_NODE_VERSION" != "$NODE_VERSION" ]; then
     rm -rf "$LOCAL_NODE_DIR"
   fi
@@ -30,8 +32,8 @@ if [ ! -d "$LOCAL_NODE_DIR" ]; then
     | tar -C "$LOCAL_NODE_DIR" --strip-components=1 -xzf -
 fi
 
-export PATH="$LOCAL_NODE_BIN:$PATH"
-$LOCAL_NODE_BIN/npm --prefix={{ .npmGlobal.root }} --silent install
-$LOCAL_NODE_BIN/npm --prefix={{ .npmGlobal.root }} --silent run dependencies
+export PATH="{{ $localPath }}:$PATH"
+{{ $npm }} --prefix={{ .npmGlobal.root }} --silent install
+{{ $npm }} --prefix={{ .npmGlobal.root }} --silent run dependencies
 
 echo "Global npm packages linked to node@$(node --version)"

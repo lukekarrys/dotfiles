@@ -1,9 +1,10 @@
+{{- $gh := joinPath .dirs.brewBin "gh" -}}
 #!/bin/bash
 set -eufo pipefail
 
 echo "Script: gh-extensions"
 
-current_extensions=$(gh extension list | awk '{print $3}')
+current_extensions=$({{ $gh }} extension list | awk '{print $3}')
 
 install_extensions=(
   "dlvhdr/gh-dash"
@@ -13,6 +14,6 @@ install_extensions=(
 for ext in "${install_extensions[@]}"; do
   if [[ $current_extensions != *"$ext"* ]]; then
     echo "gh extension install $ext"
-    gh extension install "$ext" > /dev/null
+    {{ $gh }} extension install "$ext"
   fi
 done

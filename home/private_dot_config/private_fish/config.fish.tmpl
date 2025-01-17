@@ -59,21 +59,20 @@ end
 #
 ###########################
 
-# XDG
-set -gx XDG_CONFIG_HOME "{{ .xdg.config }}"
-set -gx XDG_CACHE_HOME "{{ .xdg.cache }}"
-set -gx XDG_DATA_HOME "{{ .xdg.data }}"
-set -gx XDG_STATE_HOME "{{ .xdg.state }}"
+# These are stored in chezmoi because they are also passed to scripts.
+# This is because they need to be set so tools installed by brew, etc
+# write config/data/cache/state to the correct places. This will always
+# contain XDG_* variables but also contains special vars for tools that
+# do not follow the XDG spec. Most of the other ones were reported by xdg-ninja.
+{{- range $key, $value := .chezmoi.config.scriptEnv }}
+set -gx {{ $key }} "{{ $value }}"
+{{- end }}
 
-# Move things reported by xdg-ninja
+# Other tool env vars that do not need to be set at chezmoi template time
 set -gx NODE_REPL_HISTORY {{ joinPath .xdg.state "node_repl_history" | quote }}
 set -gx TS_NODE_HISTORY {{ joinPath .xdg.state "ts_node_repl_history" | quote }}
 set -gx PKG_CACHE_PATH {{ joinPath .xdg.cache "pkg-cache" | quote }}
 set -gx WGETRC {{ joinPath .xdg.cache "wgetrc" | quote }}
-set -gx NPM_CONFIG_CACHE {{ joinPath .xdg.cache "npm" | quote }}
-set -gx NPM_CONFIG_USERCONFIG {{ joinPath .xdg.cache "npmrc" | quote }}
-set -gx CARGO_HOME {{ joinPath .xdg.data "cargo" | quote }}
-set -gx RUSTUP_HOME {{ joinPath .xdg.data "rustup" | quote }}
 
 # Homebrew
 set -gx HOMEBREW_NO_ENV_HINTS "1"
@@ -113,6 +112,10 @@ set -gx GREP_OPTIONS "--color=auto"
 # PATH / MANPATH
 #
 ###########################
+
+# Homebrew
+{{- $brew := joinPath .dirs.brewBin "brew" }}
+{{ output $brew "shellenv" "fish" | trim }}
 
 # Make sure MANPATH is always set
 # https://github.com/fish-shell/fish-shell/issues/2090#issuecomment-421833616
@@ -154,10 +157,6 @@ fish_add_path --global "{{ .dirs.brew }}/opt/python@3.9/libexec/bin"
 # Tools
 #
 ###########################
-
-# Homebrew
-{{- $brew := joinPath .dirs.brewBin "brew" }}
-{{ output $brew "shellenv" "fish" | trim }}
 
 # Atuin
 {{- $atuin := joinPath .dirs.brewBin "atuin" }}

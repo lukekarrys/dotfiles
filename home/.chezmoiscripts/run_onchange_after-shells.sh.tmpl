@@ -5,12 +5,17 @@ echo "Script: shells"
 
 {{ range .shells }}
 {{- $bin := joinPath $.dirs.brewBin .bin -}}
-if ! ggrep --fixed-strings "{{ $bin }}" /etc/shells > /dev/null; then
-  echo {{ $bin }} | sudo tee -a /etc/shells > /dev/null
+if ! grep -Fxq "{{ $bin }}" /etc/shells; then
+  echo "Adding shell: {{ $bin }}"
+  echo "{{ $bin }}" | sudo tee -a /etc/shells > /dev/null
 fi
 {{ if hasKey . "default" }}
 if [[ "$SHELL" != "{{ $bin }}" ]] ; then
+  echo "Default shell: {{ $bin }}"
   sudo chsh -s "{{ $bin }}" "{{ $.username }}"
 fi
 {{ end }}
 {{ end }}
+
+echo "Shells:"
+cat /etc/shells

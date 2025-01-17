@@ -10,10 +10,14 @@
 
 {{- $home := .chezmoi.homeDir -}}
 {{- $xdgConfig := ".config" -}}
+{{- $xdgConfigPath := joinPath $home $xdgConfig -}}
 {{- $xdgCache := ".cache" -}}
+{{- $xdgCachePath := joinPath $home $xdgCache -}}
 {{- $xdgData := ".local/data" -}}
+{{- $xdgDataPath := joinPath $home $xdgData -}}
 {{- $xdgState := ".local/state" -}}
-{{- $npmGlobal := joinPath $xdgConfig "packages/npm" -}}
+{{- $xdgStatePath := joinPath $home $xdgState -}}
+{{- $npmGlobal := joinPath $xdgConfigPath "packages/npm" -}}
 
 umask = 0o022
 
@@ -22,6 +26,23 @@ umask = 0o022
 
 [hooks.read-source-state.pre]
   command = {{ joinPath .chezmoi.workingTree "pre.sh" | quote }}
+
+[hooks.apply.post]
+  command = {{ joinPath .chezmoi.workingTree "post.sh" | quote }}
+
+[hooks.init.post]
+  command = {{ joinPath .chezmoi.workingTree "post.sh" | quote }}
+
+[scriptEnv]
+  XDG_CONFIG_HOME = {{ $xdgConfigPath | quote }}
+  XDG_CACHE_HOME = {{ $xdgCachePath | quote }}
+  XDG_DATA_HOME = {{ $xdgDataPath | quote }}
+  XDG_STATE_HOME = {{ $xdgStatePath | quote }}
+  NPM_CONFIG_CACHE = {{ joinPath $xdgCachePath "npm" | quote }}
+  NPM_CONFIG_USERCONFIG = {{ joinPath $xdgConfigPath "npmrc" | quote }}
+  CARGO_HOME = {{ joinPath $xdgDataPath "cargo" | quote }}
+  RUSTUP_HOME = {{ joinPath $xdgDataPath "rustup" | quote }}
+  LESSHISTFILE = {{ joinPath $xdgStatePath "lesshst" | quote }}
 
 [data.is]
   work = {{ $isWork }}
@@ -39,10 +60,10 @@ umask = 0o022
   state = {{ $xdgState | quote }}
 
 [data.xdg]
-  config = {{ joinPath $home $xdgConfig | quote }}
-  cache = {{ joinPath $home $xdgCache | quote }}
-  data = {{ joinPath $home $xdgData | quote }}
-  state = {{ joinPath $home $xdgState | quote }}
+  config = {{ $xdgConfigPath | quote }}
+  cache = {{ $xdgCachePath | quote }}
+  data = {{ $xdgDataPath | quote }}
+  state = {{ $xdgStatePath | quote }}
 
 [data.dirs]
   home = {{ $home | quote }}
@@ -51,6 +72,6 @@ umask = 0o022
   brewBin = {{ joinPath $brewPrefix "bin" | quote }}
 
 [data.npmGlobal]
-  root = {{ joinPath $home $npmGlobal | quote }}
-  path = {{ joinPath $home $npmGlobal "bin" | quote }}
+  root = {{ joinPath $npmGlobal | quote }}
+  path = {{ joinPath $npmGlobal "bin" | quote }}
   localNode = {{ joinPath $home $xdgData "npm-globals-node" | quote }}
