@@ -48,3 +48,4 @@
 /.config/fish/conf.d/fzf*
 /.config/fish/functions/_fzf*
 /.config/fish/functions/fzf*
+/.config/fish/themes/*.theme

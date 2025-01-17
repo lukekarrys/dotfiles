@@ -1,12 +1,10 @@
 # lukekarrys/dotfiles
 
-## Prerequisites
+## Init
 
-- Install 1Password
-- [`chezmoi`](https://www.chezmoi.io/install/#one-line-package-install)
-    ```
-    sh -c "$(curl -fsLS get.chezmoi.io)" -- init --ssh --apply lukekarrys
-    ```
+```sh
+sh -c "$(curl -fsLS https://raw.githubusercontent.com/lukekarrys/dotfiles/HEAD/init.sh)"
+```
 
 ## Notes
 

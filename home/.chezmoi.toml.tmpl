@@ -21,7 +21,7 @@ umask = 0o022
   exclude = ["scripts", "externals"]
 
 [hooks.read-source-state.pre]
-  command = ".local/data/chezmoi/pre.sh"
+  command = {{ joinPath .chezmoi.workingTree "pre.sh" | quote }}
 
 [data.is]
   work = {{ $isWork }}
@@ -53,4 +53,4 @@ umask = 0o022
 [data.npmGlobal]
   root = {{ joinPath $home $npmGlobal | quote }}
   path = {{ joinPath $home $npmGlobal "bin" | quote }}
-  localNode = {{ joinPath $home .xdgRel.data "npm-globals-node" | quote }}
+  localNode = {{ joinPath $home $xdgData "npm-globals-node" | quote }}

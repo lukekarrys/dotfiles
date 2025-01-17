@@ -45,6 +45,16 @@ set -gx XDG_CACHE_HOME "{{ .xdg.cache }}"
 set -gx XDG_DATA_HOME "{{ .xdg.data }}"
 set -gx XDG_STATE_HOME "{{ .xdg.state }}"
 
+# Move things reported by xdg-ninja
+set -gx NODE_REPL_HISTORY {{ joinPath .xdg.state "node_repl_history" | quote }}
+set -gx TS_NODE_HISTORY {{ joinPath .xdg.state "ts_node_repl_history" | quote }}
+set -gx PKG_CACHE_PATH {{ joinPath .xdg.cache "pkg-cache" | quote }}
+set -gx WGETRC {{ joinPath .xdg.cache "wgetrc" | quote }}
+set -gx NPM_CONFIG_CACHE {{ joinPath .xdg.cache "npm" | quote }}
+set -gx NPM_CONFIG_USERCONFIG {{ joinPath .xdg.cache "npmrc" | quote }}
+set -gx CARGO_HOME {{ joinPath .xdg.data "cargo" | quote }}
+set -gx RUSTUP_HOME {{ joinPath .xdg.data "rustup" | quote }}
+
 # User
 set -gx DEFAULT_USER "{{ .chezmoi.username }}"
 # Git credentials
@@ -106,14 +116,6 @@ set -gx LC_ALL "en_US.UTF-8"
 # Always enable colored `grep` output
 set -gx GREP_OPTIONS "--color=auto"
 
-# Move things reported by xdg-ninja
-set -gx NODE_REPL_HISTORY {{ joinPath .xdg.state "node_repl_history" | quote }}
-set -gx TS_NODE_HISTORY {{ joinPath .xdg.state "ts_node_repl_history" | quote }}
-set -gx PKG_CACHE_PATH {{ joinPath .xdg.cache "pkg-cache" | quote }}
-set -gx WGETRC {{ joinPath .xdg.cache "wgetrc" | quote }}
-set -gx NPM_CONFIG_CACHE {{ joinPath .xdg.cache "npm" | quote }}
-set -gx NPM_CONFIG_USERCONFIG {{ joinPath .xdg.cache "npmrc" | quote }}
-
 # Homebrew
 set -gx HOMEBREW_NO_ENV_HINTS "1"
 set -gx HOMEBREW_CASK_OPTS "--appdir=/Applications" # Link Homebrew casks in `/Applications` rather than `~/Applications`
@@ -131,8 +133,6 @@ set -gx HOMEBREW_BUNDLE_FILE "{{ joinPath .xdg.config "packages/Brewfile" }}"
 fnm env --shell=fish --fnm-dir {{ joinPath .xdg.data "fnm" | quote }} | source # fnm is designed to run on every shell init
 
 # Rust
-set -gx CARGO_HOME {{ joinPath .xdg.data "cargo" | quote }}
-set -gx RUSTUP_HOME {{ joinPath .xdg.data "rustup" | quote }}
 {{ $cargo := joinPath .xdg.data "cargo/env.fish" }}
 {{ include $cargo | trim }}
 
