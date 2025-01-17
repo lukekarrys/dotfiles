@@ -3,7 +3,7 @@
 ## Init
 
 ```sh
-sh -c "$(curl -fsLS https://raw.githubusercontent.com/lukekarrys/dotfiles/HEAD/init.sh)"
+sh -c "$(curl -fsLS https://raw.githubusercontent.com/lukekarrys/dotfiles/main/init.sh)"
 ```
 
 ## Notes
