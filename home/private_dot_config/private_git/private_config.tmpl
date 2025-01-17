@@ -24,7 +24,7 @@
 	l = "!f() { git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit \"$@\"; }; f"
 	lb = "!f() { local branch=\"$1\"; shift; git l \"$@\" HEAD..\"$branch\"; }; f"
 	# switch or create
-	go = "!f() { local branch=\"$1\"; if git show-ref --verify --quiet refs/heads/$branch; then git switch \"$branch\"; else git switch -b \"$branch\"; fi; }; f"
+	go = "!f() { local branch=\"$1\"; if git show-ref --verify --quiet refs/heads/$branch; then git switch \"$branch\"; else git switch -c \"$branch\"; fi; }; f"
 
 [apply]
 	# Detect whitespace errors when applying a patch
