@@ -1,5 +1,11 @@
 {{- $rustupInit := joinPath .dirs.brewBin "rustup-init" -}}
 {{- $rustup := joinPath .dirs.brewBin "rustup" -}}
+{{- $shell := "" -}}
+{{- range .shells -}}
+{{-   if hasKey . "default" -}}
+{{-     $shell = .bin -}}
+{{-   end -}}
+{{- end -}}
 #!/bin/bash
 set -eufo pipefail
 
@@ -7,5 +13,5 @@ echo "Script: rust"
 
 # Weekly {{ output "date" "+%V" | trim }}
 
-RUSTUP_INIT_SKIP_PATH_CHECK=yes {{ $rustupInit }} --no-modify-path -y --quiet
+SHELL={{ joinPath .dirs.brewBin $shell }} RUSTUP_INIT_SKIP_PATH_CHECK=yes {{ $rustupInit }} --no-modify-path -y --quiet
 {{ $rustup }} default stable
