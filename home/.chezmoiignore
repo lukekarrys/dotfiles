@@ -35,7 +35,6 @@
 
 # SSH
 /.ssh/1Password/
-/.ssh/known_hosts*
 
 # Chezmoi
 /.config/chezmoi/

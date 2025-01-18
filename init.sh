@@ -1,5 +1,3 @@
 #!/bin/sh
 
-set -x
-
-sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /tmp/bin init --ssh --apply --force --source "$HOME/.local/data/chezmoi" lukekarrys
+sh -c "$(curl -fsLS get.chezmoi.io)" -- -b /tmp/bin init --use-builtin-git true --apply --force --source "$HOME/.local/data/chezmoi" lukekarrys

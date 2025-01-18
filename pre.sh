@@ -11,9 +11,16 @@ Darwin)
   fi
 
   if ! type brew &> /dev/null; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    NEEDS_OP_SYMLINK="1"
+    # only install homebrew if repository directory does not exist
+    if [ ! -d "$HOMEBREW_REPOSITORY" ]; then
+      /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
+    # If brew is not in the path yet then eval the shellenv for the rest of this pre script
+    # This will not affect any other chezmoi scripts
     eval "$($HOMEBREW_PREFIX/bin/brew shellenv bash)"
+    # The only bin installed from homebrew that chezmoi needs is 1Password so if its not in the
+    # path yet, we will need to symlink it later.
+    NEEDS_OP_SYMLINK="1"
   fi
 
   if ! type op &> /dev/null; then
