@@ -33,7 +33,7 @@ if [ ! -d "$LOCAL_NODE_DIR" ]; then
 fi
 
 export PATH="{{ $localPath }}:$PATH"
-{{ $npm }} --prefix={{ .npmGlobal.root }} --silent install
-{{ $npm }} --prefix={{ .npmGlobal.root }} --silent run dependencies
+{{ $npm }} --prefix={{ .npmGlobal.root }} install
+{{ $npm }} --prefix={{ .npmGlobal.root }} run dependencies
 
 echo "Global npm packages linked to node@$(node --version)"
