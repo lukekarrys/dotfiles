@@ -32,6 +32,7 @@
 /.wget-hsts
 /.zsh_history
 /.bash_history
+/.zsh_sessions/
 
 # SSH
 /.ssh/1Password/
