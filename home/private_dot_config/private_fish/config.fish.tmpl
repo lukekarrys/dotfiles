@@ -177,3 +177,10 @@ end
 {{- $starship := joinPath .dirs.brewBin "starship" }}
 {{ output $starship "init" "fish" "--print-full-init" | trim }}
 enable_transience
+
+# pnpm
+set -gx PNPM_HOME {{ joinPath .xdg.data "pnpm" | quote }}
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end

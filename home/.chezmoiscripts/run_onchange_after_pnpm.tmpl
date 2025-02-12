@@ -1,0 +1,10 @@
+{{- $pnpm := joinPath .xdg.data "pnpm" -}}
+#!/bin/bash
+set -eufo pipefail
+
+echo "Script: pnpm"
+
+# Weekly {{ output "date" "+%V" | trim }}
+
+VERSION=$(curl -s https://registry.npmjs.org/pnpm | jq -r '.["dist-tags"]["latest-9"]')
+curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=$VERSION sh -

@@ -1,3 +1,5 @@
+Include {{ joinPath .xdg.config "colima/ssh" }}
+
 Host *
 	IdentitiesOnly yes
 	{{ if .onepassword.ssh -}}
@@ -5,26 +7,27 @@ Host *
 	{{- end }}
 
 Host github.com
-Hostname github.com
-User git
-IdentityFile ~/.ssh/keys/github
+	Hostname github.com
+	User git
+	IdentityFile ~/.ssh/keys/github
 
 Host gist.github.com
-Hostname gist.github.com
-User git
-IdentityFile ~/.ssh/keys/github
+	Hostname gist.github.com
+	User git
+	IdentityFile ~/.ssh/keys/githubd
 
 Host hummingbird
-Hostname hummingbird.local
-User lukekarrys
-IdentityFile ~/.ssh/keys/hummingbird
+	Hostname hummingbird.local
+	User lukekarrys
+	IdentityFile ~/.ssh/keys/hummingbird
+	SetEnv TERM=xterm-256color
 
 Host tweedy
-Hostname tweedy.local
-User lukekarrys
-IdentityFile ~/.ssh/keys/tweedy
+	Hostname tweedy.local
+	User lukekarrys
+	IdentityFile ~/.ssh/keys/tweedy
 
 Host pieholden
-Hostname pieholden-m1.local
-User lukekarrys
-IdentityFile ~/.ssh/keys/pieholden-m1
+	Hostname pieholden-m1.local
+	User lukekarrys
+	IdentityFile ~/.ssh/keys/pieholden-m1
