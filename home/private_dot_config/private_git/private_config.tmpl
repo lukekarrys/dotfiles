@@ -16,7 +16,13 @@
 	ca = !git add -A && git commit -avm
 	ugh = !git add . && git commit --amend --no-edit
 	# rebase
-	reb = "!f() { if [ \"$1\" -ge 7 ]; then git rebase -i \"$1\"~1; else git rebase -i HEAD~\"$1\"; fi; }; f"
+  reb = "!f() { \
+          if git rev-parse --quiet --verify \"$1\" >/dev/null 2>&1; then \
+                  git rebase -i \"$1~1\"; \
+          else \
+                  git rebase -i HEAD~\"$1\"; \
+          fi; \
+  }; f"
 	# diff
 	df = diff
 	df-nolock = "!f() { git diff \"$@\" \":(exclude)package-lock.json\" \":(exclude)*.lock\" }; f"

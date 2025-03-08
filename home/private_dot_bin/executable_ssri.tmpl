@@ -1,0 +1,7 @@
+{{- $node := joinPath .npmGlobal.localNode "bin" "node" -}}
+#!{{ $node }}
+
+import ssri from '{{ .npmGlobal.root }}/node_modules/ssri/lib/index.js'
+import { readFileSync } from 'node:fs'
+
+console.log(ssri.fromData(readFileSync(process.argv[2])).toString())

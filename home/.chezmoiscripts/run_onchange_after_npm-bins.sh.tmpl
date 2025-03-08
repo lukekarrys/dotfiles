@@ -10,7 +10,7 @@ echo "Script: npm-bins"
 # This controls the node version that all of the global npm packages are linked to
 # The npmrc uses engine-strict so it should fail to install something that is not
 # supported. 
-NODE_VERSION="v22.13.0"
+NODE_VERSION="v22.14.0"
 
 # package.json {{ include (joinPath .npmGlobal.root "package.json") | sha256sum }}
 # link-bins.mjs {{ include (joinPath .npmGlobal.root "link-bins.mjs") | sha256sum }}
