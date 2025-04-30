@@ -66,9 +66,13 @@ if test -d "{{ .dirs.projects }}/vltpkg/vltpkg"
   set -l vltVariants $vltVariants "node"
   for executable in $vltExecutables
     for variant in $vltVariants
-      set -l abbrName "$executable"_local_"$variant"
+      set -l aliasName "$executable"_local_"$variant"
       set -l path "$binsDir/$variant/$executable"
-      abbr -a $abbrName $path
+      # if variant is node, dont use variant dir
+      if test "$variant" = "node"
+        set path "$binsDir/$executable"
+      end
+      alias $aliasName="$path"
     end
   end
 end
