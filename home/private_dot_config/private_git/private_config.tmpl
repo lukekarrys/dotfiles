@@ -46,8 +46,21 @@
 	# More info: <http://www.git-tower.com/blog/make-git-rebase-safe-on-osx/>
 	trustctime = false
 	editor = code -r -w
-	pager = diff-so-fancy | less --tabs=2 -RFX
+	pager = delta
 	untrackedCache = true
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true  # use n and N to move between diff sections
+  dark = true      # or light = true, or omit for auto-detection
+  syntax-theme = Dracula
+	line-numbers = true
+	side-by-side = true
+
+[merge]
+  conflictstyle = zdiff3
 
 [remote "origin"]
 	prune = true

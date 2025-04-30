@@ -46,10 +46,30 @@ abbr -a g 'git'
 abbr -a g{{ . }} 'git {{ . }}'
 {{- end }}
 
-# Use git + diff-so-fancy colored diff when available
+# Use git colored diff when available
+# Should use whatever pager is set in git config
 if type -q git
   function diff
-    git --no-pager diff --no-index --color $argv | diff-so-fancy
+    git diff --no-index --color $argv
+  end
+end
+
+# vltpkg aliases for local vlt, only if repo exists
+if test -d "{{ .dirs.projects }}/vltpkg/vltpkg"
+  # bins directory
+  set -l binsDir "{{ .dirs.projects }}/vltpkg/vltpkg/scripts/bins"
+  # get executable by reading all files with no extension in bins directory
+  set -l vltExecutables (find $binsDir -maxdepth 1 -type f -exec basename {} \; | grep -E '^[^.]+$')
+  # get list of variants by reading all directories in bins directory
+  set -l vltVariants (find $binsDir -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | grep -E '^[^.]+$')
+  # also add the node variant which is just the bins directory
+  set -l vltVariants $vltVariants "node"
+  for executable in $vltExecutables
+    for variant in $vltVariants
+      set -l abbrName "$executable"_local_"$variant"
+      set -l path "$binsDir/$variant/$executable"
+      abbr -a $abbrName $path
+    end
   end
 end
 
@@ -106,6 +126,9 @@ set -gx LC_ALL "en_US.UTF-8"
 
 # Always enable colored `grep` output
 set -gx GREP_OPTIONS "--color=auto"
+
+# Bat theme
+set -gx BAT_THEME "Dracula"
 
 ###########################
 #
