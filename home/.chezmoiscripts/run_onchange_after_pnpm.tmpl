@@ -6,5 +6,5 @@ echo "Script: pnpm"
 
 # Weekly {{ output "date" "+%V" | trim }}
 
-VERSION=$(curl -s https://registry.npmjs.org/pnpm | jq -r '.["dist-tags"]["latest-9"]')
+VERSION=$(curl -s https://registry.npmjs.org/pnpm | jq -r '.["dist-tags"]["latest-10"]')
 curl -fsSL https://get.pnpm.io/install.sh | env PNPM_VERSION=$VERSION sh -
